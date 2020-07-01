@@ -6,7 +6,47 @@ const User = db.define('user', {
   email: {
     type: Sequelize.STRING,
     unique: true,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      isEmail: true
+    }
+  },
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false,
+    unique: true,
+    validate: {
+      len: {
+        args: [2, 20],
+        msg: 'name must be between 2-20 characters'
+      },
+      notEmpty: {
+        args: true,
+        msg: 'Name must be required'
+      },
+      isAlpha: {
+        args: true,
+        msg: 'name most only contain letters'
+      }
+    }
+  },
+  isAdmin: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
+  },
+  location: {
+    type: Sequelize.TEXT,
+    allowNull: false,
+    validate: {
+      isAlpha: {
+        args: true,
+        msg: 'name most only contain letters'
+      },
+      notEmpty: {
+        args: true,
+        msg: 'Name must be required'
+      }
+    }
   },
   password: {
     type: Sequelize.STRING,
