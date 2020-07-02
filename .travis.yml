@@ -13,7 +13,15 @@ notifications:
 install:
   - npm ci # faster, goes only from package-lock
 before_script:
+<<<<<<< HEAD
   - psql -c 'create database "Civitas-test";' -U postgres # remember to change this name if you change it elsewhere (e.g. package.json)
+=======
+<<<<<<< HEAD
+  - psql -c 'create database "Civitas-test";' -U postgres # remember to change this name if you change it elsewhere (e.g. package.json)
+=======
+  - psql -c 'create database "Civitas";' -U postgres # remember to change this name if you change it elsewhere (e.g. package.json)
+>>>>>>> master
+>>>>>>> e50f7640c4a71b96a07e1c2c27bb6753e55ecc08
 script:
   - npm test # test the code
   - npm run build-client # make the bundle
