@@ -2,7 +2,7 @@
 const db = require('../server/db')
 const faker = require('faker')
 
-const {User, Business, Tier} = require('../server/db/models')
+const {User, Business, Tier, Subscription} = require('../server/db/models')
 
 //create a random int to be able to make associations using ids
 const randomInt = function(max) {
@@ -93,7 +93,7 @@ async function seed() {
   }
   const seedMusicBusinesses = async function() {
     for (let i = 0; i < 50; i++) {
-      const user = await user.findByPk(randomInt(200))
+      const user = await User.findByPk(randomInt(200))
       const business = await Business.create({
         name: faker.company.companyName(),
         headerPhoto: faker.image.nightlife(),
@@ -106,4 +106,10 @@ async function seed() {
       business.addUser(user)
     }
   }
+  await seedUsers()
+  await seedAdmins()
+  await seedFoodBusinesses()
+  await seedFashionBusinesses()
+  await seedMusicBusinesses()
+  await seedGymBusinesses()
 }
