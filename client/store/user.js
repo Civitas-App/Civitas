@@ -4,6 +4,7 @@ import history from '../history'
 /**
  * ACTION TYPES
  */
+
 const GET_USER = 'GET_USER'
 const REMOVE_USER = 'REMOVE_USER'
 
@@ -48,9 +49,9 @@ export const auth = (email, password, method) => async dispatch => {
 
 export const logout = () => async dispatch => {
   try {
-    await axios.post('/auth/logout')
+    await axios.delete('/auth/logout')
     dispatch(removeUser())
-    history.push('/login')
+    history.push('/home')
   } catch (err) {
     console.error(err)
   }
@@ -59,7 +60,7 @@ export const logout = () => async dispatch => {
 /**
  * REDUCER
  */
-export default function(state = defaultUser, action) {
+export default function(state = {defaultUser}, action) {
   switch (action.type) {
     case GET_USER:
       return action.user

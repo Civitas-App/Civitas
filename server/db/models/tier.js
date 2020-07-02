@@ -18,7 +18,7 @@ const Tier = db.define('tier', {
     validate: {
       len: {
         args: [2, 20],
-        msg: 'name must be between 2-20 characters'
+        msg: 'title must be between 2-20 characters'
       },
       notEmpty: {
         args: true,

@@ -13,7 +13,6 @@ const User = db.define('user', {
   },
   name: {
     type: Sequelize.STRING,
-    allowNull: false,
     unique: true,
     validate: {
       len: {
@@ -36,7 +35,6 @@ const User = db.define('user', {
   },
   location: {
     type: Sequelize.TEXT,
-    allowNull: false,
     validate: {
       isAlpha: {
         args: true,
