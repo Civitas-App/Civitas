@@ -29,12 +29,12 @@ if (process.env.NODE_ENV === 'test') {
 if (process.env.NODE_ENV !== 'production') require('../secrets')
 
 // passport registration
-passport.serializeUser((user, done) => done(null, user.id))
+passport.serializeUser((login, done) => done(null, login.id))
 
 passport.deserializeUser(async (id, done) => {
   try {
-    const user = await db.models.user.findByPk(id)
-    done(null, user)
+    const login = await db.models.login.findByPk(id)
+    done(null, login)
   } catch (err) {
     done(err)
   }

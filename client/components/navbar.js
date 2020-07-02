@@ -5,7 +5,8 @@ import {logout} from '../store'
 import AuthForm from './AuthForm'
 import {UserHome} from './UserHome'
 
-const Navbar = (isLoggedIn, handleClick) => {
+const Navbar = ({handleClick, isLoggedIn}) => {
+  console.log(isLoggedIn)
   return (
     <div>
       <h1>Civitas</h1>
@@ -16,10 +17,8 @@ const Navbar = (isLoggedIn, handleClick) => {
               <Link to="/home" component={UserHome}>
                 Home
               </Link>
-              <a href="#" onClick={() => handleClick}>
-                <Link to="/home" component={UserHome}>
-                  Logout
-                </Link>
+              <a href="#" onClick={handleClick}>
+                Logout
               </a>
             </div>
           ) : (
