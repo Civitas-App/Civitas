@@ -1,7 +1,7 @@
 'use strict'
 
-const {db} = require('../server/db')
-const {Business, Tier, Customer} = require('../server/db/models')
+const db = require('../server/db')
+const {Business, Tier, Customer, User} = require('../server/db/models')
 const faker = require('faker')
 //create a random int to be able to make associations using ids
 const randomInt = function(max) {
