@@ -7,8 +7,8 @@ const Business = db.define('business', {
     allowNull: false,
     validate: {
       len: {
-        args: [2, 25],
-        msg: 'name must be between 2-25 characters'
+        args: [2, 40],
+        msg: 'name must be between 2-40 characters'
       }
     }
   },

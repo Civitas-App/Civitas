@@ -132,4 +132,6 @@ async function seed() {
   await seedFashionBusinesses()
   await seedMusicBusinesses()
   await seedGymBusinesses()
+
+  console.log(`seeded successfully`)
 }
