@@ -48,6 +48,7 @@ async function seed() {
       })
     }
   }
+
   //seed 20 admins  do we need in faker or manual?
   // const seedAdmins = async function () {
   //   for (let i = 0; i < 20; i++) {
