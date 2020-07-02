@@ -32,9 +32,8 @@ router.post('/signup', async (req, res, next) => {
   }
 })
 
-router.delete('/logout', (req, res) => {
+router.get('/logout', function(req, res) {
   req.logout()
-  req.session.destroy()
   res.redirect('/home')
 })
 

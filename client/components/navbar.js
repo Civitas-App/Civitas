@@ -16,8 +16,10 @@ const Navbar = (isLoggedIn, handleClick) => {
               <Link to="/home" component={UserHome}>
                 Home
               </Link>
-              <a href="#" onClick={handleClick}>
-                <NavLink to="/home" />
+              <a href="#" onClick={() => handleClick}>
+                <Link to="/home" component={UserHome}>
+                  Logout
+                </Link>
               </a>
             </div>
           ) : (
