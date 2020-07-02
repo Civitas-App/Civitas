@@ -2,7 +2,7 @@ const crypto = require('crypto')
 const Sequelize = require('sequelize')
 const db = require('../db')
 
-const User = db.define('user', {
+const Customer = db.define('customer', {
   name: {
     type: Sequelize.STRING,
     validate: {
@@ -30,4 +30,4 @@ const User = db.define('user', {
   }
 })
 
-module.exports = User
+module.exports = Customer

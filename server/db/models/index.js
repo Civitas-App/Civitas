@@ -1,7 +1,8 @@
-const User = require('./user')
+const User = require('./customer')
 const Business = require('./business')
 const Tier = require('./tier')
 const Subscription = require('./subscription')
+const Customer = require('./customer')
 /**
  * If we had any associations to make, this would be a great place to put them!
  * ex. if we had another model called BlogPost, we might say:
@@ -19,5 +20,6 @@ module.exports = {
   User,
   Business,
   Tier,
-  Subscription
+  Subscription,
+  Customer
 }

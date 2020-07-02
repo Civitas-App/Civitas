@@ -1,7 +1,7 @@
 'use strict'
 
 const {db} = require('../server/db')
-const {User, Business, Tier} = require('../server/db/models')
+const {Business, Tier, Customer} = require('../server/db/models')
 const faker = require('faker')
 //create a random int to be able to make associations using ids
 const randomInt = function(max) {
@@ -19,7 +19,7 @@ function generate(n) {
   var number = Math.floor(Math.random() * (max - min + 1)) + min
   return ('' + number).substring(add)
 }
-const roleEnum = ['User', 'Business']
+const roleEnum = ['Customer', 'Business']
 
 async function seed() {
   await db.sync({force: true})
@@ -39,9 +39,9 @@ async function seed() {
   // }
   //do we need email?
   //seed 200 regular users
-  const seedUsers = async function() {
+  const seedCustomers = async function() {
     for (let i = 0; i < 80; i++) {
-      await User.create({
+      await Customer.create({
         name: faker.name.firstName(),
         location: faker.address.streetAddress(),
         avatar: faker.image.avatar()
@@ -172,7 +172,7 @@ async function seed() {
     }
   }
 
-  await seedUsers()
+  await seedCustomers()
   //await seedAdmins()
   await seedFoodBusinesses()
   await seedFashionBusinesses()
