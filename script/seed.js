@@ -1,18 +1,187 @@
 'use strict'
 
-const db = require('../server/db')
-const {User} = require('../server/db/models')
+const {db} = require('../server/db')
+const {Business, Tier, Customer} = require('../server/db/models')
+const faker = require('faker')
+//create a random int to be able to make associations using ids
+const randomInt = function(max) {
+  return Math.floor(Math.random() * Math.floor(max))
+}
+
+function generate(n) {
+  var add = 1,
+    max = 12 - add // 12 is the min safe number Math.random() can generate without it starting to pad the end with zeros.
+  if (n > max) {
+    return generate(max) + generate(n - max)
+  }
+  max = Math.pow(10, n + add)
+  var min = max / 10 // Math.pow(10, n) basically
+  var number = Math.floor(Math.random() * (max - min + 1)) + min
+  return ('' + number).substring(add)
+}
+const roleEnum = ['Customer', 'Business']
 
 async function seed() {
   await db.sync({force: true})
   console.log('db synced!')
 
-  const users = await Promise.all([
-    User.create({email: 'cody@email.com', password: '123'}),
-    User.create({email: 'murphy@email.com', password: '123'})
-  ])
+  //if there are 200 logins do we need an even split or is randomint in role ok?
 
-  console.log(`seeded ${users.length} users`)
+  // const seedLogin = async function () {
+  //   for (let i = 0; i < 200; i++) {
+  //     await Login.create({
+  //       googleId: generate(21),
+  //       password: faker.lorem.words(),
+  //       isAdmin: false,
+  //       role: roleEnum[randomInt(2)],
+  //     })
+  //   }
+  // }
+  //do we need email?
+  //seed 200 regular users
+  const seedCustomers = async function() {
+    for (let i = 0; i < 80; i++) {
+      await Customer.create({
+        name: faker.name.firstName(),
+        location: faker.address.streetAddress(),
+        avatar: faker.image.avatar()
+      })
+    }
+  }
+
+  //seed 20 admins  do we need in faker or manual?
+  // const seedAdmins = async function () {
+  //   for (let i = 0; i < 20; i++) {
+  //     await User.create({
+  //       email: faker.internet.email(),
+  //       name: faker.name.firstName(),
+  //       isAdmin: true,
+  //       location: faker.address.streetAddress(),
+  //       password: 123,
+  //     })
+  //   }
+  // }
+  //businesses belong to many users
+  //users belong to many businesses
+  //each seedBusinesses adds those associations
+
+  //seed 50 businesses for each category
+  const seedFoodBusinesses = async function() {
+    for (let i = 0; i < 25; i++) {
+      //const user = User.findByPk(randomInt(200))
+      await Business.create({
+        name: faker.company.companyName(),
+        headerPhoto: faker.image.food(),
+        avatar: faker.image.avatar(),
+        description: faker.lorem.paragraph(),
+        location: faker.address.streetAddress(),
+        category: 'restaurant'
+      })
+      //user.addBusiness(business)
+      //business.addUser(user)
+    }
+  }
+  const seedGymBusinesses = async function() {
+    for (let i = 0; i < 25; i++) {
+      //const user = await User.findByPk(randomInt(200))
+      await Business.create({
+        name: faker.company.companyName(),
+        headerPhoto: faker.image.sports(),
+        avatar: faker.image.avatar(),
+        description: faker.lorem.paragraph(),
+        location: faker.address.streetAddress(),
+        category: 'gym'
+      })
+      // user.addBusiness(business)
+      // business.addUser(user)
+    }
+  }
+
+  const seedFashionBusinesses = async function() {
+    for (let i = 0; i < 25; i++) {
+      //const user = await User.findByPk(randomInt(200))
+      await Business.create({
+        name: faker.company.companyName(),
+        headerPhoto: faker.image.fashion(),
+        avatar: faker.image.avatar(),
+        description: faker.lorem.paragraph(),
+        location: faker.address.streetAddress(),
+        category: 'fashion'
+      })
+      // user.addBusiness(business)
+      // business.addUser(user)
+    }
+  }
+  const seedMusicBusinesses = async function() {
+    for (let i = 0; i < 25; i++) {
+      // const user = await User.findByPk(randomInt(200))
+      await Business.create({
+        name: faker.company.companyName(),
+        headerPhoto: faker.image.nightlife(),
+        avatar: faker.image.avatar(),
+        description: faker.lorem.paragraph(),
+        location: faker.address.streetAddress(),
+        category: 'music'
+      })
+      // user.addBusiness(business)
+      // business.addUser(user)
+    }
+  }
+  const seedTier1 = async function() {
+    try {
+      for (let i = 0; i < 100; i++) {
+        await Business.findByPk(randomInt(100))
+        const tier = await Tier.create({
+          level: 1,
+          title: faker.lorem.words(),
+          pledge: [faker.lorem.sentence(), faker.lorem.sentence()],
+          price: 5,
+          photo: faker.image.cats()
+        })
+        //business.addTier(tier)
+      }
+    } catch (error) {
+      console.error('see tier 1', error)
+    }
+  }
+  const seedTier2 = async function() {
+    for (let i = 0; i < 100; i++) {
+      await Business.findByPk(randomInt(100))
+      const tier = await Tier.create({
+        level: 2,
+        title: faker.lorem.words(),
+        pledge: [faker.lorem.sentence(), faker.lorem.sentence()],
+        price: 15,
+        photo: faker.image.cats()
+      })
+      //business.addTier(tier)
+    }
+  }
+
+  const seedTier3 = async function() {
+    for (let i = 0; i < 100; i++) {
+      await Business.findByPk(randomInt(100))
+      const tier = await Tier.create({
+        level: 3,
+        title: faker.lorem.words(),
+        pledge: [faker.lorem.sentence(), faker.lorem.sentence()],
+        price: 50,
+        photo: faker.image.cats()
+      })
+      //business.addTier(tier)
+    }
+  }
+
+  await seedCustomers()
+  //await seedAdmins()
+  await seedFoodBusinesses()
+  await seedFashionBusinesses()
+  await seedMusicBusinesses()
+  await seedGymBusinesses()
+  await seedTier1()
+  await seedTier2()
+  await seedTier3()
+
   console.log(`seeded successfully`)
 }
 
