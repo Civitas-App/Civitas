@@ -106,6 +106,26 @@ async function seed() {
       business.addUser(user)
     }
   }
+  const seedTier1 = async function() {
+    for (let i = 0; i < 200; i++) {
+      const business = await Business.findByPk(randomInt(200))
+      const tier = await Tier.create({
+        level: 1,
+        title: faker.random.catch_phrase_adjective(),
+        pledge: () => {
+          let pledges = []
+          for (let j = 0; j < 2; j++) {
+            pledges.push(faker.lorem.sentence())
+          }
+          return pledges
+        },
+        price: 2,
+        photo: faker.image.cats()
+      })
+      business.addTier(tier)
+    }
+  }
+
   await seedUsers()
   await seedAdmins()
   await seedFoodBusinesses()

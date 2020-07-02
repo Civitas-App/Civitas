@@ -10,7 +10,8 @@ const Subscription = db.define('subscription', {
     type: Sequelize.DATE
   },
   redeemed: {
-    type: Sequelize.BOOLEAN
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
   }
 })
 
