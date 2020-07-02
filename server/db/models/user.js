@@ -11,6 +11,10 @@ const User = db.define('user', {
       isEmail: true
     }
   },
+  role: {
+    type: Sequelize.ENUM('user', 'bussiness'),
+    defaultValue: 'user'
+  },
   name: {
     type: Sequelize.STRING,
     unique: true,
@@ -45,6 +49,9 @@ const User = db.define('user', {
         msg: 'Name must be required'
       }
     }
+  },
+  avatar: {
+    type: Sequelize.STRING
   },
   password: {
     type: Sequelize.STRING,
