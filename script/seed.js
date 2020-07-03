@@ -80,7 +80,6 @@ async function seed() {
   }
   const seedGymBusinesses = async function() {
     for (let i = 0; i < 25; i++) {
-      //const user = await User.findByPk(randomInt(200))
       await Business.create({
         name: faker.company.companyName(),
         headerPhoto: faker.image.sports(),
@@ -89,14 +88,11 @@ async function seed() {
         location: faker.address.streetAddress(),
         category: 'gym'
       })
-      // user.addBusiness(business)
-      // business.addUser(user)
     }
   }
 
   const seedFashionBusinesses = async function() {
     for (let i = 0; i < 25; i++) {
-      //const user = await User.findByPk(randomInt(200))
       await Business.create({
         name: faker.company.companyName(),
         headerPhoto: faker.image.fashion(),
@@ -105,13 +101,10 @@ async function seed() {
         location: faker.address.streetAddress(),
         category: 'fashion'
       })
-      // user.addBusiness(business)
-      // business.addUser(user)
     }
   }
   const seedMusicBusinesses = async function() {
     for (let i = 0; i < 25; i++) {
-      // const user = await User.findByPk(randomInt(200))
       await Business.create({
         name: faker.company.companyName(),
         headerPhoto: faker.image.nightlife(),
@@ -120,8 +113,6 @@ async function seed() {
         location: faker.address.streetAddress(),
         category: 'music'
       })
-      // user.addBusiness(business)
-      // business.addUser(user)
     }
   }
   const customerBusiness = async function() {
@@ -179,7 +170,7 @@ async function seed() {
 
   const tier1BusinessCustomer = async function() {
     try {
-      for (let i = 0; i <= 100; i++) {
+      for (let i = 0; i < 101; i++) {
         const tier = await Tier.findOne({where: {id: i}})
         const business = await Business.findOne({where: {id: i}})
         if (business && tier) {
@@ -198,8 +189,8 @@ async function seed() {
         const business = await Business.findOne({where: {id: j}})
         if (business && tier) {
           await business.addTier(tier)
+          i++
         }
-        i++
       }
     } catch (error) {
       console.error(error)
@@ -208,11 +199,12 @@ async function seed() {
   const tier3BusinessCustomer = async function() {
     try {
       let i = 201
-      for (let j = 0; j < 100; j++) {
+      for (let j = 0; j < 101; j++) {
         const tier = await Tier.findOne({where: {id: i}})
         const business = await Business.findOne({where: {id: j}})
         if (business && tier) {
           await business.addTier(tier)
+          i++
         }
       }
     } catch (error) {
@@ -222,9 +214,18 @@ async function seed() {
 
   const seedSubscriptions = async function() {
     try {
-      const subscription = await Subscription.findOne({
-        where: {businessId: randomInt(100)}
-      })
+      for (let i = 0; i < 100; i++) {
+        const subscription = await Subscription.findAll({
+          where: {businessId: 21}
+        })
+        console.log(subscription.data)
+      }
+      // if (subscription && tier) {
+      //   console.log(subscription)
+      //   tier.addSubscription(tier)
+      // } else {
+      //   console.log(subscription.data)
+      // }
     } catch (error) {
       console.error(error)
     }
@@ -243,6 +244,7 @@ async function seed() {
   await tier1BusinessCustomer()
   await tier2BusinessCustomer()
   await tier3BusinessCustomer()
+  await seedSubscriptions()
 
   console.log(`seeded successfully`)
 }
