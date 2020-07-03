@@ -38,7 +38,8 @@ async function seed() {
   //   }
   // }
   //do we need email?
-  //seed 200 regular users
+
+  //seed 100 regular users
   const seedCustomers = async function() {
     for (let i = 0; i < 100; i++) {
       await Customer.create({
@@ -65,7 +66,7 @@ async function seed() {
   //users belong to many businesses
   //each seedBusinesses adds those associations
 
-  //seed 50 businesses for each category
+  //seed 25 businesses for each category
   const seedFoodBusinesses = async function() {
     for (let i = 0; i < 25; i++) {
       await Business.create({
@@ -115,11 +116,12 @@ async function seed() {
       })
     }
   }
+  //adds businessId and customerId to subscription through table - start of creating subscriptions
   const customerBusiness = async function() {
     try {
       for (let i = 0; i < 100; i++) {
-        const customer = await Customer.findByPk(randomInt(100))
-        const business = await Business.findByPk(randomInt(100))
+        const customer = await Customer.findOne({where: {id: i}})
+        const business = await Business.findOne({where: {id: i}})
         if (customer && business) {
           await customer.addBusiness(business)
           await business.addCustomer(customer)
@@ -129,6 +131,7 @@ async function seed() {
       console.error(error)
     }
   }
+  //tiers has 3 levels, each business needs three tiers, we seed 100 tiers per level
   const seedTier1 = async function() {
     try {
       for (let i = 0; i < 100; i++) {
@@ -167,8 +170,8 @@ async function seed() {
       })
     }
   }
-
-  const tier1BusinessCustomer = async function() {
+  //adds each tier level to each business in tiers table
+  const tier1Business = async function() {
     try {
       for (let i = 0; i < 101; i++) {
         const tier = await Tier.findOne({where: {id: i}})
@@ -181,7 +184,7 @@ async function seed() {
       console.error(error)
     }
   }
-  const tier2BusinessCustomer = async function() {
+  const tier2Business = async function() {
     try {
       let i = 101
       for (let j = 0; j < 101; j++) {
@@ -196,7 +199,7 @@ async function seed() {
       console.error(error)
     }
   }
-  const tier3BusinessCustomer = async function() {
+  const tier3Business = async function() {
     try {
       let i = 201
       for (let j = 0; j < 101; j++) {
@@ -211,21 +214,18 @@ async function seed() {
       console.error(error)
     }
   }
-
-  const seedSubscriptions = async function() {
+  //adds tiers to subscription table
+  const subsTier = async function() {
     try {
-      for (let i = 0; i < 100; i++) {
-        const subscription = await Subscription.findAll({
-          where: {businessId: 21}
+      let i = 1
+      for (let j = 1; j < 301; j++) {
+        const tier = await Tier.findOne({where: {id: j}})
+        const subscription = await Subscription.findOne({
+          where: {businessId: i, customerId: i}
         })
-        console.log(subscription.data)
+        await tier.setSubscription(subscription)
+        i++
       }
-      // if (subscription && tier) {
-      //   console.log(subscription)
-      //   tier.addSubscription(tier)
-      // } else {
-      //   console.log(subscription.data)
-      // }
     } catch (error) {
       console.error(error)
     }
@@ -241,10 +241,10 @@ async function seed() {
   await seedTier2()
   await seedTier3()
   await customerBusiness()
-  await tier1BusinessCustomer()
-  await tier2BusinessCustomer()
-  await tier3BusinessCustomer()
-  await seedSubscriptions()
+  await tier1Business()
+  await tier2Business()
+  await tier3Business()
+  await subsTier()
 
   console.log(`seeded successfully`)
 }
