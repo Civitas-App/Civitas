@@ -1,7 +1,7 @@
 'use strict'
 
-const db = require('../server/db')
-const {Business, Tier, Customer, User} = require('../server/db/models')
+const {db} = require('../server/db')
+const {Business, Tier, Customer, Subscription} = require('../server/db/models')
 const faker = require('faker')
 //create a random int to be able to make associations using ids
 const randomInt = function(max) {
@@ -38,9 +38,10 @@ async function seed() {
   //   }
   // }
   //do we need email?
-  //seed 200 regular users
+
+  //seed 100 regular users
   const seedCustomers = async function() {
-    for (let i = 0; i < 80; i++) {
+    for (let i = 0; i < 100; i++) {
       await Customer.create({
         name: faker.name.firstName(),
         location: faker.address.streetAddress(),
@@ -65,10 +66,9 @@ async function seed() {
   //users belong to many businesses
   //each seedBusinesses adds those associations
 
-  //seed 50 businesses for each category
+  //seed 25 businesses for each category
   const seedFoodBusinesses = async function() {
     for (let i = 0; i < 25; i++) {
-      //const user = User.findByPk(randomInt(200))
       await Business.create({
         name: faker.company.companyName(),
         headerPhoto: faker.image.food(),
@@ -77,13 +77,10 @@ async function seed() {
         location: faker.address.streetAddress(),
         category: 'restaurant'
       })
-      //user.addBusiness(business)
-      //business.addUser(user)
     }
   }
   const seedGymBusinesses = async function() {
     for (let i = 0; i < 25; i++) {
-      //const user = await User.findByPk(randomInt(200))
       await Business.create({
         name: faker.company.companyName(),
         headerPhoto: faker.image.sports(),
@@ -92,14 +89,11 @@ async function seed() {
         location: faker.address.streetAddress(),
         category: 'gym'
       })
-      // user.addBusiness(business)
-      // business.addUser(user)
     }
   }
 
   const seedFashionBusinesses = async function() {
     for (let i = 0; i < 25; i++) {
-      //const user = await User.findByPk(randomInt(200))
       await Business.create({
         name: faker.company.companyName(),
         headerPhoto: faker.image.fashion(),
@@ -108,13 +102,10 @@ async function seed() {
         location: faker.address.streetAddress(),
         category: 'fashion'
       })
-      // user.addBusiness(business)
-      // business.addUser(user)
     }
   }
   const seedMusicBusinesses = async function() {
     for (let i = 0; i < 25; i++) {
-      // const user = await User.findByPk(randomInt(200))
       await Business.create({
         name: faker.company.companyName(),
         headerPhoto: faker.image.nightlife(),
@@ -123,22 +114,34 @@ async function seed() {
         location: faker.address.streetAddress(),
         category: 'music'
       })
-      // user.addBusiness(business)
-      // business.addUser(user)
     }
   }
+  //adds businessId and customerId to subscription through table - start of creating subscriptions
+  const customerBusiness = async function() {
+    try {
+      for (let i = 0; i < 100; i++) {
+        const customer = await Customer.findOne({where: {id: i}})
+        const business = await Business.findOne({where: {id: i}})
+        if (customer && business) {
+          await customer.addBusiness(business)
+          await business.addCustomer(customer)
+        }
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  }
+  //tiers has 3 levels, each business needs three tiers, we seed 100 tiers per level
   const seedTier1 = async function() {
     try {
       for (let i = 0; i < 100; i++) {
-        await Business.findByPk(randomInt(100))
-        const tier = await Tier.create({
+        await Tier.create({
           level: 1,
           title: faker.lorem.words(),
           pledge: [faker.lorem.sentence(), faker.lorem.sentence()],
           price: 5,
           photo: faker.image.cats()
         })
-        //business.addTier(tier)
       }
     } catch (error) {
       console.error('see tier 1', error)
@@ -146,29 +149,85 @@ async function seed() {
   }
   const seedTier2 = async function() {
     for (let i = 0; i < 100; i++) {
-      await Business.findByPk(randomInt(100))
-      const tier = await Tier.create({
+      await Tier.create({
         level: 2,
         title: faker.lorem.words(),
         pledge: [faker.lorem.sentence(), faker.lorem.sentence()],
         price: 15,
         photo: faker.image.cats()
       })
-      //business.addTier(tier)
     }
   }
 
   const seedTier3 = async function() {
     for (let i = 0; i < 100; i++) {
-      await Business.findByPk(randomInt(100))
-      const tier = await Tier.create({
+      await Tier.create({
         level: 3,
         title: faker.lorem.words(),
         pledge: [faker.lorem.sentence(), faker.lorem.sentence()],
         price: 50,
         photo: faker.image.cats()
       })
-      //business.addTier(tier)
+    }
+  }
+  //adds each tier level to each business in tiers table
+  const tier1Business = async function() {
+    try {
+      for (let i = 0; i < 101; i++) {
+        const tier = await Tier.findOne({where: {id: i}})
+        const business = await Business.findOne({where: {id: i}})
+        if (business && tier) {
+          await business.addTier(tier)
+        }
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  }
+  const tier2Business = async function() {
+    try {
+      let i = 101
+      for (let j = 0; j < 101; j++) {
+        const tier = await Tier.findOne({where: {id: i}})
+        const business = await Business.findOne({where: {id: j}})
+        if (business && tier) {
+          await business.addTier(tier)
+          i++
+        }
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  }
+  const tier3Business = async function() {
+    try {
+      let i = 201
+      for (let j = 0; j < 101; j++) {
+        const tier = await Tier.findOne({where: {id: i}})
+        const business = await Business.findOne({where: {id: j}})
+        if (business && tier) {
+          await business.addTier(tier)
+          i++
+        }
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  }
+  //adds tiers to subscription table
+  const subsTier = async function() {
+    try {
+      let i = 1
+      for (let j = 1; j < 301; j++) {
+        const tier = await Tier.findOne({where: {id: j}})
+        const subscription = await Subscription.findOne({
+          where: {businessId: i, customerId: i}
+        })
+        await tier.setSubscription(subscription)
+        i++
+      }
+    } catch (error) {
+      console.error(error)
     }
   }
 
@@ -181,6 +240,11 @@ async function seed() {
   await seedTier1()
   await seedTier2()
   await seedTier3()
+  await customerBusiness()
+  await tier1Business()
+  await tier2Business()
+  await tier3Business()
+  await subsTier()
 
   console.log(`seeded successfully`)
 }
