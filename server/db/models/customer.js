@@ -5,7 +5,6 @@ const db = require('../db')
 const Customer = db.define('customer', {
   name: {
     type: Sequelize.STRING,
-    unique: true,
     validate: {
       len: {
         args: [2, 20],
