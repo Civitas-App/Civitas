@@ -10,6 +10,8 @@ Tier.belongsTo(Business)
 Business.hasMany(Tier)
 Subscription.belongsTo(Tier)
 Tier.hasOne(Subscription)
+User.hasOne(Customer)
+User.hasOne(Business)
 // register models
 // require('./models')
 
