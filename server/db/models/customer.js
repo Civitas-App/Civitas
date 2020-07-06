@@ -21,7 +21,7 @@ const Customer = db.define('customer', {
     validate: {
       notEmpty: {
         args: true,
-        msg: 'Name must be required'
+        msg: 'location must be required'
       }
     }
   },
