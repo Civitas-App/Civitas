@@ -4,25 +4,17 @@ const userAuthentication = require('./middleware/user_middleware')
 const {Op} = require('sequelize')
 module.exports = router
 
-// middleware to see if a user is logged in
-// userAuthentication
-
 // for that customer when he logs in
 // show all his pledges to that bussiness
 // api/customer/pledges/business/:id
-// switch to sub table
-router.get('/pledges/business', async (req, res, next) => {
+router.get('/pledges/business/:id', async (req, res, next) => {
   try {
-    const customer = await Customer.findOne({
+    const {id} = req.params
+    const allPledges = await Customer.findAll({
       where: {
-        userId: req.user.id
-      }
-    })
-
-    const allPledges = await Subscription.findAll({
-      where: {
-        customerId: customer.id
-      }
+        id
+      },
+      include: [{model: Business}]
     })
     res.json(allPledges)
   } catch (error) {
@@ -35,7 +27,7 @@ router.get('/pledges/business', async (req, res, next) => {
 // the :id is for the tier id
 // getthe bussinessId from the tier table
 // this will set up when that person pledges to that bussiness
-router.post('/pledge/:id', userAuthentication, async (req, res, next) => {
+router.post('/pledge/:id', async (req, res, next) => {
   try {
     const customer = await Customer.findOne({
       where: {
@@ -58,7 +50,7 @@ router.post('/pledge/:id', userAuthentication, async (req, res, next) => {
 
 // api/customers
 // create a a customer page or maybe Update?
-router.post('/', userAuthentication, async (req, res, next) => {
+router.post('/', async (req, res, next) => {
   try {
     const {name, location, avatar} = req.body
     const createCustomerAccount = await Customer.create({
