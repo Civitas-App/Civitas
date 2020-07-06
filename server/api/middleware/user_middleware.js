@@ -7,11 +7,9 @@ module.exports = function(req, res, next) {
   //   }
   // })
   if (!req.user) {
-    res
-      .status(403)
-      .send({
-        message: 'Login in to be able to create and account or business account'
-      })
+    res.status(403).send({
+      message: 'Login in to be able to create and account or business account'
+    })
   } else {
     next()
   }
