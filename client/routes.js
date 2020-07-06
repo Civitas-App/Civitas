@@ -2,11 +2,11 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {withRouter, Route, Switch} from 'react-router-dom'
 import PropTypes from 'prop-types'
-import {Login, Signup, CustomerHome, BusinessHome} from './components'
+import {Login, Signup, CustomerHome} from './components'
 import {Homepage} from './components/Utility/Homepage'
 import {me} from './store'
 import CustomerPortal from './components/Customer/CustomerPortal'
-
+import BusinessPortal from './components/Business/BusinessPortal'
 /**
  * COMPONENT
  */
@@ -28,7 +28,11 @@ class Routes extends Component {
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route path="/home" component={CustomerHome} />
-            <Route path="/user/portal" component={CustomerPortal} />
+            <Route
+              path="/customer/pledges/business"
+              component={CustomerPortal}
+            />
+            <Route path="/business/portal" component={BusinessPortal} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
