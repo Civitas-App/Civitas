@@ -16,6 +16,7 @@ const BusinessPortal = () => {
 
   return (
     <div>
+      Business Portal
       <BusinessTier business={business} key={business.id} />
     </div>
   )

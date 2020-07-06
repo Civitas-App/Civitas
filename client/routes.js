@@ -7,6 +7,9 @@ import {Homepage} from './components/Utility/Homepage'
 import {me} from './store'
 import CustomerPortal from './components/Customer/CustomerPortal'
 import BusinessPortal from './components/Business/BusinessPortal'
+import BusinessForm from './components/Business/BusinessSignUp'
+import SignUp from './components/Utility/SignUp'
+import CustomerForm from './components/Customer/CustomerForm'
 /**
  * COMPONENT
  */
@@ -23,7 +26,9 @@ class Routes extends Component {
         {/* Routes placed here are available to all visitors */}
         <Route exact path="/" component={Homepage} />
         <Route path="/login" component={Login} />
-        <Route path="/signup" component={Signup} />
+        <Route path="/signup" component={SignUp} />
+        <Route path="/business/signup" component={BusinessForm} />
+        <Route path="/customer/signup" component={CustomerForm} />
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
