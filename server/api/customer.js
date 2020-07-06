@@ -7,16 +7,20 @@ module.exports = router
 // for that customer when he logs in
 // show all his pledges to that bussiness
 // api/customer/pledges/business/:id
-router.get('/pledges/business/:id', async (req, res, next) => {
+router.get('/pledges/business', async (req, res, next) => {
   try {
-    const {id} = req.params
-    const allPledges = await Customer.findAll({
+    const customer = await Customer.findOne({
       where: {
-        id
+        userId: req.user.id
       },
-      include: [{model: Business}]
+      include: {
+        model: Business,
+        include: {
+          model: Tier
+        }
+      }
     })
-    res.json(allPledges)
+    res.json(customer)
   } catch (error) {
     next(error)
   }
