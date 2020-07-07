@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {fetchSubscriptions} from '../../store/business'
+import {fetchSubscriptions} from '../../store/business/getBusiness'
 
 /*parent component for business analytics page.
 shows all subscription data and will drill into revenue forecast */
