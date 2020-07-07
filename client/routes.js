@@ -7,6 +7,7 @@ import {Homepage} from './components/Utility/Homepage'
 import {me} from './store'
 import CustomerPortal from './components/Customer/CustomerPortal'
 import CustomerSignUp from './components/Customer/CustomerSignUp'
+// import SearchBusiness from './components/SearchBar/SearchBusiness'
 /**
  * COMPONENT
  */
@@ -34,6 +35,7 @@ class Routes extends Component {
               path="/user/portal/signup"
               component={CustomerSignUp}
             />
+            {/* <Route exact path="/search" component={SearchBusiness} /> */}
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}

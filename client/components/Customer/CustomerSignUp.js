@@ -1,13 +1,12 @@
 import React, {useHook} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {createCustomerSignup} from '../../store/customer'
-import useForm from './UseForm'
+import useForm from '../Utility/UseForm'
 
 const CustomerSignUp = () => {
   const [values, handleChange] = useForm({name: '', location: '', avatar: ''})
   //mapDispatch
   const dispatch = useDispatch()
-  console.log('values', values.location)
 
   const handleSubmit = e => {
     e.preventDefault()
@@ -45,4 +44,3 @@ const CustomerSignUp = () => {
   )
 }
 export default CustomerSignUp
-//api/customers/create
