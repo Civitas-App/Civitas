@@ -6,13 +6,13 @@ const CustomerPortalList = ({customer}) => {
   console.log(businesses)
   return (
     <div className="pledges">
-      <h2>hi {customer.name}</h2>
+      <h2>Hi {customer.name}</h2>
       <img src={customer.avatar} />
       {businesses ? (
         <div className="pledges-list">
           {businesses.map(pledges => (
             <div key={pledges.id}>
-              <h4>businesses name: {pledges.name}</h4>
+              <h4>Business name: {pledges.name}</h4>
               <h4>
                 businesses redeemed:
                 {pledges.subscription.redeemed ? 'true' : 'false'}{' '}

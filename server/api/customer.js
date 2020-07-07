@@ -9,7 +9,7 @@ module.exports = router
 // api/customer/pledges/business
 router.get('/pledges/business', async (req, res, next) => {
   try {
-    const customer = await Customer.findOne({
+    const customer = await Customer.findOrCreate({
       where: {
         userId: req.user.id
       },
