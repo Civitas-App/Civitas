@@ -21,8 +21,35 @@ router.get(`/portal`, async (req, res, next) => {
     next(error)
   }
 })
+//create a business
+// api/business/create
+router.post('/create', async (req, res, next) => {
+  try {
+    const {
+      name,
+      location,
+      category,
+      description,
+      avatar,
+      headerPhoto
+    } = req.body
 
-router.get(`/portal/analytics`, async (req, res, next) => {
+    const business = await Business.create({
+      name,
+      headerPhoto,
+      avatar,
+      description,
+      location,
+      category,
+      userId: req.user.id
+    })
+    res.status(201).json(business)
+  } catch (error) {
+    next(error)
+  }
+})
+
+router.get('/portal/analytics', async (req, res, next) => {
   try {
     const userId = req.user.id
     const business = await Business.findOne({
@@ -37,7 +64,6 @@ router.get(`/portal/analytics`, async (req, res, next) => {
       },
       include: [Business, Tier]
     })
-
     res.json(subscription)
   } catch (error) {
     next(error)
