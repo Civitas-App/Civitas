@@ -2,7 +2,7 @@ import React from 'react'
 
 const BusinessTier = ({business}) => {
   const {tiers} = business
-  console.log(business)
+
   return (
     <div>
       {tiers ? (

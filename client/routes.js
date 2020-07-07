@@ -10,6 +10,7 @@ import BusinessPortal from './components/Business/BusinessPortal'
 import BusinessForm from './components/Business/BusinessSignUp'
 
 import CustomerSignUp from './components/Customer/CustomerSignUp'
+// import SearchBusiness from './components/SearchBar/SearchBusiness'
 import BusinessAnalytics from './components/Business/BusinessAnalyticsPage'
 
 /**
@@ -41,6 +42,7 @@ class Routes extends Component {
               path="/user/portal/signup"
               component={CustomerSignUp}
             />
+            {/* <Route exact path="/search" component={SearchBusiness} /> */}
             <Route exact path="/business/portal" component={BusinessPortal} />
             <Route
               exact
