@@ -2,7 +2,12 @@ import React, {useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {fetchBusiness} from '../../store/business'
 import BusinessTier from './BusinessTier'
+import BusinessProfile from './BusinessProfile'
 
+/*Parent component
+Children: BusinessProfile, BusinessTier
+Desc:
+*/
 const BusinessPortal = () => {
   const business = useSelector(state => state.business)
   const dispatch = useDispatch()
@@ -16,6 +21,7 @@ const BusinessPortal = () => {
 
   return (
     <div>
+      <BusinessProfile business={business} />
       <BusinessTier business={business} key={business.id} />
     </div>
   )
