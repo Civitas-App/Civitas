@@ -20,7 +20,7 @@ const BusinessPortal = () => {
   )
   return (
     <div>
-      Business Portal
+      <BusinessProfile business={business} />
       <BusinessTier business={business} key={business.id} />
     </div>
   )

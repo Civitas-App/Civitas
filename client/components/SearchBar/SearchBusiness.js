@@ -1,6 +1,6 @@
 import React from 'react'
 import {useDispatch} from 'react-redux'
-import {searchBusiness} from '../../store/business'
+import {searchBusiness} from '../../store/business/getBusiness'
 import useForm from '../Utility/UseForm'
 import AllBusinesses from './AllBusinesses'
 
