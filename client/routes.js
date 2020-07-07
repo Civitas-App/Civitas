@@ -7,6 +7,9 @@ import {Homepage} from './components/Utility/Homepage'
 import {me} from './store'
 import CustomerPortal from './components/Customer/CustomerPortal'
 import CustomerSignUp from './components/Customer/CustomerSignUp'
+import BusinessPortal from './components/Business/BusinessPortal'
+import BusinessAnalytics from './components/Business/BusinessAnalyticsPage'
+
 /**
  * COMPONENT
  */
@@ -33,6 +36,12 @@ class Routes extends Component {
               exact
               path="/user/portal/signup"
               component={CustomerSignUp}
+            />
+            <Route exact path="/business/portal" component={BusinessPortal} />
+            <Route
+              exact
+              path="/business/portal/analytics"
+              component={BusinessAnalytics}
             />
           </Switch>
         )}
