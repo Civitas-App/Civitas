@@ -33,11 +33,12 @@ class Routes extends Component {
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route path="/home" component={CustomerHome} />
+            <Route exact path="/user/portal" component={CustomerPortal} />
             <Route
-              path="/customer/pledges/business"
-              component={CustomerPortal}
+              exact
+              path="/user/portal/signup"
+              component={CustomerSignUp}
             />
-            <Route path="/business/portal" component={BusinessPortal} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}

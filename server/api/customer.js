@@ -6,10 +6,10 @@ module.exports = router
 
 // for that customer when he logs in
 // show all his pledges to that bussiness
-// api/customer/pledges/business/:id
+// api/customer/pledges/business
 router.get('/pledges/business', async (req, res, next) => {
   try {
-    const customer = await Customer.findOne({
+    const customer = await Customer.findOrCreate({
       where: {
         userId: req.user.id
       },
@@ -52,11 +52,12 @@ router.post('/pledge/:id', async (req, res, next) => {
   }
 })
 
-// api/customers
+// api/customer/create
 // create a a customer page or maybe Update?
-router.post('/', async (req, res, next) => {
+router.post('/create', async (req, res, next) => {
   try {
     const {name, location, avatar} = req.body
+    console.log(JSON.stringify(req.body))
     const createCustomerAccount = await Customer.create({
       name,
       location,
