@@ -6,6 +6,7 @@ import {Login, Signup, CustomerHome, BusinessHome} from './components'
 import {Homepage} from './components/Utility/Homepage'
 import {me} from './store'
 import CustomerPortal from './components/Customer/CustomerPortal'
+import CustomerSignUp from './components/Customer/CustomerSignUp'
 
 /**
  * COMPONENT
@@ -28,7 +29,12 @@ class Routes extends Component {
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route path="/home" component={CustomerHome} />
-            <Route path="/user/portal" component={CustomerPortal} />
+            <Route exact path="/user/portal" component={CustomerPortal} />
+            <Route
+              exact
+              path="/user/portal/signup"
+              component={CustomerSignUp}
+            />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}

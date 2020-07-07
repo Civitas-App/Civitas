@@ -14,8 +14,9 @@ const CustomerPortalList = ({customer}) => {
             <div key={pledges.id}>
               <h4>businesses name: {pledges.name}</h4>
               <h4>
+                {' '}
                 businesses redeemed:{' '}
-                {pledges.subscription.redeemed ? 'true' : 'false'}
+                {pledges.subscription.redeemed ? 'true' : 'false'}{' '}
               </h4>
               {pledges.tiers.map(tier => (
                 <div key={tier.id}>
