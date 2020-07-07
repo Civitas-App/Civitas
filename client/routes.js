@@ -6,8 +6,13 @@ import {Login, Signup, CustomerHome} from './components'
 import {Homepage} from './components/Utility/Homepage'
 import {me} from './store'
 import CustomerPortal from './components/Customer/CustomerPortal'
+import BusinessPortal from './components/Business/BusinessPortal'
+import BusinessForm from './components/Business/BusinessSignUp'
+
 import CustomerSignUp from './components/Customer/CustomerSignUp'
 // import SearchBusiness from './components/SearchBar/SearchBusiness'
+import BusinessAnalytics from './components/Business/BusinessAnalyticsPage'
+
 /**
  * COMPONENT
  */
@@ -24,7 +29,9 @@ class Routes extends Component {
         {/* Routes placed here are available to all visitors */}
         <Route exact path="/" component={Homepage} />
         <Route path="/login" component={Login} />
-        <Route path="/signup" component={Signup} />
+        <Route exact path="/signup" component={Signup} />
+        <Route path="/signup/business" component={BusinessForm} />
+
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
@@ -36,6 +43,12 @@ class Routes extends Component {
               component={CustomerSignUp}
             />
             {/* <Route exact path="/search" component={SearchBusiness} /> */}
+            <Route exact path="/business/portal" component={BusinessPortal} />
+            <Route
+              exact
+              path="/business/portal/analytics"
+              component={BusinessAnalytics}
+            />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}

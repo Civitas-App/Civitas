@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {fetchBusiness} from '../../store/business'
+import {fetchBusiness} from '../../store/business/getBusiness'
 import BusinessTier from './BusinessTier'
 import BusinessProfile from './BusinessProfile'
 
@@ -18,10 +18,9 @@ const BusinessPortal = () => {
     },
     [fetchBusiness]
   )
-
   return (
     <div>
-      <BusinessProfile business={business} />
+      Business Portal
       <BusinessTier business={business} key={business.id} />
     </div>
   )
