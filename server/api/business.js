@@ -21,3 +21,29 @@ router.get(`/portal`, async (req, res, next) => {
     next(error)
   }
 })
+//create a business
+// api/business/
+router.post('/create', async (req, res, next) => {
+  try {
+    const {
+      name,
+      location,
+      category,
+      description,
+      avatar,
+      headerPhoto
+    } = req.body
+    console.log(name, location, category, description, avatar, headerPhoto)
+    const business = await Business.create({
+      name,
+      headerPhoto,
+      avatar,
+      description,
+      location,
+      category
+    })
+    res.status(201).json(business)
+  } catch (error) {
+    next(error)
+  }
+})

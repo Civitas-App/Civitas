@@ -1,12 +1,15 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useHook} from 'react'
+import useForm from '../Customer/UseForm'
 
-function BusinessForm() {
-  const [name, setName] = useState()
-  const [location, setLocation] = useState()
-  const [headerPhoto, setHeaderPhoto] = useState()
-  const [avatar, setAvatar] = useState()
-  const [description, setDescription] = useState()
-  const [category, setCategory] = useState()
+const BusinessForm = () => {
+  const [values, handleChange] = useForm({
+    name: '',
+    location: '',
+    headerPhoto: '',
+    avatar: '',
+    description: '',
+    category: ''
+  })
 
   return (
     <div>
@@ -23,4 +26,5 @@ function BusinessForm() {
     </div>
   )
 }
+
 export default BusinessForm

@@ -4,7 +4,7 @@ import thunkMiddleware from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import user from './user'
 import customer from './customer'
-import business from './business'
+import business from '../store/business/getBusiness'
 
 const reducer = combineReducers({
   user,
