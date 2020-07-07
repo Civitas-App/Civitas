@@ -22,7 +22,7 @@ router.get(`/portal`, async (req, res, next) => {
   }
 })
 //create a business
-// api/business/
+// api/business/create
 router.post('/create', async (req, res, next) => {
   try {
     const {
@@ -33,14 +33,15 @@ router.post('/create', async (req, res, next) => {
       avatar,
       headerPhoto
     } = req.body
-    console.log(name, location, category, description, avatar, headerPhoto)
+
     const business = await Business.create({
       name,
       headerPhoto,
       avatar,
       description,
       location,
-      category
+      category,
+      userId: req.user.id
     })
     res.status(201).json(business)
   } catch (error) {
