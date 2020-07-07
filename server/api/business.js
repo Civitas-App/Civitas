@@ -48,3 +48,24 @@ router.post('/create', async (req, res, next) => {
     next(error)
   }
 })
+
+router.get('/portal/analytics', async (req, res, next) => {
+  try {
+    const userId = req.user.id
+    const business = await Business.findOne({
+      where: {
+        userId
+      }
+    })
+    const businessId = business.id
+    const subscription = await Subscription.findAll({
+      where: {
+        businessId
+      },
+      include: [Business, Tier]
+    })
+    res.json(subscription)
+  } catch (error) {
+    next(error)
+  }
+})
