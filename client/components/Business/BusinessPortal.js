@@ -18,7 +18,6 @@ const BusinessPortal = () => {
     },
     [fetchBusiness]
   )
-
   return (
     <div>
       <BusinessProfile business={business} />

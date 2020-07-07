@@ -14,7 +14,8 @@ User.hasOne(Customer)
 Customer.belongsTo(User)
 User.hasOne(Business)
 Business.belongsTo(User)
-
+Subscription.belongsTo(Business)
+Subscription.belongsTo(Customer)
 // register models
 // require('./models')
 
