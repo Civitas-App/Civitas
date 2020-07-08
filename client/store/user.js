@@ -18,7 +18,7 @@ const defaultUser = {}
  */
 const getUser = user => ({type: GET_USER, user})
 const removeUser = () => ({type: REMOVE_USER})
-const updateUser = role => ({type: UPDATE_USER, role})
+const updateUserRole = role => ({type: UPDATE_USER, role})
 
 /**
  * THUNK CREATORS
@@ -61,10 +61,11 @@ export const logout = () => async dispatch => {
   }
 }
 
-export const makeUser = role => async dispatch => {
+export const updateUser = role => async dispatch => {
   try {
-    const {data} = await axios.post('/api/users/signup', {role})
-    dispatch(updateUser(data))
+    const {data} = await axios.post('/api/users/signup', role)
+    console.log('hit redux', data)
+    dispatch(updateUserRole(data))
   } catch (error) {
     console.error('Error in updating user', error)
   }
@@ -79,7 +80,6 @@ export default function(state = defaultUser, action) {
       return action.user
     case REMOVE_USER:
       return defaultUser
-
     default:
       return state
   }

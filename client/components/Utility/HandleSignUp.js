@@ -1,18 +1,42 @@
-import React, {useState} from 'react'
-import {makeUser} from '../../store/user'
+import React, {useState, useEffect} from 'react'
+import {updateUser} from '../../store/user'
+import axios from 'axios'
 
 const HandleSignUp = () => {
-  const [role, setRole] = useState()
+  const [role, setRole] = useState('')
+
+  // const handleSubmit = (e) => {
+  //   //e.preventDefault()
+  //   console.log('target value', e.target.value)
+
+  //   setRole(e.target.value)
+  //   console.log(role)
+  // }
+
+  useEffect(() => {
+    async function update() {
+      // You can await here
+      console.log(role)
+      await axios.post('/api/users/signup', role)
+    }
+    update()
+  })
   return (
-    <div
-      onClick={e => {
-        console.log(e)
-      }}
-    >
-      <button value="customer" type="button">
+    <div>
+      <button
+        value="customer"
+        type="submit"
+        onClick={() => setRole({role: 'customer'})}
+      >
         Continue as a Customer
       </button>
-      <button value="business" type="button">
+      <button
+        value="business"
+        type="submit"
+        onClick={() => {
+          setRole({role: 'business'})
+        }}
+      >
         Continue as a Business
       </button>
     </div>
