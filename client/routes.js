@@ -8,10 +8,10 @@ import {me} from './store'
 import CustomerPortal from './components/Customer/CustomerPortal'
 import BusinessPortal from './components/Business/BusinessPortal'
 import BusinessForm from './components/Business/BusinessSignUp'
-
 import CustomerSignUp from './components/Customer/CustomerSignUp'
-// import SearchBusiness from './components/SearchBar/SearchBusiness'
 import BusinessAnalytics from './components/Business/BusinessAnalyticsPage'
+import GetAllBussiness from './components/SearchBar/GetAllBussiness'
+import AllBusinesses from './components/SearchBar/AllBusinesses'
 
 /**
  * COMPONENT
@@ -31,18 +31,25 @@ class Routes extends Component {
         <Route path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
         <Route path="/signup/business" component={BusinessForm} />
+        <Route exact path="/filter/businesses" component={GetAllBussiness} />
+        <Route exact path="/search" component={AllBusinesses} />
 
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route path="/home" component={CustomerHome} />
+            <Route
+              exact
+              path="/filter/businesses"
+              component={GetAllBussiness}
+            />
             <Route exact path="/user/portal" component={CustomerPortal} />
             <Route
               exact
               path="/user/portal/signup"
               component={CustomerSignUp}
             />
-            {/* <Route exact path="/search" component={SearchBusiness} /> */}
+            <Route exact path="/search" component={AllBusinesses} />
             <Route exact path="/business/portal" component={BusinessPortal} />
             <Route
               exact

@@ -4,6 +4,15 @@ const userAuthentication = require('./middleware/user_middleware')
 const {Op} = require('sequelize')
 module.exports = router
 
+router.get('/', async (req, res, next) => {
+  try {
+    const getAll = await Business.findAll()
+    res.json(getAll)
+  } catch (error) {
+    next(error)
+  }
+})
+
 //business logs in will see his business profile and triers associated with it.
 //api/business/portal
 router.get(`/portal`, async (req, res, next) => {
@@ -65,6 +74,22 @@ router.get('/portal/analytics', async (req, res, next) => {
       include: [Business, Tier]
     })
     res.json(subscription)
+  } catch (error) {
+    next(error)
+  }
+})
+
+// api/business/filter/category
+router.get('/filter/category', async (req, res, next) => {
+  try {
+    const category = req.query.category
+    console.log(category)
+    const getCategory = await Business.findAll({
+      where: {
+        category: category
+      }
+    })
+    res.json(getCategory)
   } catch (error) {
     next(error)
   }

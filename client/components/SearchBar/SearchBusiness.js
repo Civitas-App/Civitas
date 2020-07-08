@@ -2,29 +2,25 @@ import React from 'react'
 import {useDispatch} from 'react-redux'
 import {searchBusiness} from '../../store/business/getBusiness'
 import useForm from '../Utility/UseForm'
-import AllBusinesses from './AllBusinesses'
+import history from '../../history'
+import CategoryFilter from './CategoryFilter'
 
 const SearchBusiness = () => {
   const [values, handleChange] = useForm({search: ''})
   // mapDispatch
   const dispatch = useDispatch()
 
-  const handleSubmit = e => {
-    e.preventDefault()
-    const {search} = values
-    dispatch(searchBusiness(search))
-  }
-
   const keyDown = e => {
     const {search} = values
     if (e.key === 'Enter') {
       dispatch(searchBusiness(search))
+      history.push(`/search?q=${search}`)
     }
   }
 
   return (
     <div>
-      {/* <label htmlFor="search" />
+      <label htmlFor="search" />
       <input
         type="text"
         value={values.search}
@@ -32,10 +28,7 @@ const SearchBusiness = () => {
         onKeyDown={keyDown}
         name="search"
       />
-      <AllBusinesses />
-      <button type="button" onClick={handleSubmit}>
-        Search
-      </button> */}
+      <CategoryFilter />
     </div>
   )
 }
