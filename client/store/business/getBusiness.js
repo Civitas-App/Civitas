@@ -14,6 +14,7 @@ export const fetchBusiness = () => async dispatch => {
     console.log('error in fetchBusiness', error)
   }
 }
+
 export const getAllBussiness = () => async dispatch => {
   try {
     const {data: businessData} = await axios.get('/api/business')
