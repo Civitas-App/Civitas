@@ -19,6 +19,7 @@ router.get('/', async (req, res, next) => {
 // /api/users
 router.post('/signup', async (req, res, next) => {
   try {
+    console.log('req.body', req.body.role)
     const user = await User.findOne({where: {id: req.user.id}})
 
     const updatedUser = await user.update({role: req.body.role})

@@ -1,24 +1,33 @@
 import React, {useState, useEffect} from 'react'
-
 import axios from 'axios'
 
-const HandleSignUp = () => {
-  const [role, setRole] = useState('')
+const HandleSignUp = props => {
+  const [role, setRole] = useState(null)
 
-  useEffect(() => {
-    async function update() {
-      // You can await here
-
-      await axios.post('/api/users/signup', role)
-    }
-    update()
-  })
+  useEffect(
+    () => {
+      async function update() {
+        // You can await here
+        await axios.post('/api/users/signup', {role})
+        console.log('role', role)
+        if (role === 'customer') {
+          return props.history.push('/user/portal/signup')
+        } else if (role === 'business') {
+          return props.history.push('/signup/business')
+        }
+      }
+      update()
+    },
+    [role]
+  )
   return (
     <div>
       <button
         value="customer"
         type="submit"
-        onClick={() => setRole({role: 'customer'})}
+        onClick={() => {
+          setRole('customer')
+        }}
       >
         Continue as a Customer
       </button>
@@ -26,7 +35,7 @@ const HandleSignUp = () => {
         value="business"
         type="submit"
         onClick={() => {
-          setRole({role: 'business'})
+          setRole('business')
         }}
       >
         Continue as a Business
