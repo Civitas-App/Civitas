@@ -3,7 +3,7 @@ import {useSelector} from 'react-redux'
 
 const AllBusinesses = () => {
   const business = useSelector(state => state.business)
-  console.log(business)
+
   return (
     <div>
       {business.map(query => (

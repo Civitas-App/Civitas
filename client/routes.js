@@ -11,8 +11,9 @@ import BusinessForm from './components/Business/BusinessSignUp'
 import HandleSignUp from './components/Utility/HandleSignUp'
 
 import CustomerSignUp from './components/Customer/CustomerSignUp'
-// import SearchBusiness from './components/SearchBar/SearchBusiness'
 import BusinessAnalytics from './components/Business/BusinessAnalyticsPage'
+import GetAllBussiness from './components/SearchBar/GetAllBussiness'
+import AllBusinesses from './components/SearchBar/AllBusinesses'
 
 /**
  * COMPONENT
@@ -32,6 +33,8 @@ class Routes extends Component {
         <Route path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
         <Route path="/signup/business" component={BusinessForm} />
+        <Route exact path="/filter/businesses" component={GetAllBussiness} />
+        <Route exact path="/search" component={AllBusinesses} />
 
         {/* Route needed for isLoggedIn and role is business to route 
         to business sign up form */}
@@ -44,13 +47,18 @@ class Routes extends Component {
             {/* Routes placed here are only available after logging in */}
             <Route path="/home" component={CustomerHome} />
             <Route exact path="/user/signup" component={HandleSignUp} />
+            <Route
+              exact
+              path="/filter/businesses"
+              component={GetAllBussiness}
+            />
             <Route exact path="/user/portal" component={CustomerPortal} />
             <Route
               exact
               path="/user/portal/signup"
               component={CustomerSignUp}
             />
-            {/* <Route exact path="/search" component={SearchBusiness} /> */}
+            <Route exact path="/search" component={AllBusinesses} />
             <Route exact path="/business/portal" component={BusinessPortal} />
             <Route
               exact
