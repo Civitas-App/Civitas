@@ -8,6 +8,7 @@ import singleCustomer from './singleCustomer'
 import business from './business/getBusiness'
 import businessCreate from './business/createBusiness'
 import subscription from './business/subscription'
+import business from './business/singleBusiness'
 
 const reducer = combineReducers({
   user,
@@ -15,7 +16,8 @@ const reducer = combineReducers({
   business,
   businessCreate,
   subscription,
-  singleCustomer
+  singleCustomer,
+  businesses
 })
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
