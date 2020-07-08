@@ -6,6 +6,7 @@ import history from '../history'
  */
 const GET_USER = 'GET_USER'
 const REMOVE_USER = 'REMOVE_USER'
+const UPDATE_USER = 'UPDATE_USER'
 
 /**
  * INITIAL STATE
@@ -17,6 +18,7 @@ const defaultUser = {}
  */
 const getUser = user => ({type: GET_USER, user})
 const removeUser = () => ({type: REMOVE_USER})
+const updateUserRole = role => ({type: UPDATE_USER, role})
 
 /**
  * THUNK CREATORS
@@ -34,6 +36,7 @@ export const me = () => async dispatch => {
 export const auth = (email, password, method) => async dispatch => {
   let res
   try {
+    console.log(method)
     res = await axios.post(`/auth/${method}`, {email, password})
   } catch (authError) {
     return dispatch(getUser({error: authError}))
@@ -55,6 +58,16 @@ export const logout = () => async dispatch => {
     history.push('/login')
   } catch (err) {
     console.error(err)
+  }
+}
+
+export const updateUser = role => async dispatch => {
+  try {
+    const {data} = await axios.post('/api/users/signup', role)
+    console.log('hit redux', data)
+    dispatch(updateUserRole(data))
+  } catch (error) {
+    console.error('Error in updating user', error)
   }
 }
 

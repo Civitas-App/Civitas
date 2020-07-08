@@ -9,7 +9,7 @@ const User = db.define('user', {
     allowNull: false
   },
   role: {
-    type: Sequelize.ENUM('customer', 'bussiness', 'null'),
+    type: Sequelize.ENUM('customer', 'business', 'null'),
     defaultValue: 'null'
   },
   isAdmin: {
