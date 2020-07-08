@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../../store'
@@ -7,9 +7,14 @@ import {auth} from '../../store'
  * COMPONENT
  */
 const AuthForm = props => {
+  const [role, setRole] = useState()
   const {name, displayName, handleSubmit, error} = props
   return (
-    <div>
+    <div
+      onClick={e => {
+        console.log(e)
+      }}
+    >
       {/* <form onSubmit={handleSubmit} name={name}>
         <div>
           <label htmlFor="email">
@@ -28,10 +33,10 @@ const AuthForm = props => {
         </div>
         {error && error.response && <div> {error.response.data} </div>}
       </form> */}
-      <button type="button">
+      <button type="button" value="customer">
         <a href="/auth/google">{displayName} with Google as a customer</a>
       </button>
-      <button type="button">
+      <button type="button" value="business">
         <a href="/auth/google">{displayName} with Google as a business</a>
       </button>
     </div>

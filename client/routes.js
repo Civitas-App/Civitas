@@ -8,6 +8,7 @@ import {me} from './store'
 import CustomerPortal from './components/Customer/CustomerPortal'
 import BusinessPortal from './components/Business/BusinessPortal'
 import BusinessForm from './components/Business/BusinessSignUp'
+import HandleSignUp from './components/Utility/HandleSignUp'
 
 import CustomerSignUp from './components/Customer/CustomerSignUp'
 // import SearchBusiness from './components/SearchBar/SearchBusiness'
@@ -32,10 +33,17 @@ class Routes extends Component {
         <Route exact path="/signup" component={Signup} />
         <Route path="/signup/business" component={BusinessForm} />
 
+        {/* Route needed for isLoggedIn and role is business to route 
+        to business sign up form */}
+
+        {/* Route needed for isLoggedIn and role is customer to route to 
+        customer sign up form*/}
+
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route path="/home" component={CustomerHome} />
+            <Route exact path="/user/signup" component={HandleSignUp} />
             <Route exact path="/user/portal" component={CustomerPortal} />
             <Route
               exact
