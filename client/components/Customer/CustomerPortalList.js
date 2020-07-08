@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import CustomerError from './CustomerError'
 
 // looping through the buisines and tiers from customers through eager loading in backend route

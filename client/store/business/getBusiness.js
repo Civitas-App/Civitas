@@ -19,22 +19,34 @@ export const fetchBusiness = () => async dispatch => {
     console.log('error in fetchBusiness', error)
   }
 }
+export const getAllBussiness = () => async dispatch => {
+  try {
+    const {data: businessData} = await axios.get('/api/business')
+    dispatch(getBusiness(businessData))
+  } catch (error) {
+    console.log('error in fetchBusiness', error)
+  }
+}
 
 export const searchBusiness = query => async dispatch => {
   try {
-    if (!query) {
-      const {data: business} = await axios.get('/api/search')
-      dispatch(getBusiness(business))
-    } else {
-      const {data: business} = await axios.get(`/api/search?search=${query}`)
-      console.log('2')
-      dispatch(getBusiness(business))
-      console.log('3')
-    }
+    const {data: business} = await axios.get(`/api/search?search=${query}`)
+    dispatch(getBusiness(business))
   } catch (error) {
     console.log('error in fetchProducts', error)
   }
 }
+export const getCategory = query => async dispatch => {
+  try {
+    const {data: category} = await axios.get(
+      `/api/business/filter/category?category=${query}`
+    )
+    dispatch(getBusiness(category))
+  } catch (error) {
+    console.log('error in category product thunk', error)
+  }
+}
+
 export const fetchSubscriptions = () => async dispatch => {
   try {
     const {data: subscriptionData} = await axios.get(
