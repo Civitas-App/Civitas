@@ -2,11 +2,11 @@ import React from 'react'
 import {useSelector} from 'react-redux'
 
 const AllBusinesses = () => {
-  const business = useSelector(state => state.business)
+  const businesses = useSelector(state => state.businesses)
 
   return (
     <div>
-      {business.map(query => (
+      {businesses.map(query => (
         <div key={query.id}>
           <h4>Name: {query.name}</h4>
           <img src={query.headerPhoto} />

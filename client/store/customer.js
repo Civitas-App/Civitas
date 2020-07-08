@@ -1,23 +1,9 @@
 import axios from 'axios'
 
-const GET_CUSTOMER = 'GET_CUSTOMER'
 const CREATE_CUSTOMER = 'CREATES_CUSTOMER'
 
 // action creator
-const getCustomer = customer => ({type: GET_CUSTOMER, customer})
-const createCustomer = customer => ({type: GET_CUSTOMER, customer})
-
-// thunk
-export const fetchCustomer = () => async dispatch => {
-  try {
-    const {data: customerData} = await axios.get(
-      '/api/customer/pledges/business'
-    )
-    dispatch(getCustomer(customerData))
-  } catch (error) {
-    console.log('error in fetchCustomer', error)
-  }
-}
+const createCustomer = customer => ({type: CREATE_CUSTOMER, customer})
 
 export const createCustomerSignup = customerInfo => async dispatch => {
   try {
@@ -37,8 +23,6 @@ export const createCustomerSignup = customerInfo => async dispatch => {
 // reducer
 const customer = (state = [], action) => {
   switch (action.type) {
-    case GET_CUSTOMER:
-      return action.customer
     case CREATE_CUSTOMER:
       return [action.customer]
     default:

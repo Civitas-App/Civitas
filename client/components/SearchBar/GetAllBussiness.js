@@ -3,7 +3,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import {getAllBussiness} from '../../store/business/getBusiness'
 
 const GetAllBussiness = () => {
-  const business = useSelector(state => state.business)
+  const businesses = useSelector(state => state.businesses)
   const dispatch = useDispatch()
   useEffect(
     () => {
@@ -14,7 +14,7 @@ const GetAllBussiness = () => {
 
   return (
     <div>
-      {business.map(query => (
+      {businesses.map(query => (
         <div key={query.id}>
           <h4>Name: {query.name}</h4>
           <img src={query.headerPhoto} />
