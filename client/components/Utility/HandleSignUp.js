@@ -1,22 +1,14 @@
 import React, {useState, useEffect} from 'react'
-import {updateUser} from '../../store/user'
+
 import axios from 'axios'
 
 const HandleSignUp = () => {
   const [role, setRole] = useState('')
 
-  // const handleSubmit = (e) => {
-  //   //e.preventDefault()
-  //   console.log('target value', e.target.value)
-
-  //   setRole(e.target.value)
-  //   console.log(role)
-  // }
-
   useEffect(() => {
     async function update() {
       // You can await here
-      console.log(role)
+
       await axios.post('/api/users/signup', role)
     }
     update()

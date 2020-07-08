@@ -20,9 +20,9 @@ router.get('/', async (req, res, next) => {
 router.post('/signup', async (req, res, next) => {
   try {
     const user = await User.findOne({where: {id: req.user.id}})
-    console.log('role', req.body)
+
     const updatedUser = await user.update({role: req.body.role})
-    console.log(updatedUser.dataValues)
+
     res.json(updatedUser)
   } catch (error) {
     next(error)
