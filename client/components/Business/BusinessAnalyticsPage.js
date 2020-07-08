@@ -1,13 +1,13 @@
 import React, {useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {fetchSubscriptions} from '../../store/business/getBusiness'
+import {fetchSubscriptions} from '../../store/business/subscription'
 
 /*parent component for business analytics page.
 shows all subscription data and will drill into revenue forecast */
 
 const BusinessAnalytics = () => {
-  const business = useSelector(state => state.business)
-  console.log(business)
+  const subscription = useSelector(state => state.subscription)
+  console.log(subscription)
   const dispatch = useDispatch()
 
   useEffect(
@@ -18,7 +18,7 @@ const BusinessAnalytics = () => {
   )
 
   let total = 0
-  business.forEach(subscribe => {
+  subscription.forEach(subscribe => {
     total += subscribe.tier.price
   })
   return <div>{total}</div>

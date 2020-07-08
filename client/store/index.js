@@ -4,14 +4,16 @@ import thunkMiddleware from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 import user from './user'
 import customer from './customer'
-import business from '../store/business/getBusiness'
-import businessCreate from '../store/business/createBusiness'
+import business from './business/getBusiness'
+import businessCreate from './business/createBusiness'
+import subscription from './business/subscription'
 
 const reducer = combineReducers({
   user,
   customer,
   business,
-  businessCreate
+  businessCreate,
+  subscription
 })
 const middleware = composeWithDevTools(
   applyMiddleware(thunkMiddleware, createLogger({collapsed: true}))
