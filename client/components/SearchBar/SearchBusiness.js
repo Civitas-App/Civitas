@@ -24,7 +24,7 @@ const SearchBusiness = () => {
 
   return (
     <div>
-      <label htmlFor="search" />
+      {/* <label htmlFor="search" />
       <input
         type="text"
         value={values.search}
@@ -35,7 +35,7 @@ const SearchBusiness = () => {
       <AllBusinesses />
       <button type="button" onClick={handleSubmit}>
         Search
-      </button>
+      </button> */}
     </div>
   )
 }
