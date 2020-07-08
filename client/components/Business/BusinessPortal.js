@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {fetchBusiness} from '../../store/business/getBusiness'
+import {fetchBusiness} from '../../store/business/singleBusiness'
 import BusinessTier from './BusinessTier'
 import BusinessProfile from './BusinessProfile'
 
