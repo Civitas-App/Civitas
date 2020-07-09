@@ -27,6 +27,7 @@ On mount, query the db
     */
 
 const RedirectPage = props => {
+  console.log('redirect page hit')
   useEffect(() => {
     const reduxState = store.getState()
     const {role} = reduxState.user

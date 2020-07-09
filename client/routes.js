@@ -16,6 +16,7 @@ import GetAllBussiness from './components/SearchBar/GetAllBussiness'
 import AllBusinesses from './components/SearchBar/AllBusinesses'
 import SingleBusiness from './components/Business/SingleBusiness'
 import CheckoutPage from './components/Checkout/CheckoutPage'
+import CreateTier from './components/Business/CreateTier'
 
 /**
  * COMPONENT
@@ -39,6 +40,7 @@ class Routes extends Component {
         <Route path="/signup/business" component={BusinessForm} />
         <Route exact path="/filter/businesses" component={GetAllBussiness} />
         <Route exact path="/search" component={AllBusinesses} />
+        <Route path="/test" component={CreateTier} />
 
         {/* Route needed for isLoggedIn and role is business to route
         to business sign up form */}
@@ -49,7 +51,8 @@ class Routes extends Component {
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
-            <Route path="/home" component={RedirectPage} />
+
+            <Route exact path="/home" component={RedirectPage} />
             <Route path="/checkout/:tierId" component={CheckoutPage} />
             <Route exact path="/user/signup" component={HandleSignUp} />
             <Route
