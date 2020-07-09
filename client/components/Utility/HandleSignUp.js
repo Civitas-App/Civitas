@@ -8,6 +8,7 @@ const HandleSignUp = props => {
     () => {
       async function update() {
         // You can await here
+        console.log('role before axios', role)
         await axios.post('/api/users/signup', {role})
         console.log('role', role)
         if (role === 'customer') {

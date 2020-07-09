@@ -14,7 +14,7 @@ const CustomerPortalList = ({customer}) => {
         <div className="pledges-list">
           {businesses.map(pledges => (
             <div key={pledges.id}>
-              <h1>Business name: {pledges.name}</h1>
+              <h1>Business: {pledges.name}</h1>
               <h5>
                 Pledges redeemed:
                 {pledges.subscription.redeemed ? 'true' : 'false'}
