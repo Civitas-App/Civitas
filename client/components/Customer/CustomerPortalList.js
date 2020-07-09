@@ -14,16 +14,16 @@ const CustomerPortalList = ({customer}) => {
         <div className="pledges-list">
           {businesses.map(pledges => (
             <div key={pledges.id}>
-              <h4>Business name: {pledges.name}</h4>
-              <h4>
-                businesses redeemed:
+              <h1>Business name: {pledges.name}</h1>
+              <h5>
+                Pledges redeemed:
                 {pledges.subscription.redeemed ? 'true' : 'false'}
-              </h4>
+              </h5>
               {pledges.tiers.map(tier => (
                 <div key={tier.id}>
-                  <h4>tier level: {tier.level}</h4>
-                  <h4>tier price: {tier.price}</h4>
-                  <h4>tier pledge: {tier.pledge}</h4>
+                  <h3>tier level: {tier.level}</h3>
+                  <h3>tier price: {tier.price}</h3>
+                  <h3>tier pledge: {tier.pledge}</h3>
                 </div>
               ))}
             </div>

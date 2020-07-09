@@ -12,10 +12,13 @@ const Navbar = ({handleClick, isLoggedIn}) => (
       {isLoggedIn ? (
         <div>
           {/* The navbar will show these links after you log in */}
-          <Link to="/home">Home</Link>
+          {/* Rerouted this from /home to / to route to the homepage of Civitas instead of a second homepage for the user */}
+          <Link to="/">Home</Link>
           <a href="#" onClick={handleClick}>
             Logout
           </a>
+          {/* Link user to their portal in navbar */}
+          <Link to="/user/portal">Profile</Link>
         </div>
       ) : (
         <div>

@@ -11,6 +11,10 @@ export function Homepage() {
         their favorite local businesses in need and in exchange, businesses will
         provide users with food or services based on tiers.
       </h3>
+      <h4>
+        Get started by using the search bar to search for local businesses near
+        you!
+      </h4>
     </div>
   )
 }
