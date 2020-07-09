@@ -19,6 +19,7 @@ const CustomerSignUp = () => {
       <form onSubmit={handleSubmit}>
         <label htmlFor="name" />
         <input
+          placeholder="name - required"
           name="name"
           type="text"
           value={values.email}
@@ -26,6 +27,7 @@ const CustomerSignUp = () => {
         />
         <label htmlFor="location" />
         <input
+          placeholder="location - required"
           name="location"
           type="text"
           value={values.location}
@@ -33,6 +35,7 @@ const CustomerSignUp = () => {
         />
         <label htmlFor="avatar" />
         <input
+          placeholder="avatar"
           name="avatar"
           type="text"
           value={values.avatar}

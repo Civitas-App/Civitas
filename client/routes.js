@@ -34,6 +34,8 @@ class Routes extends Component {
         <Route exact path="/" component={Homepage} />
         <Route path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
+        <Route exact path="/user/signup" component={HandleSignUp} />
+        <Route exact path="/user/portal/signup" component={CustomerSignUp} />
         <Route path="/signup/business" component={BusinessForm} />
         <Route exact path="/filter/businesses" component={GetAllBussiness} />
         <Route exact path="/search" component={AllBusinesses} />
@@ -56,11 +58,6 @@ class Routes extends Component {
               component={GetAllBussiness}
             />
             <Route exact path="/user/portal" component={CustomerPortal} />
-            <Route
-              exact
-              path="/user/portal/signup"
-              component={CustomerSignUp}
-            />
             <Route exact path="/search" component={AllBusinesses} />
             <Route exact path="/business/portal" component={BusinessPortal} />
             <Route
