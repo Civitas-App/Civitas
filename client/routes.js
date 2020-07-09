@@ -14,6 +14,8 @@ import CustomerSignUp from './components/Customer/CustomerSignUp'
 import BusinessAnalytics from './components/Business/BusinessAnalyticsPage'
 import GetAllBussiness from './components/SearchBar/GetAllBussiness'
 import AllBusinesses from './components/SearchBar/AllBusinesses'
+import SingleBusiness from './components/Business/SingleBusiness'
+import CheckoutPage from './components/Checkout/CheckoutPage'
 
 /**
  * COMPONENT
@@ -48,6 +50,8 @@ class Routes extends Component {
           <Switch>
             {/* Routes placed here are only available after logging in */}
             <Route path="/home" component={CustomerHome} />
+            <Route path="/checkout/:tierId" component={CheckoutPage} />
+            <Route exact path="/user/signup" component={HandleSignUp} />
             <Route
               exact
               path="/filter/businesses"
@@ -56,6 +60,11 @@ class Routes extends Component {
             <Route exact path="/user/portal" component={CustomerPortal} />
             <Route exact path="/search" component={AllBusinesses} />
             <Route exact path="/business/portal" component={BusinessPortal} />
+            <Route
+              exact
+              path="/business/:businessId"
+              component={SingleBusiness}
+            />
             <Route
               exact
               path="/business/portal/analytics"
