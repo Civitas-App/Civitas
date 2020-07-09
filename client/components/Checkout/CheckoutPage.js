@@ -9,8 +9,7 @@ const CheckoutPage = props => {
     e.preventDefault()
     const {tierId} = props.match.params
     dispatch(setCustomerSuscription(tierId))
-    props.history.push('/home')
-    console.log('teir', typeof tierId)
+    props.history.push('/user/portal')
   }
 
   return (
