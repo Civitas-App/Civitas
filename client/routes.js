@@ -9,7 +9,7 @@ import CustomerPortal from './components/Customer/CustomerPortal'
 import BusinessPortal from './components/Business/BusinessPortal'
 import BusinessForm from './components/Business/BusinessSignUp'
 import HandleSignUp from './components/Utility/HandleSignUp'
-
+import RedirectPage from './components/Utility/RedirectPage'
 import CustomerSignUp from './components/Customer/CustomerSignUp'
 import BusinessAnalytics from './components/Business/BusinessAnalyticsPage'
 import GetAllBussiness from './components/SearchBar/GetAllBussiness'
@@ -49,7 +49,7 @@ class Routes extends Component {
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
-            <Route path="/home" component={CustomerHome} />
+            <Route path="/home" component={RedirectPage} />
             <Route path="/checkout/:tierId" component={CheckoutPage} />
             <Route exact path="/user/signup" component={HandleSignUp} />
             <Route

@@ -7,14 +7,6 @@ const getBusinesses = businesses => ({type: GET_BUSINESSES, businesses})
 
 // thunk
 
-export const fetchBusiness = () => async dispatch => {
-  try {
-    const {data: businessData} = await axios.get('/api/business/portal')
-    dispatch(getBusiness(businessData))
-  } catch (error) {
-    console.log('error in fetchBusiness', error)
-  }
-}
 export const getAllBussiness = () => async dispatch => {
   try {
     const {data: businessData} = await axios.get('/api/business')
