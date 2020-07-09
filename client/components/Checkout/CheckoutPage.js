@@ -1,11 +1,22 @@
-import React, {useEffect} from 'react'
-import {useDispatch, useSelector} from 'react-redux'
+import React from 'react'
+import {useDispatch} from 'react-redux'
+import {setCustomerSuscription} from '../../store/singleCustomer'
 
 const CheckoutPage = props => {
-  console.log(props)
+  const dispatch = useDispatch()
+
+  const handleClick = e => {
+    e.preventDefault()
+    const {tierId} = props.match.params
+    dispatch(setCustomerSuscription(tierId))
+    props.history.push('/user/portal')
+  }
+
   return (
     <div>
-      <h4>credit card info here</h4>
+      <button type="button" onClick={handleClick}>
+        Subscribe
+      </button>
     </div>
   )
 }
