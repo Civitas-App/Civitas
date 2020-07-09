@@ -14,6 +14,19 @@ export const fetchBusiness = () => async dispatch => {
     console.log('error in fetchBusiness', error)
   }
 }
+export const singleBusiness = businessId => async dispatch => {
+  try {
+    console.log('1')
+    const {data: business} = await axios.get(
+      `/api/single/business/${businessId}`
+    )
+    console.log('2')
+    dispatch(getBusiness(business))
+    console.log('3')
+  } catch (error) {
+    console.log('error in singleBusiness', error)
+  }
+}
 
 // reducer
 const business = (state = {}, action) => {

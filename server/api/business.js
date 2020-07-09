@@ -15,7 +15,7 @@ router.get('/', async (req, res, next) => {
 
 //business logs in will see his business profile and triers associated with it.
 //api/business/portal
-router.get(`/portal`, async (req, res, next) => {
+router.get('/portal', async (req, res, next) => {
   try {
     const business = await Business.findOne({
       where: {
