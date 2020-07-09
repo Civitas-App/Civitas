@@ -3,7 +3,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import {createBusiness} from '../../store/business/createBusiness'
 import useForm from '../Utility/UseForm'
 
-const BusinessForm = () => {
+const BusinessForm = props => {
   const [values, handleChange] = useForm({
     name: '',
     location: '',
@@ -28,6 +28,7 @@ const BusinessForm = () => {
         category
       })
     )
+    props.history.push('/business/portal')
   }
   return (
     <div>

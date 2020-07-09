@@ -3,7 +3,7 @@ import {useDispatch} from 'react-redux'
 import {createCustomerSignup} from '../../store/customer'
 import useForm from '../Utility/UseForm'
 
-const CustomerSignUp = () => {
+const CustomerSignUp = props => {
   const [values, handleChange] = useForm({name: '', location: '', avatar: ''})
   //mapDispatch
   const dispatch = useDispatch()
@@ -12,6 +12,7 @@ const CustomerSignUp = () => {
     e.preventDefault()
     const {name, location, avatar} = values
     dispatch(createCustomerSignup({name, location, avatar}))
+    props.history.push('/user/portal')
   }
 
   return (
