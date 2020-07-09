@@ -38,6 +38,7 @@ router.post('/pledge/:id', async (req, res, next) => {
         userId: req.user.id
       }
     })
+
     const {id} = req.params
     const tier = await Tier.findByPk(id)
 
