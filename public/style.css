@@ -1,7 +1,26 @@
 body {
-  font-family: sans-serif;
+  font-family: 'Dosis', sans-serif;
 }
-
+.customerInfo {
+  text-align: center;
+  display: flex;
+  border-style: solid;
+  border-width: 1px;
+  border-color: darkgray;
+  border-radius: 5px;
+  height: 300px;
+  width: 400px;
+}
+.businessInfo {
+  text-align: center;
+  display: flex;
+  border-style: solid;
+  border-width: 1px;
+  border-color: darkgray;
+  border-radius: 5px;
+  height: 500px;
+  width: 400px;
+}
 a {
   text-decoration: none;
 }
@@ -18,4 +37,14 @@ nav a {
 form div {
   margin: 1em;
   display: inline-block;
+}
+
+button {
+  border-radius: 10px;
+  height: 30px;
+}
+#portalAvatar {
+  height: 100px;
+  width: 100px;
+  display: flex;
 }

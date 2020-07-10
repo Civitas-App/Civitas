@@ -16,7 +16,7 @@ const CustomerPortal = () => {
 
   return (
     <div>
-      Welcome to your portal
+      <h3>Welcome to your portal</h3>
       <CustomerPortalList customer={customer} key={customer.id} />
     </div>
   )
