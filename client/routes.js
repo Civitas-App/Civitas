@@ -16,6 +16,7 @@ import GetAllBussiness from './components/SearchBar/GetAllBussiness'
 import AllBusinesses from './components/SearchBar/AllBusinesses'
 import SingleBusiness from './components/Business/SingleBusiness'
 import CheckoutPage from './components/Checkout/CheckoutPage'
+import ErrorPage from './components/Utility/ErrorPage'
 
 /**
  * COMPONENT
@@ -34,18 +35,10 @@ class Routes extends Component {
         <Route exact path="/" component={Homepage} />
         <Route path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
-        {/* <Route exact path="/user/signup" component={HandleSignUp} /> */}
         <Route exact path="/user/portal/signup" component={CustomerSignUp} />
         <Route path="/signup/business" component={BusinessForm} />
         <Route exact path="/filter/businesses" component={GetAllBussiness} />
         <Route exact path="/search" component={AllBusinesses} />
-
-        {/* Route needed for isLoggedIn and role is business to route
-        to business sign up form */}
-
-        {/* Route needed for isLoggedIn and role is customer to route to
-        customer sign up form*/}
-
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
@@ -70,6 +63,7 @@ class Routes extends Component {
               path="/business/portal/analytics"
               component={BusinessAnalytics}
             />
+            <Route path="*" component={ErrorPage} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
