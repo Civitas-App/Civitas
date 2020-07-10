@@ -13,7 +13,14 @@ export const createBusiness = businessInfo => async dispatch => {
     console.log('error in creating business', error)
   }
 }
-
+export const createTier = info => async dispatch => {
+  try {
+    const business = await axios.post('/api/business/createtier', info)
+    dispatch(makeBusiness(business.data))
+  } catch (error) {
+    console.log(error)
+  }
+}
 const businessCreate = (state = {}, action) => {
   switch (action.type) {
     case CREATE_BUSINESS:

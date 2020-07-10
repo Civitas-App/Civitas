@@ -15,6 +15,9 @@ import GetAllBussiness from './components/SearchBar/GetAllBussiness'
 import AllBusinesses from './components/SearchBar/AllBusinesses'
 import SingleBusiness from './components/Business/SingleBusiness'
 import CheckoutPage from './components/Checkout/CheckoutPage'
+import CreateTier from './components/Business/CreateTier'
+import ErrorPage from './components/Utility/ErrorPage'
+import RedirectPage from './components/Utility/RedirectPage'
 
 /**
  * COMPONENT
@@ -32,11 +35,11 @@ class Routes extends Component {
         <Route exact path="/" component={Homepage} />
         <Route path="/login" component={Login} />
         <Route exact path="/signup" component={Signup} />
-        <Route exact path="/user/signup" component={HandleSignUp} />
         <Route exact path="/user/portal/signup" component={CustomerSignUp} />
         <Route path="/signup/business" component={BusinessForm} />
         <Route exact path="/filter/businesses" component={GetAllBussiness} />
         <Route exact path="/search" component={AllBusinesses} />
+        <Route path="/business/createtier" component={CreateTier} />
 
         {/* Route needed for isLoggedIn and role is business to route
         to business sign up form */}
@@ -47,7 +50,8 @@ class Routes extends Component {
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
-            <Route path="/home" component={CustomerHome} />
+
+            <Route exact path="/home" component={RedirectPage} />
             <Route path="/checkout/:tierId" component={CheckoutPage} />
             <Route exact path="/user/signup" component={HandleSignUp} />
             <Route
@@ -57,7 +61,7 @@ class Routes extends Component {
             />
             <Route exact path="/user/portal" component={CustomerPortal} />
             <Route exact path="/search" component={AllBusinesses} />
-            <Route exact path="/business/portal" component={BusinessPortal} />
+
             <Route
               exact
               path="/business/:businessId"
@@ -68,6 +72,8 @@ class Routes extends Component {
               path="/business/portal/analytics"
               component={BusinessAnalytics}
             />
+            <Route exact path="/business/portal" component={BusinessPortal} />
+            <Route path="*" component={ErrorPage} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
