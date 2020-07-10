@@ -14,7 +14,7 @@ const CustomerPortalList = ({singleCustomer}) => {
       </div>
       {singleCustomer.subscription && singleCustomer.subscription.length > 0 ? (
         <div className="customer-subscription-info">
-          <h2>Supporting</h2>
+          <h2>Supportings</h2>
           {singleCustomer.subscription.map(customer => (
             <div key={customer.business.id}>
               <img src={customer.business.headerPhoto} />

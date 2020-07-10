@@ -18,6 +18,7 @@ import CheckoutPage from './components/Checkout/CheckoutPage'
 import CreateTier from './components/Business/CreateTier'
 import ErrorPage from './components/Utility/ErrorPage'
 import RedirectPage from './components/Utility/RedirectPage'
+import ConirmationPage from './components/Utility/ConirmationPage'
 
 /**
  * COMPONENT
@@ -53,6 +54,7 @@ class Routes extends Component {
 
             <Route exact path="/home" component={RedirectPage} />
             <Route path="/checkout/:tierId" component={CheckoutPage} />
+            <Route exact path="/confirmation" component={ConirmationPage} />
             <Route exact path="/user/signup" component={HandleSignUp} />
             <Route
               exact
