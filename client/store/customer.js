@@ -1,8 +1,9 @@
 import axios from 'axios'
 
 const CREATE_CUSTOMER = 'CREATES_CUSTOMER'
+// const GET_CUSTOMER = 'GET_CUSTOMER'
 
-// action creator
+// const getCustomer = customer => ({type: GET_CUSTOMER, customer})
 const createCustomer = customer => ({type: CREATE_CUSTOMER, customer})
 
 export const createCustomerSignup = customerInfo => async dispatch => {
@@ -23,6 +24,8 @@ export const createCustomerSignup = customerInfo => async dispatch => {
 // reducer
 const customer = (state = [], action) => {
   switch (action.type) {
+    // case GET_CUSTOMER:
+    //   return action.customer
     case CREATE_CUSTOMER:
       return [action.customer]
     default:

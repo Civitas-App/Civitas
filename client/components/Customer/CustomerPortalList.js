@@ -3,29 +3,27 @@ import CustomerError from './CustomerError'
 
 // looping through the buisines and tiers from customers through eager loading in backend route
 // checking if there is a busines if there is map through the bhiness and teirs if not null
-const CustomerPortalList = ({customer}) => {
-  const {businesses} = customer
-  console.log(businesses)
+const CustomerPortalList = ({singleCustomer}) => {
+  console.log('single', singleCustomer)
+
   return (
-    <div className="pledges">
-      <h4>Hi {customer.name}</h4>
-      <img src={customer.avatar} />
-      {businesses && businesses.length > 0 ? (
-        <div className="pledges-list">
-          {businesses.map(pledges => (
-            <div key={pledges.id}>
-              <h1>Business: {pledges.name}</h1>
-              <h5>
-                Pledges redeemed:
-                {pledges.subscription.redeemed ? 'true' : 'false'}
-              </h5>
-              {pledges.tiers.map(tier => (
-                <div key={tier.id}>
-                  <h3>tier level: {tier.level}</h3>
-                  <h3>tier price: {tier.price}</h3>
-                  <h3>tier pledge: {tier.pledge}</h3>
-                </div>
-              ))}
+    <div className="customer-profile">
+      <div className="customer-info">
+        <h3>{singleCustomer.name}</h3>
+        <img src={singleCustomer.avatar} />
+      </div>
+      {singleCustomer.subscription && singleCustomer.subscription.length > 0 ? (
+        <div className="customer-subscription-info">
+          <h2>Supportings</h2>
+          {singleCustomer.subscription.map(customer => (
+            <div key={customer.business.id}>
+              <img src={customer.business.headerPhoto} />
+              <h2>{customer.business.name}</h2>
+              <h4>
+                businesses redeemed: {customer.redeemed ? 'true' : 'false'}
+              </h4>
+              <h4>tier level subscribed to: {customer.tier.level}</h4>
+              <h4>subscription price: {customer.tier.price}</h4>
             </div>
           ))}
         </div>
