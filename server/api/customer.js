@@ -4,6 +4,19 @@ const userAuthentication = require('./middleware/user_middleware')
 const {Op} = require('sequelize')
 module.exports = router
 
+router.get('/', async (req, res, next) => {
+  try {
+    const getCustomer = await Customer.findOne({
+      where: {
+        userId: req.user.id
+      }
+    })
+    res.json(getCustomer)
+  } catch (error) {
+    next(error)
+  }
+})
+
 // for that customer when he logs in
 // show all his pledges to that bussiness
 // api/customer/pledges/business
@@ -12,15 +25,17 @@ router.get('/pledges/business', async (req, res, next) => {
     const customer = await Customer.findOne({
       where: {
         userId: req.user.id
-      },
-      include: {
-        model: Business,
-        include: {
-          model: Tier
-        }
       }
     })
-    res.json(customer)
+
+    const getSub = await Subscription.findAll({
+      where: {
+        customerId: customer.id
+      },
+      include: [Business, Tier]
+    })
+
+    res.json(getSub)
   } catch (error) {
     next(error)
   }

@@ -6,13 +6,24 @@ const SET_SUBSCRIPTION = 'SET_SUBSCRIPTION'
 const getCustomer = customer => ({type: GET_CUSTOMER, customer})
 const setSubscription = tier => ({type: SET_SUBSCRIPTION, tier})
 
+export const fetchSingleCustomer = () => async dispatch => {
+  try {
+    const {data: customerData} = await axios.get('/api/customer')
+    dispatch(getCustomer(customerData))
+  } catch (error) {
+    console.log('error in fetchCustomer', error)
+  }
+}
+
 export const fetchCustomer = () => async dispatch => {
   try {
+    console.log('1')
     const {data: customerData} = await axios.get(
       '/api/customer/pledges/business'
     )
-    console.log(customerData)
+    console.log('2')
     dispatch(getCustomer(customerData))
+    console.log('3')
   } catch (error) {
     console.log('error in fetchCustomer', error)
   }
