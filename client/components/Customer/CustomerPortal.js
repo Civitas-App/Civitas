@@ -11,11 +11,9 @@ const CustomerPortal = () => {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    console.log('hehehe')
     dispatch(fetchSingleCustomer())
     dispatch(fetchSubscriptions())
   }, [])
-  console.log('singlecustomer', singleCustomer)
   return (
     <div>
       <CustomerPortalList

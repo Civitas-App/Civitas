@@ -7,11 +7,17 @@ const CustomerPortalList = ({singleCustomer}) => {
   console.log('single', singleCustomer)
 
   return (
-    <div>
-      {singleCustomer && singleCustomer.length > 0 ? (
-        <div>
-          {singleCustomer.map(customer => (
+    <div className="customer-profile">
+      <div className="customer-info">
+        <h3>{singleCustomer.name}</h3>
+        <img src={singleCustomer.avatar} />
+      </div>
+      {singleCustomer.subscription && singleCustomer.subscription.length > 0 ? (
+        <div className="customer-subscription-info">
+          <h2>Supporting</h2>
+          {singleCustomer.subscription.map(customer => (
             <div key={customer.business.id}>
+              <img src={customer.business.headerPhoto} />
               <h2>{customer.business.name}</h2>
               <h4>
                 businesses redeemed: {customer.redeemed ? 'true' : 'false'}
