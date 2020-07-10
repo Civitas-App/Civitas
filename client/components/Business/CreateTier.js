@@ -1,11 +1,13 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import useForm from '../Utility/UseForm'
 import {useSelector, useDispatch} from 'react-redux'
 import {createTier} from '../../store/business/createBusiness'
+import {fetchBusiness} from '../../store/business/singleBusiness'
 
 const CreateTier = props => {
-  const user = useSelector(state => state.user)
-  console.log(user.id)
+  console.log('props:', props)
+  const business = useSelector(state => state.business)
+  console.log(business)
   const [values, handleChange] = useForm({
     level1: 1,
     title1: '',
@@ -47,7 +49,7 @@ const CreateTier = props => {
     } = values
     dispatch(
       createTier({
-        id: user.id,
+        id: business.id,
         tiers: [
           {
             level: level1,
@@ -77,6 +79,12 @@ const CreateTier = props => {
   }
   //[ { level1, title1, pledge1 },  { level2, title 2, pledge2 }, {level3, title3, pledge3} ]
   //make form for all three tiers, submit the tier and add business in api
+  useEffect(
+    () => {
+      dispatch(fetchBusiness())
+    },
+    [fetchBusiness]
+  )
   return (
     <div>
       <h2>Tier Level 1</h2>
