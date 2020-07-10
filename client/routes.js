@@ -40,7 +40,7 @@ class Routes extends Component {
         <Route path="/signup/business" component={BusinessForm} />
         <Route exact path="/filter/businesses" component={GetAllBussiness} />
         <Route exact path="/search" component={AllBusinesses} />
-        <Route path="/test" component={CreateTier} />
+        <Route path="/business/createtier" component={CreateTier} />
 
         {/* Route needed for isLoggedIn and role is business to route
         to business sign up form */}
@@ -62,7 +62,7 @@ class Routes extends Component {
             />
             <Route exact path="/user/portal" component={CustomerPortal} />
             <Route exact path="/search" component={AllBusinesses} />
-            <Route exact path="/business/portal" component={BusinessPortal} />
+
             <Route
               exact
               path="/business/:businessId"
@@ -73,6 +73,7 @@ class Routes extends Component {
               path="/business/portal/analytics"
               component={BusinessAnalytics}
             />
+            <Route exact path="/business/portal" component={BusinessPortal} />
           </Switch>
         )}
         {/* Displays our Login component as a fallback */}
