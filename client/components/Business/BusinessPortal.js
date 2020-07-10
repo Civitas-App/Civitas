@@ -3,6 +3,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import {fetchBusiness} from '../../store/business/singleBusiness'
 import BusinessTier from './BusinessTier'
 import BusinessProfile from './BusinessProfile'
+import {NavLink} from 'react-router-dom'
 
 /*Parent component
 Children: BusinessProfile, BusinessTier
@@ -20,6 +21,11 @@ const BusinessPortal = () => {
   )
   return (
     <div>
+      <button type="button">
+        <NavLink to="/business/portal/analytics">
+          See your analytics page here
+        </NavLink>
+      </button>
       <BusinessProfile business={business} />
       <BusinessTier business={business} key={business.id} />
     </div>
