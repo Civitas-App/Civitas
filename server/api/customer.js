@@ -27,14 +27,12 @@ router.get('/pledges/business', async (req, res, next) => {
         userId: req.user.id
       }
     })
-
     const getSub = await Subscription.findAll({
       where: {
         customerId: customer.id
       },
       include: [Business, Tier]
     })
-
     res.json(getSub)
   } catch (error) {
     next(error)

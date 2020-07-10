@@ -21,20 +21,6 @@ export const createCustomerSignup = customerInfo => async dispatch => {
   }
 }
 
-// export const fetchCustomer = () => async dispatch => {
-//   try {
-//     console.log('1')
-//     const {data: customerData} = await axios.get(
-//       '/api/customer/pledges/business'
-//       )
-//       console.log('2')
-//       dispatch(getCustomer(customerData))
-//       console.log('3')
-//   } catch (error) {
-//     console.log('error in fetchCustomer', error)
-//   }
-// }
-
 // reducer
 const customer = (state = [], action) => {
   switch (action.type) {
