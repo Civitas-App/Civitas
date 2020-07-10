@@ -16,6 +16,7 @@ import GetAllBussiness from './components/SearchBar/GetAllBussiness'
 import AllBusinesses from './components/SearchBar/AllBusinesses'
 import SingleBusiness from './components/Business/SingleBusiness'
 import CheckoutPage from './components/Checkout/CheckoutPage'
+import CreateTier from './components/Business/CreateTier'
 import ErrorPage from './components/Utility/ErrorPage'
 
 /**
@@ -39,10 +40,19 @@ class Routes extends Component {
         <Route path="/signup/business" component={BusinessForm} />
         <Route exact path="/filter/businesses" component={GetAllBussiness} />
         <Route exact path="/search" component={AllBusinesses} />
+        <Route path="/business/createtier" component={CreateTier} />
+
+        {/* Route needed for isLoggedIn and role is business to route
+        to business sign up form */}
+
+        {/* Route needed for isLoggedIn and role is customer to route to
+        customer sign up form*/}
+
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
-            <Route path="/home" component={RedirectPage} />
+
+            <Route exact path="/home" component={RedirectPage} />
             <Route path="/checkout/:tierId" component={CheckoutPage} />
             <Route exact path="/user/signup" component={HandleSignUp} />
             <Route
@@ -52,7 +62,7 @@ class Routes extends Component {
             />
             <Route exact path="/user/portal" component={CustomerPortal} />
             <Route exact path="/search" component={AllBusinesses} />
-            <Route exact path="/business/portal" component={BusinessPortal} />
+
             <Route
               exact
               path="/business/:businessId"
@@ -63,6 +73,7 @@ class Routes extends Component {
               path="/business/portal/analytics"
               component={BusinessAnalytics}
             />
+            <Route exact path="/business/portal" component={BusinessPortal} />
             <Route path="*" component={ErrorPage} />
           </Switch>
         )}

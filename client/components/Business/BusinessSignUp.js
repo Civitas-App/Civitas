@@ -2,6 +2,7 @@ import React, {useHook} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {createBusiness} from '../../store/business/createBusiness'
 import useForm from '../Utility/UseForm'
+import CreateTier from './CreateTier'
 
 const BusinessForm = props => {
   const [values, handleChange] = useForm({
@@ -12,6 +13,7 @@ const BusinessForm = props => {
     description: '',
     category: ''
   })
+
   const dispatch = useDispatch()
   console.log('values', values.location)
 
@@ -28,7 +30,7 @@ const BusinessForm = props => {
         category
       })
     )
-    props.history.push('/business/portal')
+    props.history.push('/business/createtier')
   }
   return (
     <div>

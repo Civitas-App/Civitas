@@ -3,16 +3,16 @@ import {useSelector} from 'react-redux'
 
 const RedirectPage = props => {
   const role = useSelector(state => state.user.role)
-  console.log('redirectPage being hit')
+  console.log('redirectPage being hit... Role:', role)
   useEffect(() => {
-    console.log('reduxxxxxx', role)
+    console.log('redirectPage UseEffect... Role:', role)
     if (role === 'business') {
-      props.history.push('/business/portal')
+      return props.history.push('/business/portal')
     }
     if (role === 'customer') {
-      props.history.push('/user/portal')
+      return props.history.push('/user/portal')
     } else {
-      props.history.push('/user/signup')
+      return props.history.push('/user/signup')
     }
   }, [])
 
