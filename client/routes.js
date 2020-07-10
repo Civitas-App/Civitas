@@ -63,6 +63,7 @@ class Routes extends Component {
             <Route exact path="/user/portal" component={CustomerPortal} />
             <Route exact path="/search" component={AllBusinesses} />
 
+            <Route exact path="/business/portal" component={BusinessPortal} />
             <Route
               exact
               path="/business/:businessId"
@@ -73,7 +74,6 @@ class Routes extends Component {
               path="/business/portal/analytics"
               component={BusinessAnalytics}
             />
-            <Route exact path="/business/portal" component={BusinessPortal} />
             <Route path="*" component={ErrorPage} />
           </Switch>
         )}
