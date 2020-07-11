@@ -8,8 +8,6 @@ const BusinessForm = props => {
   const [values, handleChange] = useForm({
     name: '',
     location: '',
-    headerPhoto: '',
-    avatar: '',
     description: '',
     category: ''
   })
@@ -19,13 +17,11 @@ const BusinessForm = props => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    const {name, location, headerPhoto, avatar, description, category} = values
+    const {name, location, description, category} = values
     dispatch(
       createBusiness({
         name,
         location,
-        headerPhoto,
-        avatar,
         description,
         category
       })
@@ -38,7 +34,7 @@ const BusinessForm = props => {
       <form onSubmit={handleSubmit}>
         <label htmlFor="name" />
         <input
-          placeholder="name - required"
+          placeholder="Name - Required"
           name="name"
           type="text"
           value={values.name}
@@ -46,37 +42,30 @@ const BusinessForm = props => {
         />
         <label htmlFor="location" />
         <input
-          placeholder="location - required"
+          placeholder="Location City - Required"
           name="location"
           type="text"
           value={values.location}
           onChange={handleChange}
         />
-        <label htmlFor="headerPhoto" />
-        <input
-          placeholder="headerphoto"
-          name="headerPhoto"
-          type="text"
-          value={values.headerPhoto}
-          onChange={handleChange}
-        />
-        <label htmlFor="avatar" />
-        <input
-          placeholder="avatar"
-          name="avatar"
-          type="text"
-          value={values.avatar}
-          onChange={handleChange}
-        />
         <label htmlFor="description" />
         <input
-          placeholder="description - required"
+          placeholder="Business Description - required"
           name="description"
           type="text"
           value={values.description}
           onChange={handleChange}
         />
-        <label htmlFor="category" />
+        <label htmlFor="Category" />
+        {/* <select onChange={handleChange} value={values.category}>
+          <option value="restaurant">Choose a Category</option>
+          <option value="restaurant">Restaurant</option>
+          <option value="fashion">Clothing Store</option>
+          <option value="music">Music</option>
+          <option value="gym">Gym</option>
+          <option value="barbershop">Barbershop</option>
+          <option value="other">Other</option>
+        </select> */}
         <input
           placeholder="category - required"
           name="category"
