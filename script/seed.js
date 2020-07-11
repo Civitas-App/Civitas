@@ -138,7 +138,7 @@ async function seed() {
         await Tier.create({
           level: 1,
           title: faker.lorem.words(),
-          pledge: [faker.lorem.sentence(), faker.lorem.sentence()],
+          pledge: faker.lorem.sentences(),
           price: 5,
           photo: faker.image.cats()
         })
@@ -152,7 +152,7 @@ async function seed() {
       await Tier.create({
         level: 2,
         title: faker.lorem.words(),
-        pledge: [faker.lorem.sentence(), faker.lorem.sentence()],
+        pledge: faker.lorem.sentences(),
         price: 15,
         photo: faker.image.cats()
       })
@@ -164,7 +164,7 @@ async function seed() {
       await Tier.create({
         level: 3,
         title: faker.lorem.words(),
-        pledge: [faker.lorem.sentence(), faker.lorem.sentence()],
+        pledge: faker.lorem.sentences(),
         price: 50,
         photo: faker.image.cats()
       })

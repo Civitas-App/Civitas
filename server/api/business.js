@@ -41,6 +41,8 @@ router.post('/create', async (req, res, next) => {
       description,
       avatar,
       headerPhoto
+      //I want to be able to update businesses and tiers, so I am
+      //putting them in an object together and calling each
     } = req.body
 
     const business = await Business.create({
@@ -52,6 +54,12 @@ router.post('/create', async (req, res, next) => {
       category,
       userId: req.user.id
     })
+    // req.body.tier.forEach(async (tier) => {
+    //   const {level, title, pledge, price, photo} = tier
+    //   const newTier = await Tier.create({level, title, pledge, price, photo})
+    //   business.addTier(newTier)
+    // })
+
     res.status(201).json(business)
   } catch (error) {
     next(error)
@@ -90,6 +98,35 @@ router.get('/filter/category', async (req, res, next) => {
       }
     })
     res.json(getCategory)
+  } catch (error) {
+    next(error)
+  }
+})
+
+router.post('/createtier', async (req, res, next) => {
+  try {
+    const business = await Business.findOne({where: {id: req.body.id}})
+    const tiers = req.body.tiers
+
+    tiers.forEach(async tier => {
+      try {
+        const {level, title, pledge, price, photo} = tier
+
+        const levelTier = await Tier.create({
+          level,
+          title,
+          pledge,
+          price,
+          photo
+        })
+
+        business.addTier(levelTier)
+      } catch (error) {
+        console.error(error)
+        next(error)
+      }
+    })
+    res.sendStatus(201)
   } catch (error) {
     next(error)
   }

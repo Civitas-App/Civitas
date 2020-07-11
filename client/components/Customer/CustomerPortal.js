@@ -1,23 +1,25 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {fetchCustomer} from '../../store/singleCustomer'
+import {
+  fetchSingleCustomer,
+  fetchSubscriptions
+} from '../../store/singleCustomer'
 import CustomerPortalList from './CustomerPortalList'
 
 const CustomerPortal = () => {
-  const customer = useSelector(state => state.singleCustomer)
+  const singleCustomer = useSelector(state => state.singleCustomer)
   const dispatch = useDispatch()
-  console.log(customer)
-  useEffect(
-    () => {
-      dispatch(fetchCustomer())
-    },
-    [fetchCustomer]
-  )
 
+  useEffect(() => {
+    dispatch(fetchSingleCustomer())
+    dispatch(fetchSubscriptions())
+  }, [])
   return (
     <div>
-      <h3>Welcome to your portal</h3>
-      <CustomerPortalList customer={customer} key={customer.id} />
+      <CustomerPortalList
+        singleCustomer={singleCustomer}
+        key={singleCustomer.id}
+      />
     </div>
   )
 }

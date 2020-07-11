@@ -9,14 +9,16 @@ import CustomerPortal from './components/Customer/CustomerPortal'
 import BusinessPortal from './components/Business/BusinessPortal'
 import BusinessForm from './components/Business/BusinessSignUp'
 import HandleSignUp from './components/Utility/HandleSignUp'
-import RedirectPage from './components/Utility/RedirectPage'
 import CustomerSignUp from './components/Customer/CustomerSignUp'
 import BusinessAnalytics from './components/Business/BusinessAnalyticsPage'
 import GetAllBussiness from './components/SearchBar/GetAllBussiness'
 import AllBusinesses from './components/SearchBar/AllBusinesses'
 import SingleBusiness from './components/Business/SingleBusiness'
 import CheckoutPage from './components/Checkout/CheckoutPage'
+import CreateTier from './components/Business/CreateTier'
 import ErrorPage from './components/Utility/ErrorPage'
+import RedirectPage from './components/Utility/RedirectPage'
+import ConirmationPage from './components/Utility/ConirmationPage'
 
 /**
  * COMPONENT
@@ -28,7 +30,6 @@ class Routes extends Component {
 
   render() {
     const {isLoggedIn} = this.props
-
     return (
       <Switch>
         {/* Routes placed here are available to all visitors */}
@@ -39,11 +40,21 @@ class Routes extends Component {
         <Route path="/signup/business" component={BusinessForm} />
         <Route exact path="/filter/businesses" component={GetAllBussiness} />
         <Route exact path="/search" component={AllBusinesses} />
+        <Route path="/business/createtier" component={CreateTier} />
+
+        {/* Route needed for isLoggedIn and role is business to route
+        to business sign up form */}
+
+        {/* Route needed for isLoggedIn and role is customer to route to
+        customer sign up form*/}
+
         {isLoggedIn && (
           <Switch>
             {/* Routes placed here are only available after logging in */}
-            <Route path="/home" component={RedirectPage} />
+
+            <Route exact path="/home" component={RedirectPage} />
             <Route path="/checkout/:tierId" component={CheckoutPage} />
+            <Route exact path="/confirmation" component={ConirmationPage} />
             <Route exact path="/user/signup" component={HandleSignUp} />
             <Route
               exact
@@ -52,6 +63,7 @@ class Routes extends Component {
             />
             <Route exact path="/user/portal" component={CustomerPortal} />
             <Route exact path="/search" component={AllBusinesses} />
+
             <Route exact path="/business/portal" component={BusinessPortal} />
             <Route
               exact

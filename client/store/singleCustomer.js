@@ -6,13 +6,21 @@ const SET_SUBSCRIPTION = 'SET_SUBSCRIPTION'
 const getCustomer = customer => ({type: GET_CUSTOMER, customer})
 const setSubscription = tier => ({type: SET_SUBSCRIPTION, tier})
 
-export const fetchCustomer = () => async dispatch => {
+export const fetchSingleCustomer = () => async dispatch => {
   try {
-    const {data: customerData} = await axios.get(
+    const {data: customerData} = await axios.get('/api/customer')
+    dispatch(getCustomer(customerData))
+  } catch (error) {
+    console.log('error in fetchCustomer', error)
+  }
+}
+
+export const fetchSubscriptions = () => async dispatch => {
+  try {
+    const {data: subscriptions} = await axios.get(
       '/api/customer/pledges/business'
     )
-    console.log(customerData)
-    dispatch(getCustomer(customerData))
+    dispatch(setSubscription(subscriptions))
   } catch (error) {
     console.log('error in fetchCustomer', error)
   }
@@ -20,13 +28,8 @@ export const fetchCustomer = () => async dispatch => {
 
 export const setCustomerSuscription = tierId => async dispatch => {
   try {
-    console.log('1')
-    const {data: subscription} = await axios.post(
-      `api/customer/pledge/${tierId}`
-    )
-    console.log('2')
-    dispatch(setSubscription(subscription))
-    console.log('3')
+    await axios.post(`api/customer/pledge/${tierId}`)
+    dispatch(fetchSubscriptions())
   } catch (error) {
     console.log('error in setSubscription', error)
   }
@@ -38,7 +41,7 @@ const singleCustomer = (state = {}, action) => {
     case GET_CUSTOMER:
       return action.customer
     case SET_SUBSCRIPTION:
-      return {...state, ...action.tier}
+      return {...state, subscription: action.tier}
     default:
       return state
   }

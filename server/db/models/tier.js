@@ -27,7 +27,8 @@ const Tier = db.define('tier', {
     }
   },
   pledge: {
-    type: Sequelize.ARRAY(Sequelize.TEXT),
+    //changed from array to text because of api
+    type: Sequelize.TEXT,
     allowNull: false,
     validate: {
       notEmpty: {
