@@ -1,6 +1,6 @@
 body {
   font-family: 'Dosis', sans-serif;
-  background-color: #eef8fc;
+  background-color: #f5b53d;
 }
 .customer-profile {
   text-align: center;
@@ -95,10 +95,11 @@ div#business_card {
   background-color: #3b8ea5;
   display: inline-block;
   text-align: center;
-  border-radius: 5px;
+  border-radius: 15px;
   border-width: 5px;
   width: 700px;
   border-color: #f49e4c;
+  border-style: solid;
   padding: 5px;
   margin-bottom: 10px;
   margin-left: 10px;
@@ -109,6 +110,8 @@ div#business_card_container {
 }
 div#business_card > img {
   width: 200px;
+  border-style: solid;
+  border-color: #f49e4c;
 }
 
 div#business_page {
@@ -131,7 +134,7 @@ div#business_tier {
   background-color: #f49e4c;
   display: inline-block;
   text-align: center;
-  border-radius: 5px;
+  border-radius: 10px;
   border-width: 5px;
   height: 500px;
   width: 200px;
@@ -139,6 +142,8 @@ div#business_tier {
   margin-bottom: 10px;
   margin-left: 10px;
   color: #f5ee9e;
+  border-style: solid;
+  border-color: #f5ee9e;
 }
 
 div#single_business {
