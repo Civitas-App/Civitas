@@ -4,14 +4,14 @@ import {createCustomerSignup} from '../../store/customer'
 import useForm from '../Utility/UseForm'
 
 const CustomerSignUp = props => {
-  const [values, handleChange] = useForm({name: '', location: '', avatar: ''})
+  const [values, handleChange] = useForm({name: '', location: ''})
   //mapDispatch
   const dispatch = useDispatch()
 
   const handleSubmit = e => {
     e.preventDefault()
-    const {name, location, avatar} = values
-    dispatch(createCustomerSignup({name, location, avatar}))
+    const {name, location} = values
+    dispatch(createCustomerSignup({name, location}))
     props.history.push('/user/portal')
   }
 
@@ -20,7 +20,7 @@ const CustomerSignUp = props => {
       <form onSubmit={handleSubmit}>
         <label htmlFor="name" />
         <input
-          placeholder="name - required"
+          placeholder="Name - Required"
           name="name"
           type="text"
           value={values.email}
@@ -28,18 +28,10 @@ const CustomerSignUp = props => {
         />
         <label htmlFor="location" />
         <input
-          placeholder="location - required"
+          placeholder="City - Required"
           name="location"
           type="text"
           value={values.location}
-          onChange={handleChange}
-        />
-        <label htmlFor="avatar" />
-        <input
-          placeholder="avatar"
-          name="avatar"
-          type="text"
-          value={values.avatar}
           onChange={handleChange}
         />
         <button type="submit">Create Accounts</button>

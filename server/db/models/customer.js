@@ -26,7 +26,8 @@ const Customer = db.define('customer', {
     }
   },
   avatar: {
-    type: Sequelize.STRING
+    type: Sequelize.STRING,
+    defaultValue: 'https://i.pravatar.cc/300'
   }
 })
 
