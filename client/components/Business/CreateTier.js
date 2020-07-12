@@ -75,7 +75,7 @@ const CreateTier = props => {
         ]
       })
     )
-    //props.history.push('/business/portal')
+    props.history.push('/business/portal')
   }
   //[ { level1, title1, pledge1 },  { level2, title 2, pledge2 }, {level3, title3, pledge3} ]
   //make form for all three tiers, submit the tier and add business in api
