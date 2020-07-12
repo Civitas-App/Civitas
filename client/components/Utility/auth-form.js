@@ -11,6 +11,7 @@ const AuthForm = props => {
   const {name, displayName, handleSubmit, error} = props
   return (
     <div
+      id="auth_form"
       onClick={e => {
         console.log(e)
       }}

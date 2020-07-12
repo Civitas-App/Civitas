@@ -14,18 +14,14 @@ const Business = db.define('business', {
   },
   headerPhoto: {
     type: Sequelize.STRING,
-    defaultValue: 'https://picsum.photos/500/300',
-    validate: {
-      isUrl: true
-    }
+    defaultValue: 'https://picsum.photos/820/312'
   },
+
   avatar: {
     type: Sequelize.STRING,
-    defaultValue: 'https://i.pravatar.cc/300',
-    validate: {
-      isUrl: true
-    }
+    defaultValue: 'https://api.adorable.io/avatars/200/abott@adorable.png'
   },
+
   description: {
     type: Sequelize.TEXT
   },

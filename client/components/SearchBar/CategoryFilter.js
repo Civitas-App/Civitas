@@ -12,7 +12,7 @@ const CategoryFilter = () => {
   }
 
   return (
-    <div>
+    <div id="category_filter">
       <select onChange={handleChange}>
         <option value="restaurant">Restaurant</option>
         <option value="music">Music</option>
