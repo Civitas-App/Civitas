@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import {fetchBusiness} from '../../store/business/singleBusiness'
+import {fetchBusiness} from '../../store/business/createBusiness'
 import BusinessTier from './BusinessTier'
 import BusinessProfile from './BusinessProfile'
 import {NavLink} from 'react-router-dom'
@@ -20,7 +20,7 @@ const BusinessPortal = () => {
     [fetchBusiness]
   )
   return (
-    <div>
+    <div id="business_profile_tier">
       <button type="button">
         <NavLink to="/business/portal/analytics">
           See your analytics page here
