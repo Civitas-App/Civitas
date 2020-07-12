@@ -49,7 +49,7 @@ nav {
 
 form div {
   margin: 5px;
-  display: inline-block;
+  display: flex;
 }
 
 button {
@@ -146,15 +146,66 @@ div#single_business {
 }
 form {
   margin-top: 10px;
-  display: flex;
+
   width: 1000px;
   height: 1000px;
   background-color: #f5ee9e;
-  text-align: center;
 }
 input {
   height: 30px;
   border-radius: 30px;
   border-style: double;
   color: #002729;
+}
+
+div#homepage {
+  text-align: center;
+  background-image: url('public/austin-kehmeier-lyiKExA4zQA-unsplash.jpg');
+  height: 1000px;
+  width: 1000px;
+}
+
+div.business_profile {
+  display: inline-block;
+  border-style: solid;
+  width: 400px;
+  background-color: #f49e4c;
+  border-radius: 5px;
+  border-color: #3b8ea5;
+  text-align: center;
+}
+
+#business_profile_avatar {
+  height: 100px;
+  width: 100px;
+  border-style: solid;
+  border-radius: 100px;
+  border-color: #3b8ea5;
+  text-align: center;
+}
+#business_profile_header {
+  height: 130px;
+  width: 1000px;
+  text-align: center;
+}
+
+div#business_profile_tier {
+  text-align: center;
+}
+
+div.business_tier {
+  display: inline-block;
+
+  text-align: center;
+}
+
+div#single_tier {
+  background-color: #3b8ea5;
+  width: 150px;
+  height: 300px;
+  display: inline-block;
+  border-radius: 10px;
+  margin: 10px;
+  border-color: #f49e4c;
+  border-style: solid;
 }
