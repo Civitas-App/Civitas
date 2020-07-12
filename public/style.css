@@ -146,11 +146,8 @@ div#single_business {
 }
 form {
   margin-top: 10px;
-  display: flex;
   width: 1000px;
   height: 1000px;
-  background-color: #f5ee9e;
-  text-align: center;
 }
 input {
   height: 30px;
