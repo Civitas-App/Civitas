@@ -14,20 +14,14 @@ const Business = db.define('business', {
   },
   headerPhoto: {
     type: Sequelize.STRING,
-    defaultValue:
-      'https://66.media.tumblr.com/9019d67dfdc3f306b31d1508224c6dd3/tumblr_peyrobN9WN1uibr8q_1280.png',
-    validate: {
-      isUrl: true
-    }
+    defaultValue: 'https://picsum.photos/820/312'
   },
+
   avatar: {
     type: Sequelize.STRING,
-    defaultValue:
-      'https://cdn1.iconfinder.com/data/icons/messenger-and-society/16/user_person_avatar_unisex-512.png',
-    validate: {
-      isUrl: true
-    }
+    defaultValue: 'https://api.adorable.io/avatars/200/abott@adorable.png'
   },
+
   description: {
     type: Sequelize.TEXT
   },
