@@ -20,7 +20,7 @@ const BusinessPortal = () => {
     [fetchBusiness]
   )
   return (
-    <div>
+    <div id="business_profile_tier">
       <button type="button">
         <NavLink to="/business/portal/analytics">
           See your analytics page here
