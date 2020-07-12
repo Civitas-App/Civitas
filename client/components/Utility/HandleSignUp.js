@@ -28,6 +28,7 @@ const HandleSignUp = props => {
   return (
     <div>
       <button
+        id="handleSignUp"
         value="customer"
         type="submit"
         onClick={() => {
@@ -37,6 +38,7 @@ const HandleSignUp = props => {
         Continue as a Customer
       </button>
       <button
+        id="handleSignUp"
         value="business"
         type="submit"
         onClick={() => {

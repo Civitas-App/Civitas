@@ -10,14 +10,15 @@ const CustomerPortalList = ({singleCustomer}) => {
     <div className="customer-profile">
       <div className="customer-info">
         <h3>Hi {singleCustomer.name}!</h3>
-        <img src={singleCustomer.avatar} />
+        <img id="customer_avatar" src={singleCustomer.avatar} />
       </div>
+      <div id="customer_info_seperate" />
       {singleCustomer.subscription && singleCustomer.subscription.length > 0 ? (
         <div className="customer-subscription-info">
-          <h2>Businesses you are supporting</h2>
+          <h2 id="supportings">Businesses you are supporting</h2>
           {singleCustomer.subscription.map(customer => (
             <div key={customer.business.id}>
-              <img src={customer.business.headerPhoto} />
+              <img id="business_avatar" src={customer.business.headerPhoto} />
               <h2>Business Name: {customer.business.name}</h2>
               <h4>
                 Monthly Tier Redeemed: {customer.redeemed ? 'true' : 'false'}

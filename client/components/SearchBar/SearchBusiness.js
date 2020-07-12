@@ -19,7 +19,7 @@ const SearchBusiness = () => {
   }
 
   return (
-    <div>
+    <div id="search_bar">
       <label htmlFor="search" />
       <input
         type="text"

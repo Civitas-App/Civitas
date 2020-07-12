@@ -6,14 +6,15 @@ const AllBusinesses = () => {
   const businesses = useSelector(state => state.businesses)
 
   return (
-    <div>
+    <div id="business_card">
       {businesses.map(query => (
         <div key={query.id}>
           <NavLink to={`/business/${query.id}`}>
             <h4>Name: {query.name}</h4>
           </NavLink>
-          <img src={query.headerPhoto} />
+          <img id="business_card_img" src={query.headerPhoto} />
           <h4>Description: {query.description}</h4>
+          <div />
         </div>
       ))}
     </div>

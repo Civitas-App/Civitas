@@ -13,7 +13,7 @@ const CheckoutPage = props => {
   }
 
   return (
-    <div>
+    <div id="checkout_page">
       <button type="button" onClick={handleClick}>
         Subscribe
       </button>
