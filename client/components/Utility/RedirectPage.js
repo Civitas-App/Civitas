@@ -16,7 +16,7 @@ const RedirectPage = props => {
     }
   }, [])
 
-  return <div>Redirecting to your portal</div>
+  return <div id="redirect_page">Redirecting to your portal</div>
 }
 
 export default RedirectPage

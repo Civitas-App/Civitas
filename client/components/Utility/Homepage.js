@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 
 export function Homepage() {
   return (
-    <div>
+    <div id="homepage">
       <h1>Welcome to Civitas</h1>
       <h2>Who are we?</h2>
 

@@ -15,9 +15,9 @@ const GetAllBussiness = () => {
   )
 
   return (
-    <div>
+    <div id="business_card_container">
       {businesses.map(query => (
-        <div key={query.id}>
+        <div id="business_card" key={query.id}>
           <NavLink to={`/business/${query.id}`}>
             <h4>Name: {query.name}</h4>
           </NavLink>

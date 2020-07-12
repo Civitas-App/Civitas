@@ -6,7 +6,7 @@ import {logout} from '../../store'
 import SearchBusiness from '../SearchBar/SearchBusiness'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
-  <div>
+  <div id="navbar">
     <nav>
       <SearchBusiness />
 

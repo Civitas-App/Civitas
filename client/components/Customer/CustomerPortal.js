@@ -15,7 +15,7 @@ const CustomerPortal = () => {
     dispatch(fetchSubscriptions())
   }, [])
   return (
-    <div>
+    <div id="customer_portal">
       <CustomerPortalList
         singleCustomer={singleCustomer}
         key={singleCustomer.id}

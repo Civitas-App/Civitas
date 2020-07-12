@@ -1,6 +1,6 @@
 body {
   font-family: 'Dosis', sans-serif;
-  background-color: #f49e4c;
+  background-color: #eef8fc;
 }
 .customer-profile {
   text-align: center;
@@ -43,13 +43,12 @@ nav a {
   margin: 1em;
 }
 nav {
-  background-color: #f5ee9e;
   margin: 0;
   padding: 0;
 }
 
 form div {
-  margin: 1em;
+  margin: 5px;
   display: inline-block;
 }
 
@@ -88,7 +87,11 @@ button {
 div#search_bar {
   height: 0.5px;
 }
-div#app > div > div > div {
+
+div#app > div > div > div > a {
+  color: #f5ee9e;
+}
+div#business_card {
   background-color: #3b8ea5;
   display: inline-block;
   text-align: center;
@@ -101,6 +104,57 @@ div#app > div > div > div {
   margin-left: 10px;
   color: #f5ee9e;
 }
-div#app > div > div > div > a {
+div#business_card_container {
+  text-align: center;
+}
+div#business_card > img {
+  width: 200px;
+}
+
+div#business_page {
+  background-color: #3b8ea5;
+  display: inline-block;
+  text-align: center;
+  border-radius: 5px;
+  border-width: 5px;
+  width: 700px;
+  border-color: #f49e4c;
+  padding: 5px;
+  margin-bottom: 10px;
+  margin-left: 10px;
   color: #f5ee9e;
+}
+div#business_tier_containter {
+  display: flex;
+}
+div#business_tier {
+  background-color: #f49e4c;
+  display: inline-block;
+  text-align: center;
+  border-radius: 5px;
+  border-width: 5px;
+  height: 500px;
+  width: 200px;
+  padding: 5px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  color: #f5ee9e;
+}
+
+div#single_business {
+  text-align: center;
+}
+form {
+  margin-top: 10px;
+  display: flex;
+  width: 1000px;
+  height: 1000px;
+  background-color: #f5ee9e;
+  text-align: center;
+}
+input {
+  height: 30px;
+  border-radius: 30px;
+  border-style: double;
+  color: #002729;
 }

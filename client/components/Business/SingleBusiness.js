@@ -16,7 +16,7 @@ const SingleBusiness = props => {
   console.log(business)
 
   return (
-    <div>
+    <div id="single_business">
       <BusinessPage business={business} />
     </div>
   )
