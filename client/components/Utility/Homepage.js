@@ -20,6 +20,12 @@ export function Homepage() {
           Get started by using the search bar to search for local businesses
           near you!
         </p>
+        <img
+          src="/krisztina-papp-VRnb4dMwmBQ-unsplash.jpg"
+          width={600}
+          height={400}
+          mode="fit"
+        />
       </h4>
     </div>
   )

@@ -9,15 +9,18 @@ const CustomerPortalList = ({singleCustomer}) => {
   return (
     <div className="customer-profile">
       <div className="customer-info">
-        <h3>Hi {singleCustomer.name}!</h3>
+        <h1>Hi {singleCustomer.name}!</h1>
         <img id="customer_avatar" src={singleCustomer.avatar} />
       </div>
       <div id="customer_info_seperate" />
       {singleCustomer.subscription && singleCustomer.subscription.length > 0 ? (
-        <div className="customer-subscription-info">
-          <h2 id="supportings">Businesses you are supporting</h2>
+        <div>
+          <h1 id="supportings">Businesses you are supporting</h1>
           {singleCustomer.subscription.map(customer => (
-            <div key={customer.business.id}>
+            <div
+              key={customer.business.id}
+              className="customer-subscription-info"
+            >
               <img id="business_avatar" src={customer.business.headerPhoto} />
               <h2>Business Name: {customer.business.name}</h2>
               <h4>
