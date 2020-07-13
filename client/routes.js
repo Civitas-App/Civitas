@@ -41,6 +41,7 @@ class Routes extends Component {
         <Route exact path="/filter/businesses" component={GetAllBussiness} />
         <Route exact path="/search" component={AllBusinesses} />
         <Route path="/business/createtier" component={CreateTier} />
+        <Route path="/business/all/businesses" component={GetAllBussiness} />
 
         {/* Route needed for isLoggedIn and role is business to route
         to business sign up form */}

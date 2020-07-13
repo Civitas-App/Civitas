@@ -3,7 +3,6 @@ import {useDispatch} from 'react-redux'
 import {searchBusiness} from '../../store/business/getBusiness'
 import useForm from '../Utility/UseForm'
 import history from '../../history'
-import CategoryFilter from './CategoryFilter'
 
 const SearchBusiness = () => {
   const [values, handleChange] = useForm({search: ''})
@@ -16,6 +15,7 @@ const SearchBusiness = () => {
       dispatch(searchBusiness(search))
       history.push(`/search?q=${search}`)
     }
+    handleChange({values: ''})
   }
 
   return (
@@ -28,7 +28,6 @@ const SearchBusiness = () => {
         onKeyDown={keyDown}
         name="search"
       />
-      <CategoryFilter />
     </div>
   )
 }
