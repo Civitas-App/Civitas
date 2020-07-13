@@ -1,22 +1,22 @@
 body {
   font-family: 'Dosis', sans-serif;
-  background-color: #f3f6f6;
+  background-color: #ffb370;
 }
 .customer-profile {
-  text-align: start;
+  text-align: center;
 }
 .customer-info {
   display: inline-block;
   text-align: center;
-  color: #f5ee9e;
-  border-style: solid;
+  color: #2f4858;
 
-  border-width: 10px;
+  background-image: url('https://i.pinimg.com/originals/68/58/65/685865c65f96852b30f16f1011b4d6e9.jpg');
+
   border-color: #f5ee9e;
   border-radius: 15px;
-  height: 300px;
-  width: 400px;
-  background-color: #3b8ea5;
+  height: 100pxpx;
+  width: 1000px;
+  background-color: #2f4858;
 }
 .customer-subscription-info {
   display: inline-block;
@@ -25,10 +25,10 @@ body {
   border-style: solid;
   border-width: 1px;
   border-color: darkgray;
-  border-radius: 5px;
+  border-radius: 15px;
   height: 500px;
   width: 600px;
-  background-color: #3b8ea5;
+  background-color: #2f4858;
 }
 a {
   text-decoration: none;
@@ -73,8 +73,7 @@ button {
   height: 150px;
   width: 200px;
   border-style: solid;
-  border-color: #f49e4c;
-  border-width: 10px;
+  border-color: #ff7700;
   border-radius: 15px;
 }
 #customer_info_seperate {
@@ -97,7 +96,7 @@ div#app > div > div > div > a {
   color: #f5ee9e;
 }
 div#business_card {
-  background-color: #3b8ea5;
+  background-color: #2f4858;
   display: inline-block;
   text-align: center;
   border-radius: 15px;
@@ -120,7 +119,7 @@ div#business_card > img {
 }
 
 div#business_page {
-  background-color: #3b8ea5;
+  background-color: #2f4858;
   display: inline-block;
   text-align: center;
   border-radius: 5px;
@@ -181,7 +180,7 @@ div.business_profile {
   width: 400px;
   background-color: #f49e4c;
   border-radius: 5px;
-  border-color: #3b8ea5;
+  border-color: #2f4858;
   text-align: center;
 }
 
@@ -190,7 +189,7 @@ div.business_profile {
   width: 100px;
   border-style: solid;
   border-radius: 100px;
-  border-color: #3b8ea5;
+  border-color: #2f4858;
   text-align: center;
 }
 #business_profile_header {
@@ -210,7 +209,7 @@ div.business_tier {
 }
 
 div#single_tier {
-  background-color: #3b8ea5;
+  background-color: #2f4858;
   width: 150px;
   height: 300px;
   display: inline-block;
@@ -223,4 +222,8 @@ div#single_tier {
 div#navbar {
   background-color: F1F6F8;
   margin: 0 auto;
+}
+
+div#update_tier_button {
+  display: inline;
 }
