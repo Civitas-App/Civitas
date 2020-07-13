@@ -9,7 +9,6 @@ const BusinessProfile = ({business}) => {
       <div className="business_profile">
         <h2>{business.name}</h2>
         <img id="business_profile_avatar" src={business.avatar} />
-
         <h3>{business.description}</h3>
       </div>
     </div>
