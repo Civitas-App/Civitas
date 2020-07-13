@@ -19,7 +19,7 @@ import CreateTier from './components/Business/CreateTier'
 import ErrorPage from './components/Utility/ErrorPage'
 import RedirectPage from './components/Utility/RedirectPage'
 import ConirmationPage from './components/Utility/ConirmationPage'
-import ListBusiness from './components/Utility/ListBusiness'
+
 /**
  * COMPONENT
  */
@@ -70,7 +70,7 @@ class Routes extends Component {
               path="/business/:businessId"
               component={SingleBusiness}
             />
-            <Route path="/allbusinesses" component={ListBusiness} />
+
             <Route
               exact
               path="/business/portal/analytics"
