@@ -1,23 +1,25 @@
-import React, {useHook} from 'react'
+import React, {useHook, useState} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {createBusiness} from '../../store/business/createBusiness'
 import useForm from '../Utility/UseForm'
 import CreateTier from './CreateTier'
 
 const BusinessForm = props => {
-  const [values, handleChange] = useForm({
+  const [category, setCategory] = useState('')
+  const [values, setChange] = useForm({
     name: '',
     location: '',
-    description: '',
-    category: ''
+    description: ''
   })
-
+  const handleChange = e => {
+    setCategory(e.target.value)
+  }
+  console.log(category)
   const dispatch = useDispatch()
-  console.log('values', values.location)
 
   const handleSubmit = e => {
     e.preventDefault()
-    const {name, location, description, category} = values
+    const {name, location, description} = values
     dispatch(
       createBusiness({
         name,
@@ -38,32 +40,34 @@ const BusinessForm = props => {
           name="name"
           type="text"
           value={values.name}
-          onChange={handleChange}
+          onChange={setChange}
         />
         <label htmlFor="location" />
         <input
-          placeholder="City - Required"
+          placeholder="Location City - Required"
           name="location"
           type="text"
           value={values.location}
-          onChange={handleChange}
+          onChange={setChange}
         />
         <label htmlFor="description" />
         <input
-          placeholder="Description - Required"
+          placeholder="Business Description - required"
           name="description"
           type="text"
           value={values.description}
-          onChange={handleChange}
+          onChange={setChange}
         />
-        <label htmlFor="category" />
-        <input
-          placeholder="Category - Required"
-          name="category"
-          type="text"
-          value={values.category}
-          onChange={handleChange}
-        />
+        <label htmlFor="Category" />
+        <select defaultValue={category} onChange={handleChange}>
+          <option>Choose a Category</option>
+          <option value="restaurant">Restaurant</option>
+          <option value="fashion">Clothing Store</option>
+          <option value="music">Music</option>
+          <option value="gym">Gym</option>
+          <option value="barbershop">Barbershop</option>
+          <option value="other">Other</option>
+        </select>
         <button type="submit">Submit</button>
       </form>
     </div>

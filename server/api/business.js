@@ -131,3 +131,32 @@ router.post('/createtier', async (req, res, next) => {
     next(error)
   }
 })
+
+// router.post('/updatetier', async (req, res, next) => {
+//   try {
+//     const business = await Business.findOne({where: {id: req.body.id}})
+//     const tiers = req.body.tiers
+
+//     tiers.forEach(async (tier) => {
+//       try {
+//         const {level, title, pledge, price, photo} = tier
+
+//         const levelTier = await Tier.update({
+//           level,
+//           title,
+//           pledge,
+//           price,
+//           photo,
+//         })
+
+//         business.addTier(levelTier)
+//       } catch (error) {
+//         console.error(error)
+//         next(error)
+//       }
+//     })
+//     res.sendStatus(201)
+//   } catch (error) {
+//     next(error)
+//   }
+// })

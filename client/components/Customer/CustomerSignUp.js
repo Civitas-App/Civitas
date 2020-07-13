@@ -2,6 +2,7 @@ import React, {useHook} from 'react'
 import {useDispatch} from 'react-redux'
 import {createCustomerSignup} from '../../store/customer'
 import useForm from '../Utility/UseForm'
+// import {ErrorMessage} from '@hookform/error-message'
 
 const CustomerSignUp = props => {
   const [values, handleChange] = useForm({name: '', location: ''})
@@ -23,6 +24,7 @@ const CustomerSignUp = props => {
           placeholder="Name - Required"
           name="name"
           type="text"
+          message="Dont Forget Your Username Should Be Cool!"
           value={values.email}
           onChange={handleChange}
         />

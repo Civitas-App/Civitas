@@ -4,7 +4,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import {createTier} from '../../store/business/createBusiness'
 import {fetchBusiness} from '../../store/business/singleBusiness'
 
-const CreateTier = props => {
+const UpdateTier = props => {
   console.log('props:', props)
   const business = useSelector(state => state.business)
   console.log(business)
@@ -12,17 +12,17 @@ const CreateTier = props => {
     level1: 1,
     title1: '',
     pledge1: [],
-    price1: '',
+    price1: 5,
     photo1: '',
     level2: 2,
     title2: '',
     pledge2: [],
-    price2: '',
+    price2: 10,
     photo2: '',
     level3: 3,
     title3: '',
     pledge3: [],
-    price3: '',
+    price3: 15,
     photo3: ''
   })
   //level1 price 1, level2,price2
@@ -75,7 +75,7 @@ const CreateTier = props => {
         ]
       })
     )
-    props.history.push('/business/portal')
+    //props.history.push('/business/portal')
   }
   //[ { level1, title1, pledge1 },  { level2, title 2, pledge2 }, {level3, title3, pledge3} ]
   //make form for all three tiers, submit the tier and add business in api
@@ -89,6 +89,14 @@ const CreateTier = props => {
     <div>
       <h2>Tier Level 1</h2>
       <form onSubmit={handleSubmit}>
+        <h4>Level</h4>
+        <label htmlFor="level" />
+        <input
+          placeholder="level"
+          name="level1"
+          value={values.level1}
+          onChange={handleChange}
+        />
         <h4>Title</h4>
         <label htmlFor="title" />
         <input
@@ -97,22 +105,20 @@ const CreateTier = props => {
           value={values.title1}
           onChange={handleChange}
         />
+        <h4> Pledge - what you are offering for this pledge</h4>
+        <label htmlFor="pledge" />
+        <input
+          placeholder="pledge - seperate each sentence(pledge) with a comma"
+          name="pledge1"
+          value={values.pledge1}
+          onChange={handleChange}
+        />
         <h4>Price of tier subscription</h4>
         <label htmlFor="price" />
         <input
           placeholder="price"
           name="price1"
           value={values.price1}
-          onChange={handleChange}
-        />
-        <h4> Pledge - what you are offering for this pledge</h4>
-        <label htmlFor="pledge" />
-        <textarea
-          rows="8"
-          cols="30"
-          placeholder="pledge - seperate each sentence(pledge) with a comma"
-          name="pledge1"
-          value={values.pledge1}
           onChange={handleChange}
         />
         <h4>Photo</h4>
@@ -125,6 +131,14 @@ const CreateTier = props => {
         />
 
         <h2>Tier Level 2</h2>
+        <h4>Level</h4>
+        <label htmlFor="level" />
+        <input
+          placeholder="level"
+          name="level2"
+          value={values.level2}
+          onChange={handleChange}
+        />
         <h4>Title</h4>
         <label htmlFor="title" />
         <input
@@ -133,22 +147,20 @@ const CreateTier = props => {
           value={values.title2}
           onChange={handleChange}
         />
+        <h4>Pledge - what you are offering for this pledge</h4>
+        <label htmlFor="pledge" />
+        <input
+          placeholder="pledge - seperate each sentence(pledge) with a comma"
+          name="pledge2"
+          value={values.pledge2}
+          onChange={handleChange}
+        />
         <h4>Price of tier subscription</h4>
         <label htmlFor="price" />
         <input
           placeholder="price"
           name="price2"
           value={values.price2}
-          onChange={handleChange}
-        />
-        <h4>Pledge - what you are offering for this pledge</h4>
-        <label htmlFor="pledge" />
-        <textarea
-          rows="8"
-          cols="30"
-          placeholder="pledge - seperate each sentence(pledge) with a comma"
-          name="pledge2"
-          value={values.pledge2}
           onChange={handleChange}
         />
         <h4>Photo</h4>
@@ -160,6 +172,13 @@ const CreateTier = props => {
           onChange={handleChange}
         />
         <h2>Tier Level 3</h2>
+        <label htmlFor="level" />
+        <input
+          placeholder="level"
+          name="level3"
+          value={values.level3}
+          onChange={handleChange}
+        />
         <h4>Title</h4>
         <label htmlFor="title" />
         <input
@@ -168,22 +187,20 @@ const CreateTier = props => {
           value={values.title3}
           onChange={handleChange}
         />
+        <h4>Pledge - what you are offering for this pledge</h4>
+        <label htmlFor="pledge" />
+        <input
+          placeholder="pledge - seperate each sentence(pledge) with a comma"
+          name="pledge3"
+          value={values.pledge3}
+          onChange={handleChange}
+        />
         <h4>Price of tier subscription</h4>
         <label htmlFor="price" />
         <input
           placeholder="price"
           name="price3"
           value={values.price3}
-          onChange={handleChange}
-        />
-        <h4>Pledge - what you are offering for this pledge</h4>
-        <label htmlFor="pledge" />
-        <textarea
-          rows="8"
-          cols="30"
-          placeholder="pledge - seperate each sentence(pledge) with a comma"
-          name="pledge3"
-          value={values.pledge3}
           onChange={handleChange}
         />
         <h4>Photo</h4>
@@ -200,4 +217,4 @@ const CreateTier = props => {
   )
 }
 
-export default CreateTier
+export default UpdateTier
