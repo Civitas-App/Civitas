@@ -120,7 +120,7 @@ router.post('/createtier', async (req, res, next) => {
           photo
         })
 
-        business.addTier(levelTier)
+        await business.addTier(levelTier)
       } catch (error) {
         console.error(error)
         next(error)

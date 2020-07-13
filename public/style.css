@@ -110,7 +110,8 @@ div#business_card {
   color: #f5ee9e;
 }
 div#business_card_container {
-  text-align: center;
+  display: flex;
+  align-items: normal;
 }
 div#business_card > img {
   width: 200px;
@@ -169,7 +170,7 @@ input {
 
 div#homepage {
   text-align: center;
-  background-image: url('public/austin-kehmeier-lyiKExA4zQA-unsplash.jpg');
+  /* background-image: url('public/austin-kehmeier-lyiKExA4zQA-unsplash.jpg'); */
   height: 1000px;
   width: 1000px;
 }
