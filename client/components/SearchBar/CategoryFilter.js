@@ -14,6 +14,7 @@ const CategoryFilter = () => {
   return (
     <div id="category_filter">
       <select onChange={handleChange}>
+        <option value="all">All</option>
         <option value="restaurant">Restaurant</option>
         <option value="music">Music</option>
         <option value="gym">Gym</option>
