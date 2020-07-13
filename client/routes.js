@@ -70,6 +70,7 @@ class Routes extends Component {
               path="/business/:businessId"
               component={SingleBusiness}
             />
+
             <Route
               exact
               path="/business/portal/analytics"
