@@ -57,14 +57,28 @@ const CreateTier = props => {
             pledge: pledge1,
             price: price1,
             photo: photo1
-          },
+          }
+        ]
+      })
+    )
+    dispatch(
+      createTier({
+        id: business.id,
+        tiers: [
           {
             level: level2,
             title: title2,
             pledge: pledge2,
             price: price2,
             photo: photo2
-          },
+          }
+        ]
+      })
+    )
+    dispatch(
+      createTier({
+        id: business.id,
+        tiers: [
           {
             level: level3,
             title: title3,
