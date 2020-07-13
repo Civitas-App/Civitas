@@ -20,6 +20,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
           </a>
           {/* Link user to their portal in navbar */}
           <Link to="/home">Profile</Link>
+          <Link to="/allbusinesses">Businesses</Link>
         </div>
       ) : (
         <div>

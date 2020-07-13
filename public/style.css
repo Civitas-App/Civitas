@@ -1,20 +1,21 @@
 body {
   font-family: 'Dosis', sans-serif;
-  background-color: #f5b53d;
+  background-color: #f3f6f6;
 }
 .customer-profile {
-  text-align: center;
+  text-align: start;
 }
 .customer-info {
   display: inline-block;
   text-align: center;
   color: #f5ee9e;
   border-style: solid;
-  border-width: 1px;
-  border-color: darkgray;
-  border-radius: 5px;
+
+  border-width: 10px;
+  border-color: #f5ee9e;
+  border-radius: 15px;
   height: 300px;
-  width: 600px;
+  width: 400px;
   background-color: #3b8ea5;
 }
 .customer-subscription-info {
@@ -71,6 +72,10 @@ button {
 #customer_avatar {
   height: 150px;
   width: 200px;
+  border-style: solid;
+  border-color: #f49e4c;
+  border-width: 10px;
+  border-radius: 15px;
 }
 #customer_info_seperate {
   height: 20px;
@@ -213,4 +218,9 @@ div#single_tier {
   margin: 10px;
   border-color: #f49e4c;
   border-style: solid;
+}
+
+div#navbar {
+  background-color: F1F6F8;
+  margin: 0 auto;
 }
