@@ -14,12 +14,13 @@ import BusinessAnalytics from './components/Business/BusinessAnalyticsPage'
 import GetAllBussiness from './components/SearchBar/GetAllBussiness'
 import AllBusinesses from './components/SearchBar/AllBusinesses'
 import SingleBusiness from './components/Business/SingleBusiness'
-import CheckoutPage from './components/Checkout/CheckoutPage'
 import CreateTier from './components/Business/CreateTier'
 import ErrorPage from './components/Utility/ErrorPage'
 import RedirectPage from './components/Utility/RedirectPage'
 import ConirmationPage from './components/Utility/ConirmationPage'
 import MapContainer from './components/Utility/MapBox'
+import Checkout from './components/Checkout/Checkout'
+
 /**
  * COMPONENT
  */
@@ -54,9 +55,10 @@ class Routes extends Component {
             {/* Routes placed here are only available after logging in */}
 
             <Route exact path="/home" component={RedirectPage} />
-            <Route path="/checkout/:tierId" component={CheckoutPage} />
+            <Route path="/checkout/:tierId" component={Checkout} />
             <Route exact path="/confirmation" component={ConirmationPage} />
             <Route exact path="/user/signup" component={HandleSignUp} />
+            {/* <Route exact path="/payment" component={Checkout} /> */}
             <Route
               exact
               path="/filter/businesses"

@@ -9,7 +9,6 @@ const Navbar = ({handleClick, isLoggedIn}) => (
   <div id="navbar">
     <nav>
       <SearchBusiness />
-
       {isLoggedIn ? (
         <div>
           {/* The navbar will show these links after you log in */}
@@ -20,6 +19,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
           </a>
           {/* Link user to their portal in navbar */}
           <Link to="/home">Profile</Link>
+          <Link to="/filter/businesses">Find Businesses</Link>
         </div>
       ) : (
         <div>
@@ -27,6 +27,7 @@ const Navbar = ({handleClick, isLoggedIn}) => (
           <Link to="/">Home</Link>
           <Link to="/login">Login</Link>
           <Link to="/signup">Sign Up</Link>
+          <Link to="/filter/businesses">Find Businesses</Link>
         </div>
       )}
     </nav>
