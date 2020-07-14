@@ -17,8 +17,13 @@ export const getAllBussiness = () => async dispatch => {
 
 export const searchBusiness = query => async dispatch => {
   try {
-    const {data: businesses} = await axios.get(`/api/search?search=${query}`)
-    dispatch(getBusinesses(businesses))
+    if (!query) {
+      const {data: businesses} = await axios.get(`/api/business`)
+      dispatch(getBusinesses(businesses))
+    } else {
+      const {data: businesses} = await axios.get(`/api/search?search=${query}`)
+      dispatch(getBusinesses(businesses))
+    }
   } catch (error) {
     console.log('error in fetchProducts', error)
   }

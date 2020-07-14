@@ -91,7 +91,11 @@ router.get('/portal/analytics', async (req, res, next) => {
 router.get('/filter/category', async (req, res, next) => {
   try {
     const category = req.query.category
-    console.log(category)
+    if (!category || category === 'all') {
+      const getAll = await Business.findAll()
+      res.json(getAll)
+      return
+    }
     const getCategory = await Business.findAll({
       where: {
         category: category

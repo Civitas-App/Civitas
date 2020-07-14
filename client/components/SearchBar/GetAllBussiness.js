@@ -2,6 +2,7 @@ import React, {useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import {getAllBussiness} from '../../store/business/getBusiness'
 import {NavLink} from 'react-router-dom'
+import CategoryFilter from './CategoryFilter'
 
 const GetAllBussiness = () => {
   const businesses = useSelector(state => state.businesses)
@@ -16,6 +17,10 @@ const GetAllBussiness = () => {
 
   return (
     <div id="business_card_container">
+      <div>
+        <CategoryFilter />
+      </div>
+
       {businesses.map(query => (
         <div id="business_card" key={query.id}>
           <NavLink to={`/business/${query.id}`}>
