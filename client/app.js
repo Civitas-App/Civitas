@@ -1,5 +1,5 @@
 import React from 'react'
-
+import '../styles/main.scss'
 import {Navbar} from './components'
 import Routes from './routes'
 
