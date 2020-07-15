@@ -84,10 +84,39 @@ router.post('/create', async (req, res, next) => {
   }
 })
 
+//api/customer/update/coupon/code
+router.post('/update/coupon/code', async (req, res, next) => {
+  try {
+    const customer = await Customer.findOne({
+      where: {
+        userId: req.user.id
+      }
+    })
+    console.log('body', JSON.stringify(req.body))
+    const {businessId} = req.body
+    const updateRedeemCode = await Subscription.findOne({
+      where: {
+        customerId: customer.id,
+        businessId: businessId,
+        redeemed: 'false'
+      }
+    })
+    console.log('updateCode', JSON.stringify(updateRedeemCode))
+    if (updateRedeemCode) {
+      await updateRedeemCode.update({
+        redeemed: 'true'
+      })
+    }
+    res.json(updateRedeemCode)
+  } catch (error) {
+    next(error)
+  }
+})
+
 // WORK in progress
 
-// // update pedge of customer
-// // /api/customer/update/pledge/:id
+// update pedge of customer
+// /api/customer/update/pledge/:id
 // router.get('/update/pledge/:id', async (req, res, next) => {
 //   try {
 

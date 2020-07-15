@@ -1,4 +1,5 @@
 import axios from 'axios'
+import businesses from './business/getBusiness'
 
 const GET_CUSTOMER = 'GET_CUSTOMER'
 const SET_SUBSCRIPTION = 'SET_SUBSCRIPTION'
@@ -30,6 +31,14 @@ export const setCustomerSuscription = tierId => async dispatch => {
   try {
     await axios.post(`api/customer/pledge/${tierId}`)
     dispatch(fetchSubscriptions())
+  } catch (error) {
+    console.log('error in setSubscription', error)
+  }
+}
+export const updateCustomerCoupon = businessId => async dispatch => {
+  try {
+    await axios.post('/api/customer/update/coupon/code', {businessId})
+    dispatch(fetchSubscriptions(businessId))
   } catch (error) {
     console.log('error in setSubscription', error)
   }
