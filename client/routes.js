@@ -18,6 +18,7 @@ import CreateTier from './components/Business/CreateTier'
 import ErrorPage from './components/Utility/ErrorPage'
 import RedirectPage from './components/Utility/RedirectPage'
 import ConirmationPage from './components/Utility/ConirmationPage'
+import MapContainer from './components/Utility/MapBox'
 import Checkout from './components/Checkout/Checkout'
 
 /**
@@ -78,6 +79,7 @@ class Routes extends Component {
               path="/business/portal/analytics"
               component={BusinessAnalytics}
             />
+            <Route path="/map" component={MapContainer} />
             <Route path="*" component={ErrorPage} />
           </Switch>
         )}
