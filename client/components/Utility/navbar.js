@@ -8,7 +8,6 @@ import SearchBusiness from '../SearchBar/SearchBusiness'
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div id="navbar">
     <nav>
-      <SearchBusiness />
       {isLoggedIn ? (
         <div>
           {/* The navbar will show these links after you log in */}
@@ -22,12 +21,15 @@ const Navbar = ({handleClick, isLoggedIn}) => (
           <Link to="/filter/businesses">Find Businesses</Link>
         </div>
       ) : (
-        <div>
+        <div id="nav_bar">
           {/* The navbar will show these links before you log in */}
-          <Link to="/">Home</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
-          <Link to="/filter/businesses">Find Businesses</Link>
+          <SearchBusiness />
+          <div id="links">
+            <Link to="/">Home</Link>
+            <Link to="/login">Login</Link>
+            <Link to="/signup">Sign Up</Link>
+            <Link to="/filter/businesses">Find Businesses</Link>
+          </div>
         </div>
       )}
     </nav>
