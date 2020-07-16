@@ -5,8 +5,9 @@ const ConirmationPage = () => {
   return (
     <div className="modal">
       <h2>Thank you for subscribing!</h2>
-      <NavLink to="/home">Return to home page</NavLink>
-      {/* <NavLink to="/home">Return to profile</NavLink> */}
+      <NavLink className="navlink" to="/home">
+        Return to home page
+      </NavLink>
     </div>
   )
 }

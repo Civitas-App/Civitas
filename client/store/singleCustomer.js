@@ -1,5 +1,4 @@
 import axios from 'axios'
-import businesses from './business/getBusiness'
 
 const GET_CUSTOMER = 'GET_CUSTOMER'
 const SET_SUBSCRIPTION = 'SET_SUBSCRIPTION'

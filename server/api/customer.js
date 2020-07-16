@@ -92,7 +92,6 @@ router.post('/update/coupon/code', async (req, res, next) => {
         userId: req.user.id
       }
     })
-    console.log('body', JSON.stringify(req.body))
     const {businessId} = req.body
     const updateRedeemCode = await Subscription.findOne({
       where: {
@@ -101,7 +100,6 @@ router.post('/update/coupon/code', async (req, res, next) => {
         redeemed: 'false'
       }
     })
-    console.log('updateCode', JSON.stringify(updateRedeemCode))
     if (updateRedeemCode) {
       await updateRedeemCode.update({
         redeemed: 'true'
@@ -113,46 +111,27 @@ router.post('/update/coupon/code', async (req, res, next) => {
   }
 })
 
-// WORK in progress
-
 // update pedge of customer
 // /api/customer/update/pledge/:id
-// router.get('/update/pledge/:id', async (req, res, next) => {
-//   try {
-
-//     const customer = await Customer.findOne({
-//       where: {
-//         userId: req.user.id
-//       }
-//     })
-//     console.log('sd', customer)
-//     const {id} = req.params
-//     const tier = await Tier.findByPk(id)
-//     const updatePledge = await Subscription.findOne({
-//       where: {
-//         [Op.and] : [
-//           {customerId: customer.id},
-//           {tierId: tier.id},
-//           {businessId: tier.businessId}
-//         ]
-//       }
-//     })
-
-//    await updatePledge.update({
-//      where: {
-//        tierId: tier.level
-//      }
-//    })
-
-//    const updatedPledge = await Subscription.findOne({
-//      where: {
-//        customerId: customer.id,
-//        tierId: tier.level
-//      }
-//    })
-
-//    res.send(updatedPledge)
-//   } catch (error) {
-//     next(error)
-//   }
-// })
+router.post('/update/pledge/:id', async (req, res, next) => {
+  try {
+    const customer = await Customer.findOne({
+      where: {
+        userId: req.user.id
+      }
+    })
+    const {id} = req.params
+    const tier = await Tier.findByPk(id)
+    const updatePledge = await Subscription.findOne({
+      where: {
+        [Op.and]: [{customerId: customer.id}, {businessId: tier.businessId}]
+      }
+    })
+    await updatePledge.update({
+      tierId: tier.id
+    })
+    res.json(updatePledge)
+  } catch (error) {
+    next(error)
+  }
+})

@@ -23,7 +23,7 @@ const GetAllBussiness = () => {
 
       {businesses.map(query => (
         <div id="business_card" key={query.id}>
-          <NavLink to={`/business/${query.id}`}>
+          <NavLink className="navlink" to={`/business/${query.id}`}>
             <h4>Name: {query.name}</h4>
           </NavLink>
           <img src={query.headerPhoto} />

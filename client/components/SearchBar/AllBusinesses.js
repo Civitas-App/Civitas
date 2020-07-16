@@ -9,7 +9,7 @@ const AllBusinesses = () => {
     <div id="business_card">
       {businesses.map(query => (
         <div key={query.id}>
-          <NavLink to={`/business/${query.id}`}>
+          <NavLink className="navlink" to={`/business/${query.id}`}>
             <h4>Name: {query.name}</h4>
           </NavLink>
           <img id="business_card_img" src={query.headerPhoto} />
