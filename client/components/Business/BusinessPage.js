@@ -1,7 +1,25 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import {NavLink} from 'react-router-dom'
+import {useSelector, useDispatch} from 'react-redux'
+import {fetchSubscriptions} from '../../store/singleCustomer'
 
 const BusinessPage = ({business}) => {
+  const singleCustomer = useSelector(state => state.singleCustomer)
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(fetchSubscriptions())
+  }, [])
+
+  let subbedTiers = []
+  if (singleCustomer.subscription && singleCustomer.subscription.length > 0) {
+    singleCustomer.subscription.map(subscription => {
+      if (subscription.business.id === business.id) {
+        subbedTiers.push(subscription.tier.id)
+      }
+    })
+  }
+
   return (
     <div id="business_page">
       <img id="business_profile_header" src={business.headerPhoto} />
@@ -17,9 +35,13 @@ const BusinessPage = ({business}) => {
               <h4>Title: {tier.title}</h4>
               <img src={tier.photo} width={200} height={100} mode="fit" />
               <h4>${tier.price}</h4>
-              <NavLink to={`/checkout/${tier.id}`}>
-                <h4>Join</h4>
-              </NavLink>
+              {subbedTiers.includes(tier.id) ? (
+                'Current Tier'
+              ) : (
+                <NavLink className="navlink" to={`/checkout/${tier.id}`}>
+                  Join
+                </NavLink>
+              )}
               <ul>
                 <li>Pledge: {tier.pledge}</li>
               </ul>

@@ -7,7 +7,9 @@ export default function ErrorPage() {
       <h1>Oopsie Doopsie! Something went wrong!</h1>
       <img src="/1_oTOmPQFJQSOHrYHWnxytgA.png" />
       <button type="button">
-        <NavLink to="/home">Go Back Home</NavLink>
+        <NavLink className="navlink" to="/home">
+          Go Back Home
+        </NavLink>
       </button>
     </div>
   )

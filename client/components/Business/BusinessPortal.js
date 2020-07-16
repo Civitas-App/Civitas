@@ -22,14 +22,11 @@ const BusinessPortal = () => {
   return (
     <div id="business_profile_tier">
       <button type="button">
-        <NavLink to="/business/portal/analytics">
+        <NavLink className="navlink" to="/business/portal/analytics">
           See your analytics page here
         </NavLink>
       </button>
       <BusinessProfile business={business} />
-      {/* <button type="button">
-        <NavLink to="/business/updatetier">Update your Tiers</NavLink>
-      </button> */}
       <BusinessTier business={business} key={business.id} />
     </div>
   )

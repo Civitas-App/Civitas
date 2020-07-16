@@ -26,7 +26,9 @@ const BusinessAnalytics = () => {
       <h1>Total Revenue forecast this Month: ${total}</h1>
       <h1>Number of Subscriptions: {subscription.length}</h1>
       <button type="button">
-        <NavLink to="/business/portal">Back to Portal</NavLink>
+        <NavLink className="navlink" to="/business/portal">
+          Back to Portal
+        </NavLink>
       </button>
     </div>
   )
