@@ -20,13 +20,16 @@ const Navbar = ({handleClick, isLoggedIn}) => (
           {/* Link user to their portal in navbar */}
           <Link to="/home">Profile</Link>
           <Link to="/filter/businesses">Find Businesses</Link>
+          <SearchBusiness />
         </div>
       ) : (
         <div id="nav_bar">
           {/* The navbar will show these links before you log in */}
           <SearchBusiness />
           <div id="links">
-            <Link to="/">Home</Link>
+            <span>
+              <Link to="/">Home</Link>
+            </span>
             <Login />
             <Signup />
             <Link to="/filter/businesses">Find Businesses</Link>

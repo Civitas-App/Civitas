@@ -6,7 +6,7 @@ const BusinessTier = ({business}) => {
   return (
     <div className="business_tier">
       {tiers ? (
-        <div>
+        <div id="business_tiers_container">
           {tiers.map(tier => (
             <div id="single_tier" key={tier.id}>
               <h4>Tier: {tier.level}</h4>
