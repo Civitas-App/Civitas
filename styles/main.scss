@@ -58,7 +58,10 @@ input {
 }
 div {
   #nav_bar {
-    display: flex;
+    height: 70px;
+    nav {
+      display: flex;
+    }
   }
 }
 
