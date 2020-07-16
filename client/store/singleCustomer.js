@@ -26,7 +26,7 @@ export const fetchSubscriptions = () => async dispatch => {
   }
 }
 
-export const setCustomerSuscription = tierId => async dispatch => {
+export const setCustomerSubscription = tierId => async dispatch => {
   try {
     await axios.post(`api/customer/pledge/${tierId}`)
     dispatch(fetchSubscriptions())
@@ -42,6 +42,14 @@ export const updateCustomerCoupon = businessId => async dispatch => {
     console.log('error in setSubscription', error)
   }
 }
+// export const updateSubscriptionTier = tierId => async dispatch => {
+//   try {
+//     await axios.post(`/api/customer/update/pledge/${tierId}`)
+//     dispatch(fetchSubscriptions())
+//   } catch (error) {
+//     console.log('error in setSubscription', error)
+//   }
+// }
 
 // reducer
 const singleCustomer = (state = {}, action) => {
