@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import {logout} from '../../store'
 import SearchBusiness from '../SearchBar/SearchBusiness'
+import {Login, Signup} from './auth-form'
 
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div id="navbar">
@@ -26,8 +27,8 @@ const Navbar = ({handleClick, isLoggedIn}) => (
           <SearchBusiness />
           <div id="links">
             <Link to="/">Home</Link>
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Sign Up</Link>
+            <Login />
+            <Signup />
             <Link to="/filter/businesses">Find Businesses</Link>
           </div>
         </div>
