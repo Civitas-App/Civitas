@@ -71,6 +71,9 @@ form div {
 button {
   border-radius: 10px;
   height: 30px;
+  padding: 0;
+  border: none;
+  background: none;
 }
 
 #business_avatar {
