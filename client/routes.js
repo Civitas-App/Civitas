@@ -58,7 +58,6 @@ class Routes extends Component {
             <Route path="/checkout/:tierId" component={Checkout} />
             <Route exact path="/confirmation" component={ConirmationPage} />
             <Route exact path="/user/signup" component={HandleSignUp} />
-            {/* <Route exact path="/payment" component={Checkout} /> */}
             <Route
               exact
               path="/filter/businesses"
