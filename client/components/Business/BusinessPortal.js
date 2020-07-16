@@ -20,14 +20,18 @@ const BusinessPortal = () => {
     [fetchBusiness]
   )
   return (
-    <div id="business_profile_tier">
+    <div id="business_portal">
       <button type="button">
         <NavLink className="navlink" to="/business/portal/analytics">
           See your analytics page here
         </NavLink>
       </button>
-      <BusinessProfile business={business} />
-      <BusinessTier business={business} key={business.id} />
+      <div id="business_profile">
+        <BusinessProfile business={business} />
+      </div>
+      <div id="business_tier">
+        <BusinessTier business={business} key={business.id} />
+      </div>
     </div>
   )
 }
