@@ -26,9 +26,7 @@ li {
   display: inline-block;
   text-align: center;
   color: #2f4858;
-
   background-image: url('https://i.pinimg.com/originals/68/58/65/685865c65f96852b30f16f1011b4d6e9.jpg');
-
   border-color: #f5ee9e;
   border-radius: 15px;
   height: 100pxpx;
@@ -97,13 +95,13 @@ button {
   height: 20px;
 }
 #search_bar {
-  text-align: end;
+  text-align: start;
   margin: 10px;
 
   border-radius: 2px;
 }
 #search_bar input {
-  border-radius: 5px;
+  /* border-radius: 5px; */
 }
 div#search_bar {
   height: 0.5px;
@@ -113,6 +111,9 @@ div#app > div > div > div > a {
   color: #f5ee9e;
 }
 div#business_card {
+  /* height: 50% !important;
+  min-width: 100% !important; */
+  display: flex !important;
   background-color: #2f4858;
   display: inline-block;
   text-align: center;
@@ -127,7 +128,8 @@ div#business_card {
   color: #f5ee9e;
 }
 div#business_card_container {
-  display: flex;
+  display: block;
+  box-sizing: border-box;
 }
 div#business_card > img {
   width: 200px;
@@ -180,7 +182,7 @@ form {
 input {
   height: 30px;
   border-radius: 30px;
-  border-style: double;
+
   color: #002729;
 }
 
@@ -234,11 +236,6 @@ div#single_tier {
   margin: 10px;
   border-color: #f49e4c;
   border-style: solid;
-}
-
-div#navbar {
-  background-color: #f1f6f8;
-  margin: 0 auto;
 }
 
 div#update_tier_button {
