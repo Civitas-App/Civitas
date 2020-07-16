@@ -1,0 +1,70 @@
+$body-color: #2f4858;
+$body-background-color: #f5f5f5;
+$boxes-shadow: 0 6px 6px -5px rgba(0, 0, 0, 0.25);
+body {
+  color: $body-color;
+  background-color: $body-background-color;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+nav {
+  background-color: $body-background-color;
+  padding-left: 80px !important;
+  padding-right: 80px !important;
+  padding-bottom: 20px !important;
+  flex: 1 1 auto !important;
+  min-width: 0px !important;
+  padding: 0 24px !important;
+  text-align: center !important;
+}
+
+div {
+  nav {
+    box-shadow: $boxes-shadow;
+    top: 0;
+    z-index: 100;
+    position: fixed;
+    width: 100%;
+  }
+}
+hr {
+  border-width: 0;
+}
+div {
+  #business_card {
+    display: flex !important;
+    box-shadow: -6px 6px 6px -5px rgba(0, 0, 0, 0.25);
+    margin: 40px;
+  }
+}
+div {
+  #category_filter {
+    margin: 35px;
+    padding: 20px;
+  }
+}
+input {
+  box-shadow: $boxes-shadow;
+  background-color: var(--white);
+  box-shadow: none;
+  color: var(--black-700);
+  padding: 0;
+  border-style: solid;
+  border: 1;
+  border-width: thin;
+  border-color: darkgrey;
+  text-align: center;
+}
+div {
+  #nav_bar {
+    display: flex;
+  }
+}
+
+div {
+  #links {
+    text-align: end;
+    padding-left: 675px;
+  }
+}
