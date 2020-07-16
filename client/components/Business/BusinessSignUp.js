@@ -31,43 +31,63 @@ const BusinessForm = props => {
     props.history.push('/business/createtier')
   }
   return (
-    <div>
-      <h1>Business Sign Up Form</h1>
+    <div id="form">
+      <div className="form_header">
+        <h1>Business Sign Up Form</h1>
+      </div>
+
       <form onSubmit={handleSubmit}>
-        <label htmlFor="name" />
-        <input
-          placeholder="Name - Required"
-          name="name"
-          type="text"
-          value={values.name}
-          onChange={setChange}
-        />
-        <label htmlFor="location" />
-        <input
-          placeholder="Location City - Required"
-          name="location"
-          type="text"
-          value={values.location}
-          onChange={setChange}
-        />
-        <label htmlFor="description" />
-        <input
-          placeholder="Business Description - required"
-          name="description"
-          type="text"
-          value={values.description}
-          onChange={setChange}
-        />
-        <label htmlFor="Category" />
-        <select defaultValue={category} onChange={handleChange}>
-          <option>Choose a Category</option>
-          <option value="restaurant">Restaurant</option>
-          <option value="fashion">Clothing Store</option>
-          <option value="music">Music</option>
-          <option value="gym">Gym</option>
-          <option value="barbershop">Barbershop</option>
-          <option value="other">Other</option>
-        </select>
+        <div className="form_input">
+          <label htmlFor="name" />
+          <div>
+            <input
+              placeholder="Name - Required"
+              name="name"
+              type="text"
+              value={values.name}
+              onChange={setChange}
+            />
+          </div>
+        </div>
+        <div className="form_input">
+          <label htmlFor="location" />
+          <div>
+            <input
+              placeholder="Location City - Required"
+              name="location"
+              type="text"
+              value={values.location}
+              onChange={setChange}
+            />
+          </div>
+        </div>
+        <div className="form_input">
+          <label htmlFor="description" />
+          <div>
+            <input
+              placeholder="Business Description - required"
+              name="description"
+              type="text"
+              value={values.description}
+              onChange={setChange}
+            />
+          </div>
+        </div>
+        <div className="form_input">
+          <label htmlFor="Category" />
+          <div>
+            <select defaultValue={category} onChange={handleChange}>
+              <option>Choose a Category</option>
+              <option value="restaurant">Restaurant</option>
+              <option value="fashion">Clothing Store</option>
+              <option value="music">Music</option>
+              <option value="gym">Gym</option>
+              <option value="barbershop">Barbershop</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+        </div>
+
         <button type="submit">Submit</button>
       </form>
     </div>

@@ -155,13 +155,7 @@ div#business_tier {
 div#single_business {
   text-align: center;
 }
-form {
-  margin-top: 10px;
 
-  width: 1000px;
-  height: 1000px;
-  background-color: #f5ee9e;
-}
 input {
   height: 30px;
   border-radius: 30px;

@@ -1,5 +1,6 @@
-$body-color: #2f4858;
+$body-color: #ff5a5f;
 $body-background-color: #f5f5f5;
+$background-color: #fc642d;
 $boxes-shadow: 0 6px 6px -5px rgba(0, 0, 0, 0.25);
 body {
   color: $body-color;
@@ -66,5 +67,83 @@ div {
   #links {
     text-align: end;
     padding-left: 675px;
+  }
+}
+
+div {
+  text-align: center;
+  #auth_form {
+    width: auto;
+    height: auto;
+    max-height: 800px;
+    max-width: 500px;
+    border-radius: 20px;
+    border-style: solid;
+    border-width: 0.5px;
+    border-color: lightgrey;
+    margin-left: 400px;
+    margin-top: 200px;
+    box-shadow: -4px 4px 6px -6px rgba(0, 0, 0, 0.25);
+    background-color: #00173d;
+  }
+  button {
+    background-color: #fff;
+    margin: 100px;
+    width: 200px;
+    height: 30px;
+  }
+}
+
+div {
+  #form {
+    width: 600px;
+    height: 400px;
+    background: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 72px 55px 90px 55px;
+
+    margin-top: 100px;
+    display: inline-block;
+    background-color: $body-background-color;
+  }
+  body {
+    background-color: $body-color;
+  }
+  h2 {
+    display: block;
+
+    font-size: 39px;
+    color: #333333;
+    line-height: 1.2;
+    text-align: center;
+    padding-bottom: 20px;
+    margin-top: 5px;
+  }
+  form {
+    // margin-top: 10px;
+    width: 200px;
+    height: 300px;
+    display: inherit;
+
+    input {
+      border-style: hidden;
+      color: black;
+      height: 35px;
+      background-color: $body-background-color;
+    }
+    button {
+      margin: auto;
+      border-style: hidden;
+      box-shadow: $boxes-shadow;
+    }
+  }
+}
+div {
+  .form_input {
+    width: 100%;
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin-bottom: 37px;
   }
 }
