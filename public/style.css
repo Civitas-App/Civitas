@@ -45,6 +45,7 @@ li {
   width: 600px;
   background-color: #2f4858;
 }
+/* */
 a {
   text-decoration: none;
 }
@@ -55,7 +56,7 @@ label {
 }
 
 nav a {
-  display: inline-block;
+  /* display: inline-block; */
   margin: 1em;
 }
 nav {
@@ -71,9 +72,6 @@ form div {
 button {
   border-radius: 10px;
   height: 30px;
-  padding: 0;
-  border: none;
-  background: none;
 }
 
 #business_avatar {
@@ -106,6 +104,8 @@ button {
 #search_bar input {
   /* border-radius: 5px; */
 }
+
+/* not naything below here */
 div#search_bar {
   height: 0.5px;
 }
