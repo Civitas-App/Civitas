@@ -9,33 +9,56 @@ import {Login, Signup} from './auth-form'
 const Navbar = ({handleClick, isLoggedIn}) => (
   <div id="navbar">
     <nav>
-      {isLoggedIn ? (
-        <div>
-          {/* The navbar will show these links after you log in */}
-          {/* Rerouted this from /home to / to route to the homepage of Civitas instead of a second homepage for the user */}
-          <Link to="/">Home</Link>
-          <a href="#" onClick={handleClick}>
-            Logout
-          </a>
-          {/* Link user to their portal in navbar */}
-          <Link to="/home">Profile</Link>
-          <Link to="/filter/businesses">Find Businesses</Link>
-          <SearchBusiness />
-        </div>
-      ) : (
-        <div id="nav_bar">
-          {/* The navbar will show these links before you log in */}
-          <SearchBusiness />
-          <div id="links">
-            <span>
-              <Link to="/">Home</Link>
-            </span>
-            <Login />
-            <Signup />
-            <Link to="/filter/businesses">Find Businesses</Link>
+      <div className="navbar">
+        {isLoggedIn ? (
+          <div>
+            {/* The navbar will show these links after you log in */}
+            {/* Rerouted this from /home to / to route to the homepage of Civitas instead of a second homepage for the user */}
+            <div className="links">
+              <ul>
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <a href="#" onClick={handleClick}>
+                    Logout
+                  </a>
+                </li>
+                {/* Link user to their portal in navbar */}
+                <li>
+                  <Link to="/home">Profile</Link>
+                </li>
+                <li>
+                  <Link to="/filter/businesses">Find Businesses</Link>
+                </li>
+              </ul>
+              <SearchBusiness />
+            </div>
           </div>
-        </div>
-      )}
+        ) : (
+          <div>
+            {/* The navbar will show these links before you log in */}
+
+            <div className="links">
+              <ul>
+                <li>
+                  <Link to="/">Home</Link>
+                </li>
+                <li>
+                  <Signup />
+                </li>
+                <li>
+                  <Login />
+                </li>
+                <li>
+                  <Link to="/filter/businesses">Find Businesses</Link>
+                </li>
+              </ul>
+              <SearchBusiness />
+            </div>
+          </div>
+        )}
+      </div>
     </nav>
     <hr />
   </div>
