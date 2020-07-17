@@ -22,7 +22,7 @@ const HandleSignUp = props => {
     [role]
   )
   return (
-    <div>
+    <div id="button_signup">
       <button
         id="handleSignUp"
         value="customer"
