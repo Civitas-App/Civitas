@@ -22,11 +22,11 @@ const CustomerPortalList = ({singleCustomer}) => {
       <div className="customer-info">
         <h1>Hi {singleCustomer.name}!</h1>
         <img id="customer_avatar" src={singleCustomer.avatar} />
+        <h1>Businesses you are supporting</h1>
       </div>
       <div id="customer_info_seperate" />
       {singleCustomer.subscription && singleCustomer.subscription.length > 0 ? (
-        <div>
-          <h1 id="supportings">Businesses you are supporting</h1>
+        <div className="content">
           {singleCustomer.subscription.map(customer => (
             <div
               key={customer.business.id}

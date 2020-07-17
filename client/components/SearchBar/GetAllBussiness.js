@@ -28,7 +28,7 @@ const GetAllBussiness = () => {
             <h4>Name: {query.name}</h4>
           </NavLink>
           <img src={query.headerPhoto} />
-          <h4>Description: {query.description}</h4>
+          <h4 className="description">Description: {query.description}</h4>
         </div>
       ))}
     </div>
