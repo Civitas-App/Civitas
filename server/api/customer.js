@@ -1,7 +1,5 @@
 const router = require('express').Router()
-const {Customer, Business, Tier, User, Subscription} = require('../db/models')
-const userAuthentication = require('./middleware/user_middleware')
-const {Op} = require('sequelize')
+const {Customer, Business, Tier, Subscription} = require('../db/models')
 module.exports = router
 
 router.get('/', async (req, res, next) => {
@@ -51,16 +49,28 @@ router.post('/pledge/:id', async (req, res, next) => {
         userId: req.user.id
       }
     })
-
     const {id} = req.params
     const tier = await Tier.findByPk(id)
 
-    const create = await Subscription.create({
-      customerId: customer.id,
-      tierId: tier.id,
-      businessId: tier.businessId
+    const subscription = await Subscription.findOne({
+      where: {
+        customerId: customer.id,
+        businessId: tier.businessId
+      }
     })
-    res.json(create)
+    if (subscription) {
+      const updatedSubscription = await subscription.update({
+        tierId: tier.id
+      })
+      res.json(updatedSubscription)
+    } else {
+      const createSubscription = await Subscription.create({
+        customerId: customer.id,
+        tierId: tier.id,
+        businessId: tier.businessId
+      })
+      res.json(createSubscription)
+    }
   } catch (error) {
     next(error)
   }
@@ -71,7 +81,6 @@ router.post('/pledge/:id', async (req, res, next) => {
 router.post('/create', async (req, res, next) => {
   try {
     const {name, location, avatar} = req.body
-    console.log(JSON.stringify(req.body))
     const createCustomerAccount = await Customer.create({
       name,
       location,
@@ -106,31 +115,6 @@ router.post('/update/coupon/code', async (req, res, next) => {
       })
     }
     res.json(updateRedeemCode)
-  } catch (error) {
-    next(error)
-  }
-})
-
-// update pedge of customer
-// /api/customer/update/pledge/:id
-router.post('/update/pledge/:id', async (req, res, next) => {
-  try {
-    const customer = await Customer.findOne({
-      where: {
-        userId: req.user.id
-      }
-    })
-    const {id} = req.params
-    const tier = await Tier.findByPk(id)
-    const updatePledge = await Subscription.findOne({
-      where: {
-        [Op.and]: [{customerId: customer.id}, {businessId: tier.businessId}]
-      }
-    })
-    await updatePledge.update({
-      tierId: tier.id
-    })
-    res.json(updatePledge)
   } catch (error) {
     next(error)
   }

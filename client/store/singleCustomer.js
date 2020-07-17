@@ -26,7 +26,7 @@ export const fetchSubscriptions = () => async dispatch => {
   }
 }
 
-export const setCustomerSuscription = tierId => async dispatch => {
+export const setCustomerSubscription = tierId => async dispatch => {
   try {
     await axios.post(`api/customer/pledge/${tierId}`)
     dispatch(fetchSubscriptions())

@@ -16,6 +16,7 @@ router.get('/', async (req, res, next) => {
     next(err)
   }
 })
+
 // /api/users
 router.post('/signup', async (req, res, next) => {
   try {

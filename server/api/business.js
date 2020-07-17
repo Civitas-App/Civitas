@@ -1,7 +1,5 @@
 const router = require('express').Router()
-const {Customer, Business, Tier, User, Subscription} = require('../db/models')
-const userAuthentication = require('./middleware/user_middleware')
-const {Op} = require('sequelize')
+const {Business, Tier, Subscription} = require('../db/models')
 module.exports = router
 
 router.get('/', async (req, res, next) => {
@@ -30,6 +28,7 @@ router.get('/portal', async (req, res, next) => {
     next(error)
   }
 })
+
 //create a business
 // api/business/create
 router.post('/create', async (req, res, next) => {
@@ -135,32 +134,3 @@ router.post('/createtier', async (req, res, next) => {
     next(error)
   }
 })
-
-// router.post('/updatetier', async (req, res, next) => {
-//   try {
-//     const business = await Business.findOne({where: {id: req.body.id}})
-//     const tiers = req.body.tiers
-
-//     tiers.forEach(async (tier) => {
-//       try {
-//         const {level, title, pledge, price, photo} = tier
-
-//         const levelTier = await Tier.update({
-//           level,
-//           title,
-//           pledge,
-//           price,
-//           photo,
-//         })
-
-//         business.addTier(levelTier)
-//       } catch (error) {
-//         console.error(error)
-//         next(error)
-//       }
-//     })
-//     res.sendStatus(201)
-//   } catch (error) {
-//     next(error)
-//   }
-// })

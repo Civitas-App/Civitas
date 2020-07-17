@@ -1,6 +1,6 @@
 import React from 'react'
 import StripeCheckout from 'react-stripe-checkout'
-import {setCustomerSuscription} from '../../store/singleCustomer'
+import {setCustomerSubscription} from '../../store/singleCustomer'
 import {connect} from 'react-redux'
 
 class Checkout extends React.Component {
@@ -26,7 +26,7 @@ class Checkout extends React.Component {
 }
 
 const mapDispatch = dispatch => ({
-  setSubscription: tierId => dispatch(setCustomerSuscription(tierId))
+  setSubscription: tierId => dispatch(setCustomerSubscription(tierId))
 })
 
 export default connect(null, mapDispatch)(Checkout)

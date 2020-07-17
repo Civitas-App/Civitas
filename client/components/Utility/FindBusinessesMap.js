@@ -3,8 +3,8 @@ import React from 'react'
 import {Map, GoogleApiWrapper, Marker, InfoWindow} from 'google-maps-react'
 
 const mapStyles = {
-  width: '40%',
-  height: '90%'
+  width: '20%',
+  height: '50%'
 }
 
 class FindBusinessesMap extends React.Component {
