@@ -29,8 +29,8 @@ const BusinessForm = props => {
     props.history.push('/business/createtier')
   }
   return (
-    <div>
-      <h1>Business Sign Up Form</h1>
+    <div className="signup">
+      <h1>Signup</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name" />
         <input

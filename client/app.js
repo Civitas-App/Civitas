@@ -7,6 +7,7 @@ const App = () => {
   return (
     <div id="app_component">
       <Navbar />
+
       <Routes />
     </div>
   )

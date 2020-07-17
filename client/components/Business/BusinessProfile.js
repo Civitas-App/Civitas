@@ -2,7 +2,7 @@ import React from 'react'
 
 const BusinessProfile = ({business}) => {
   return (
-    <div>
+    <div id="business_profile">
       <div className="header">
         <img id="business_profile_header" src={business.headerPhoto} />
       </div>
