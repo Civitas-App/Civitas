@@ -1,7 +1,5 @@
 const router = require('express').Router()
-const {Customer, Business, Tier, User, Subscription} = require('../db/models')
-const userAuthentication = require('./middleware/user_middleware')
-const {Op} = require('sequelize')
+const {Business, Tier} = require('../db/models')
 module.exports = router
 
 // put a route for single business on here due to a lot of static routes in bussiness file

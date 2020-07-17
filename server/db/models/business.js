@@ -28,7 +28,6 @@ const Business = db.define('business', {
   location: {
     type: Sequelize.STRING
   },
-  //make category enum?
   category: {
     type: Sequelize.ENUM(
       'restaurant',

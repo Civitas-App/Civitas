@@ -3,7 +3,6 @@ import axios from 'axios'
 const GET_SUBSCRIPTIONS = 'GET_SUBSCRIPTIONS'
 
 // action creator
-
 const getSubscriptions = subscription => ({
   type: GET_SUBSCRIPTIONS,
   subscription
