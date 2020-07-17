@@ -1,4 +1,4 @@
-import React, {useHook} from 'react'
+import React from 'react'
 import {useDispatch} from 'react-redux'
 import {createCustomerSignup} from '../../store/customer'
 import useForm from '../Utility/UseForm'

@@ -4,7 +4,6 @@ const CREATE_BUSINESS = 'CREATE_BUSINESS'
 const GET_BUSINESS = 'GET_BUSINESS'
 
 const makeBusiness = business => ({type: CREATE_BUSINESS, business})
-
 const getBusiness = business => ({type: GET_BUSINESS, business})
 
 // thunk

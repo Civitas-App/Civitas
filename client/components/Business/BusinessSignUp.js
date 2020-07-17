@@ -1,8 +1,7 @@
-import React, {useHook, useState} from 'react'
-import {useSelector, useDispatch} from 'react-redux'
+import React, {useState} from 'react'
+import {useDispatch} from 'react-redux'
 import {createBusiness} from '../../store/business/createBusiness'
 import useForm from '../Utility/UseForm'
-import CreateTier from './CreateTier'
 
 const BusinessForm = props => {
   const [category, setCategory] = useState('')
@@ -14,7 +13,6 @@ const BusinessForm = props => {
   const handleChange = e => {
     setCategory(e.target.value)
   }
-  console.log(category)
   const dispatch = useDispatch()
 
   const handleSubmit = e => {

@@ -10,10 +10,7 @@ const SingleBusiness = props => {
   useEffect(() => {
     const {businessId} = props.match.params
     dispatch(singleBusiness(businessId))
-    console.log('singleB businessID', businessId)
   }, [])
-
-  console.log(business)
 
   return (
     <div id="single_business">

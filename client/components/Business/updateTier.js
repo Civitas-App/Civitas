@@ -5,9 +5,7 @@ import {createTier} from '../../store/business/createBusiness'
 import {fetchBusiness} from '../../store/business/singleBusiness'
 
 const UpdateTier = props => {
-  console.log('props:', props)
   const business = useSelector(state => state.business)
-  console.log(business)
   const [values, handleChange] = useForm({
     level1: 1,
     title1: '',
@@ -27,7 +25,6 @@ const UpdateTier = props => {
   })
   //level1 price 1, level2,price2
   const dispatch = useDispatch()
-  console.log(values)
   const handleSubmit = e => {
     e.preventDefault()
     const {
