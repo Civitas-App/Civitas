@@ -1,6 +1,9 @@
 $body-color: #2f4858;
 $body-background-color: #f5f5f5;
 $boxes-shadow: 0 6px 6px -5px rgba(0, 0, 0, 0.25);
+* {
+  box-sizing: border-box;
+}
 body {
   color: $body-color;
   background-color: $body-background-color;
@@ -88,11 +91,6 @@ a {
 label {
   display: block;
   border-radius: 5px;
-}
-
-form {
-  margin: 5px;
-  display: flex;
 }
 
 button {
@@ -287,13 +285,7 @@ div#business_tier_containter {
 div#single_business {
   text-align: center;
 }
-form {
-  margin-top: 10px;
 
-  width: 1000px;
-  height: 1000px;
-  background-color: #f5ee9e;
-}
 input {
   height: 30px;
   border-radius: 30px;
@@ -320,4 +312,29 @@ div {
   left: 85%;
   top: 30%;
   margin: auto;
+  // background-image: url('searchicon.png');
+}
+
+.signup {
+  width: 400px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  height: 500px;
+  form {
+    margin: 5px;
+    // display: flex;
+    height: 400px;
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      box-shadow: 0 0 15px 4px rgba(0, 0, 0, 0.06);
+    }
+  }
 }

@@ -17,7 +17,7 @@ const CustomerSignUp = props => {
   }
 
   return (
-    <div id="customer_signup">
+    <div className="signup">
       <form onSubmit={handleSubmit}>
         <label htmlFor="name" />
         <input
