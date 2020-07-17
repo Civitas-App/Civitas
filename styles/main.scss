@@ -6,44 +6,36 @@ body {
   background-color: $body-background-color;
   box-sizing: border-box;
   margin: 0;
-  font-family: 'Quicksand', sans-serif;
-}
-
-nav {
-  box-shadow: $boxes-shadow;
-  top: 0;
-  z-index: 100;
-  position: fixed;
-  width: 100%;
+  font-family: 'Roboto', sans-serif;
 }
 
 #navbar {
   height: 75px;
   nav {
+    background-color: $body-background-color;
+    box-shadow: $boxes-shadow;
+    top: 0;
+    z-index: 100;
+    position: fixed;
+    width: 100%;
     height: 75px;
     display: flex;
-    #links {
-      display: flex;
+    .navbar {
       text-align: center;
-      padding-left: 425px;
-      margin-top: 0;
-      float: left;
-      display: block;
-      color: #f2f2f2;
-      text-align: center;
-      padding: 14px;
-      text-decoration: none;
-      a {
-        // display: inline-flex;
-        // font-size: 16px;
-        // margin-top: 0;
-        // flex-direction: row;
-        // margin-top: 2px;
-      }
-      button {
-        display: inline-flex;
-        width: auto;
-        font-size: 16px;
+      ul {
+        list-style-type: none;
+        li {
+          float: left;
+          color: #f2f2f2;
+          text-align: center;
+          padding: 14px 16px;
+          text-decoration: none;
+          font-size: 17px;
+          a {
+            font-size: 16px;
+            font-weight: 0;
+          }
+        }
       }
     }
   }
@@ -317,4 +309,15 @@ div#homepage {
 
 div#update_tier_button {
   display: inline;
+}
+div {
+  .links {
+    display: flex;
+  }
+}
+#search_bar {
+  position: absolute;
+  left: 85%;
+  top: 30%;
+  margin: auto;
 }
