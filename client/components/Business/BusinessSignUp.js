@@ -30,7 +30,7 @@ const BusinessForm = props => {
   }
   return (
     <div className="signup">
-      <h1>Business Sign Up Form</h1>
+      <h1>Signup</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name" />
         <input
