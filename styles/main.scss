@@ -3,6 +3,8 @@ $body-background-color: #f5f5f5;
 $background-color: #f0f0f0;
 $boxes-shadow: 0 6px 6px -5px rgba(0, 0, 0, 0.25);
 $form-bg: #13232f;
+$bg-image: url('/krisztina-papp-VRnb4dMwmBQ-unsplash.jpg');
+
 * {
   box-sizing: border-box;
 }
@@ -308,9 +310,9 @@ input {
 }
 
 div#homepage {
-  text-align: center;
-  height: 1000px;
-  width: 1000px;
+  background: $bg-image no-repeat center right / cover;
+  height: 100vh;
+  color: #fff;
 }
 
 div#update_tier_button {

@@ -3,9 +3,10 @@ import React from 'react'
 export function Homepage() {
   return (
     <div id="homepage">
-      <h1>Welcome to Civitas</h1>
-      <h2>Who are we?</h2>
-
+      <section>
+        <h1>Welcome to Civitas</h1>
+        <h2>Who are we?</h2>
+      </section>
       <div>
         <h3>
           Civitas is a community-based funding platform that connects loyal
@@ -64,13 +65,6 @@ export function Homepage() {
           </li>
         </p>
       </div>
-
-      <img
-        src="/krisztina-papp-VRnb4dMwmBQ-unsplash.jpg"
-        width={600}
-        height={400}
-        mode="fit"
-      />
     </div>
   )
 }
