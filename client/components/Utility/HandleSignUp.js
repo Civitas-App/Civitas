@@ -23,26 +23,30 @@ const HandleSignUp = props => {
   )
   return (
     <div id="button_signup">
-      <button
-        id="handleSignUp"
-        value="customer"
-        type="submit"
-        onClick={() => {
-          setRole('customer')
-        }}
-      >
-        Continue as a Customer
-      </button>
-      <button
-        id="handleSignUp"
-        value="business"
-        type="submit"
-        onClick={() => {
-          setRole('business')
-        }}
-      >
-        Continue as a Business
-      </button>
+      <div className="button">
+        <button
+          id="handleSignUp"
+          value="customer"
+          type="submit"
+          onClick={() => {
+            setRole('customer')
+          }}
+        >
+          Continue as a Customer
+        </button>
+      </div>
+      <div className="button">
+        <button
+          id="handleSignUp"
+          value="business"
+          type="submit"
+          onClick={() => {
+            setRole('business')
+          }}
+        >
+          Continue as a Business
+        </button>
+      </div>
     </div>
   )
 }
