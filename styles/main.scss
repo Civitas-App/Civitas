@@ -57,20 +57,25 @@ body {
 hr {
   border-width: 0;
 }
-
-#business_card {
-  padding: 5px 5px 5px;
-  width: 50%;
-  height: 50%;
-  flex: 1 1 50%;
-  text-align: center;
-  margin: 15px 0;
-  box-shadow: 2px 6px 25px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  position: relative;
-  background-color: $background-color;
-  h4 {
-    font-weight: 100;
+#all_businesses {
+  display: flex;
+  flex-direction: column;
+  #business_card {
+    padding: 5px 5px 5px;
+    width: 50%;
+    height: 50%;
+    flex: 1 1 50%;
+    text-align: center;
+    margin: 15px 0;
+    box-shadow: 2px 6px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    background-color: $background-color;
+    // float: right;
+    // display: flex;
+    h4 {
+      font-weight: 100;
+    }
   }
 }
 
@@ -417,4 +422,7 @@ form {
 }
 #google_map {
   font-weight: 100;
+}
+#business_map {
+  float: right;
 }
