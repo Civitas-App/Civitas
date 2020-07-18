@@ -100,115 +100,122 @@ const CreateTier = props => {
     [fetchBusiness]
   )
   return (
-    <div>
-      <h2>Tier Level 1</h2>
+    <div id="create_tier">
       <form onSubmit={handleSubmit}>
-        <h4>Title</h4>
-        <label htmlFor="title" />
-        <input
-          placeholder="tier title"
-          name="title1"
-          value={values.title1}
-          onChange={handleChange}
-        />
-        <h4>Price of tier subscription</h4>
-        <label htmlFor="price" />
-        <input
-          placeholder="price"
-          name="price1"
-          value={values.price1}
-          onChange={handleChange}
-        />
-        <h4> Pledge - what you are offering for this pledge</h4>
-        <label htmlFor="pledge" />
-        <textarea
-          rows="8"
-          cols="30"
-          placeholder="pledge - seperate each sentence(pledge) with a comma"
-          name="pledge1"
-          value={values.pledge1}
-          onChange={handleChange}
-        />
-        <h4>Photo</h4>
-        <label htmlFor="photo" />
-        <input
-          placeholder="photo URL - default image will be used if none is provided"
-          name="photo1"
-          value={values.photo1}
-          onChange={handleChange}
-        />
-
-        <h2>Tier Level 2</h2>
-        <h4>Title</h4>
-        <label htmlFor="title" />
-        <input
-          placeholder="tier title"
-          name="title2"
-          value={values.title2}
-          onChange={handleChange}
-        />
-        <h4>Price of tier subscription</h4>
-        <label htmlFor="price" />
-        <input
-          placeholder="price"
-          name="price2"
-          value={values.price2}
-          onChange={handleChange}
-        />
-        <h4>Pledge - what you are offering for this pledge</h4>
-        <label htmlFor="pledge" />
-        <textarea
-          rows="8"
-          cols="30"
-          placeholder="pledge - seperate each sentence(pledge) with a comma"
-          name="pledge2"
-          value={values.pledge2}
-          onChange={handleChange}
-        />
-        <h4>Photo</h4>
-        <label htmlFor="photo" />
-        <input
-          placeholder="photo URL - default image will be used if none is provided"
-          name="photo2"
-          value={values.photo2}
-          onChange={handleChange}
-        />
-        <h2>Tier Level 3</h2>
-        <h4>Title</h4>
-        <label htmlFor="title" />
-        <input
-          placeholder="tier title"
-          name="title3"
-          value={values.title3}
-          onChange={handleChange}
-        />
-        <h4>Price of tier subscription</h4>
-        <label htmlFor="price" />
-        <input
-          placeholder="price"
-          name="price3"
-          value={values.price3}
-          onChange={handleChange}
-        />
-        <h4>Pledge - what you are offering for this pledge</h4>
-        <label htmlFor="pledge" />
-        <textarea
-          rows="8"
-          cols="30"
-          placeholder="pledge - seperate each sentence(pledge) with a comma"
-          name="pledge3"
-          value={values.pledge3}
-          onChange={handleChange}
-        />
-        <h4>Photo</h4>
-        <label htmlFor="photo" />
-        <input
-          placeholder="photo URL - default image will be used if none is provided"
-          name="photo3"
-          value={values.photo3}
-          onChange={handleChange}
-        />
-        <button type="submit">Submit</button>
+        <div className="single_tier">
+          <h2>Tier Level 1</h2>
+          <h4>Title</h4>
+          <label htmlFor="title" />
+          <input
+            placeholder="tier title"
+            name="title1"
+            value={values.title1}
+            onChange={handleChange}
+          />
+          <h4>Price of tier subscription</h4>
+          <label htmlFor="price" />
+          <input
+            placeholder="price"
+            name="price1"
+            value={values.price1}
+            onChange={handleChange}
+          />
+          <h4> Pledge - what you are offering for this pledge</h4>
+          <label htmlFor="pledge" />
+          <textarea
+            rows="8"
+            cols="30"
+            placeholder="pledge - seperate each sentence(pledge) with a comma"
+            name="pledge1"
+            value={values.pledge1}
+            onChange={handleChange}
+          />
+          <h4>Photo</h4>
+          <label htmlFor="photo" />
+          <input
+            placeholder="photo URL - default image will be used if none is provided"
+            name="photo1"
+            value={values.photo1}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="single_tier">
+          <h2>Tier Level 2</h2>
+          <h4>Title</h4>
+          <label htmlFor="title" />
+          <input
+            placeholder="tier title"
+            name="title2"
+            value={values.title2}
+            onChange={handleChange}
+          />
+          <h4>Price of tier subscription</h4>
+          <label htmlFor="price" />
+          <input
+            placeholder="price"
+            name="price2"
+            value={values.price2}
+            onChange={handleChange}
+          />
+          <h4>Pledge - what you are offering for this pledge</h4>
+          <label htmlFor="pledge" />
+          <textarea
+            rows="8"
+            cols="30"
+            placeholder="pledge - seperate each sentence(pledge) with a comma"
+            name="pledge2"
+            value={values.pledge2}
+            onChange={handleChange}
+          />
+          <h4>Photo</h4>
+          <label htmlFor="photo" />
+          <input
+            placeholder="photo URL - default image will be used if none is provided"
+            name="photo2"
+            value={values.photo2}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="single_tier">
+          <h2>Tier Level 3</h2>
+          <h4>Title</h4>
+          <label htmlFor="title" />
+          <input
+            placeholder="tier title"
+            name="title3"
+            value={values.title3}
+            onChange={handleChange}
+          />
+          <h4>Price of tier subscription</h4>
+          <label htmlFor="price" />
+          <input
+            placeholder="price"
+            name="price3"
+            value={values.price3}
+            onChange={handleChange}
+          />
+          <h4>Pledge - what you are offering for this pledge</h4>
+          <label htmlFor="pledge" />
+          <textarea
+            rows="8"
+            cols="30"
+            placeholder="pledge - seperate each sentence(pledge) with a comma"
+            name="pledge3"
+            value={values.pledge3}
+            onChange={handleChange}
+          />
+          <h4>Photo</h4>
+          <label htmlFor="photo" />
+          <input
+            placeholder="photo URL - default image will be used if none is provided"
+            name="photo3"
+            value={values.photo3}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="single_tier">
+          <button type="submit">Submit</button>
+        </div>
       </form>
     </div>
   )

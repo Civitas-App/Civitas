@@ -9,9 +9,14 @@ const setSubscription = tier => ({type: SET_SUBSCRIPTION, tier})
 export const fetchSingleCustomer = () => async dispatch => {
   try {
     const {data: customerData} = await axios.get('/api/customer')
-    dispatch(getCustomer(customerData))
+
+    if (customerData) {
+      dispatch(getCustomer(customerData))
+    } else {
+      console.log('no customer yet')
+    }
   } catch (error) {
-    console.log('error in fetchCustomer', error)
+    console.log('error in fetchSingleCustomer', error)
   }
 }
 
