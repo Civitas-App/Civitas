@@ -309,12 +309,6 @@ input {
   color: #002729;
 }
 
-div#homepage {
-  background: $bg-image no-repeat center right / cover;
-  height: 100vh;
-  color: #fff;
-}
-
 div#update_tier_button {
   display: inline;
 }
@@ -373,4 +367,47 @@ div {
 }
 form {
   height: auto;
+}
+
+#homepage {
+  h2 {
+    font-size: 340%;
+    font-weight: bold;
+    color: black;
+    opacity: 100%;
+    margin-top: 0;
+  }
+  #image {
+    background: $bg-image no-repeat center right / cover;
+    height: 100vh;
+    color: #fff;
+    opacity: 50%;
+  }
+  #civitas_description {
+    //margin: 10%;
+    margin-top: 0;
+    background-color: #2a4551;
+    margin-bottom: 5%;
+    color: white;
+    padding-bottom: 10%;
+    h2 {
+      color: white;
+    }
+  }
+  #customer_description {
+    //margin: 10%;
+    margin-top: 0;
+    margin-bottom: 5%;
+  }
+  #local_business {
+    // margin: 10%;
+    padding-bottom: 10%;
+    margin-top: 0;
+    background-color: #2a4551;
+    margin-bottom: 5%;
+    color: white;
+    h2 {
+      color: white;
+    }
+  }
 }

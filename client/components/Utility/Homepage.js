@@ -3,11 +3,13 @@ import React from 'react'
 export function Homepage() {
   return (
     <div id="homepage">
-      <section>
-        <h1>Welcome to Civitas</h1>
+      <div id="welcome">
+        <h2>Welcome to Civitas</h2>
+      </div>
+      <div id="image" />
+      <div id="civitas_description">
         <h2>Who are we?</h2>
-      </section>
-      <div>
+
         <h3>
           Civitas is a community-based funding platform that connects loyal
           customers with their local businesses via monthly memberships! Civitas
@@ -18,7 +20,8 @@ export function Homepage() {
           Win-win!
         </h3>
       </div>
-      <div>
+
+      <div id="customer_description">
         <h2>For Users</h2>
         <h3>
           Are you a regular at local businesses and restaurants around your
@@ -32,7 +35,7 @@ export function Homepage() {
           Support your community and sign up below!
         </h3>
       </div>
-      <div>
+      <div id="local_business">
         <h2>For Local Businesses</h2>
         <h3>
           Are you a local business needing help making monthly expenses through
