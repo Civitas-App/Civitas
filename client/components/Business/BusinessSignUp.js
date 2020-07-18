@@ -32,6 +32,7 @@ const BusinessForm = props => {
     <div className="signup">
       <h1>Signup</h1>
       <form onSubmit={handleSubmit}>
+        <h3>Business Name</h3>
         <label htmlFor="name" />
         <input
           placeholder="Name - Required"
@@ -40,6 +41,7 @@ const BusinessForm = props => {
           value={values.name}
           onChange={setChange}
         />
+        <h3>Address</h3>
         <label htmlFor="location" />
         <input
           placeholder="Location City - Required"
@@ -48,14 +50,16 @@ const BusinessForm = props => {
           value={values.location}
           onChange={setChange}
         />
+        <h3>Description</h3>
         <label htmlFor="description" />
-        <input
+        <textarea
           placeholder="Business Description - required"
           name="description"
-          type="text"
+          type=""
           value={values.description}
           onChange={setChange}
         />
+        <h3>Business Category</h3>
         <label htmlFor="Category" />
         <select defaultValue={category} onChange={handleChange}>
           <option>Choose a Category</option>

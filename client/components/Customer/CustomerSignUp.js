@@ -18,29 +18,31 @@ const CustomerSignUp = props => {
 
   return (
     <div className="signup">
-      <div>
-        <h2>Signup</h2>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="name" />
-          <input
-            placeholder="Name - Required"
-            name="name"
-            type="text"
-            message="Dont Forget Your Username Should Be Cool!"
-            value={values.email}
-            onChange={handleChange}
-          />
-          <label htmlFor="location" />
-          <input
-            placeholder="City - Required"
-            name="location"
-            type="text"
-            value={values.location}
-            onChange={handleChange}
-          />
+      <h1>Signup</h1>
+      <form onSubmit={handleSubmit}>
+        <h3>Name</h3>
+        <label htmlFor="name" />
+        <input
+          placeholder="Name - Required"
+          name="name"
+          type="text"
+          message="Dont Forget Your Username Should Be Cool!"
+          value={values.email}
+          onChange={handleChange}
+        />
+        <h3>Location (city and state)</h3>
+        <label htmlFor="location" />
+        <input
+          placeholder="City - Required"
+          name="location"
+          type="text"
+          value={values.location}
+          onChange={handleChange}
+        />
+        <div>
           <button type="submit">Create Accounts</button>
-        </form>
-      </div>
+        </div>
+      </form>
     </div>
   )
 }
