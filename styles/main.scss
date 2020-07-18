@@ -2,6 +2,8 @@ $body-color: #2f4858;
 $body-background-color: #f5f5f5;
 $background-color: #f0f0f0;
 $boxes-shadow: 0 6px 6px -5px rgba(0, 0, 0, 0.25);
+$form-bg: #13232f;
+$bg-image: url('/krisztina-papp-VRnb4dMwmBQ-unsplash.jpg');
 
 * {
   box-sizing: border-box;
@@ -310,10 +312,11 @@ div#single_business {
   text-align: center;
 }
 
-div#homepage {
-  text-align: center;
-  height: 1000px;
-  width: 1000px;
+input {
+  height: 30px;
+  border-radius: 30px;
+
+  color: #002729;
 }
 
 div#update_tier_button {
@@ -425,4 +428,47 @@ form {
 }
 #business_map {
   float: right;
+}
+
+#homepage {
+  h2 {
+    font-size: 340%;
+    font-weight: bold;
+    color: black;
+    opacity: 100%;
+    margin-top: 0;
+  }
+  #image {
+    background: $bg-image no-repeat center right / cover;
+    height: 100vh;
+    color: #fff;
+    opacity: 50%;
+  }
+  #civitas_description {
+    //margin: 10%;
+    margin-top: 0;
+    background-color: #2a4551;
+    margin-bottom: 5%;
+    color: white;
+    padding-bottom: 10%;
+    h2 {
+      color: white;
+    }
+  }
+  #customer_description {
+    //margin: 10%;
+    margin-top: 0;
+    margin-bottom: 5%;
+  }
+  #local_business {
+    // margin: 10%;
+    padding-bottom: 10%;
+    margin-top: 0;
+    background-color: #2a4551;
+    margin-bottom: 5%;
+    color: white;
+    h2 {
+      color: white;
+    }
+  }
 }
