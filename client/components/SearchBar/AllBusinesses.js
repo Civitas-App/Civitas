@@ -13,7 +13,9 @@ const AllBusinesses = () => {
             <h4>Name: {query.name}</h4>
           </NavLink>
           <img id="business_card_img" src={query.headerPhoto} />
-          <h4>Description: {query.description}</h4>
+          <div className="description">
+            <h4>Description: {query.description}</h4>
+          </div>
           <div />
         </div>
       ))}

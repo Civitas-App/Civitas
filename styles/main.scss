@@ -1,5 +1,6 @@
 $body-color: #2f4858;
 $body-background-color: #f5f5f5;
+$background-color: #f0f0f0;
 $boxes-shadow: 0 6px 6px -5px rgba(0, 0, 0, 0.25);
 
 * {
@@ -14,6 +15,10 @@ body {
   box-sizing: border-box;
   margin: 0;
   font-family: 'Roboto', sans-serif;
+}
+
+.description {
+  font-weight: 200px;
 }
 
 #navbar {
@@ -53,20 +58,16 @@ hr {
 }
 
 #business_card {
-  display: flex !important;
-  box-shadow: -6px 6px 6px -5px rgba(0, 0, 0, 0.25);
-  margin: 40px;
-  background-color: #2f4858;
-  display: inline-block;
+  padding: 5px 5px 5px;
+  width: 50%;
+  height: 50%;
+  flex: 1 1 50%;
   text-align: center;
-  border-radius: 15px;
-  border-width: 5px;
-  max-width: 700px;
-  border-color: #f49e4c;
-  border-style: solid;
-  padding: 5px;
-  margin-left: 10px;
-  color: #f5ee9e;
+  margin: 15px 0;
+  box-shadow: 2px 6px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  background-color: $background-color;
 }
 
 #category_filter {
@@ -170,52 +171,61 @@ button {
   }
 }
 
-#customer_portal {
-  .customer-profile {
-    text-align: center;
-    .customer-info {
-      display: inline-block;
-      text-align: center;
-      color: #2f4858;
-      background-image: url('https://i.pinimg.com/originals/68/58/65/685865c65f96852b30f16f1011b4d6e9.jpg');
-      border-color: #f5ee9e;
-      border-radius: 15px;
-      height: 100pxpx;
-      width: 1000px;
-      background-color: #2f4858;
-    }
-    img {
-      height: 150px;
-      width: 200px;
-      border-style: solid;
-      border-color: #ff7700;
-      border-radius: 15px;
-    }
-  }
-  #customer_info_seperate {
-    height: 20px;
-    #supportings {
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      width: 50%;
-      .customer-subscription-info {
-        display: inline-block;
-        text-align: center;
-        color: #f5ee9e;
-        border-style: solid;
-        border-width: 1px;
-        border-color: darkgray;
-        border-radius: 15px;
-        height: 500px;
-        width: 600px;
-        background-color: #2f4858;
-        img {
-        }
-      }
-    }
-  }
+.customer-profile {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
+
+.navlink {
+  text-decoration: none;
+  color: black;
+}
+
+.content {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+#business_avatar {
+  width: 50%;
+  height: 50%;
+  margin: 15px 0;
+}
+
+.customer-info {
+  text-align: center;
+  flex: 1 1 80%;
+  margin: 15px 0;
+  box-shadow: 2px 6px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+}
+.customer-subscription-info {
+  padding: 5px 5px 5px;
+  width: 50%;
+  height: 50%;
+  flex: 1 1 50%;
+  text-align: center;
+  margin: 15px 0;
+  box-shadow: 2px 6px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+}
+h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  line-height: 1.2;
+}
+
+#customer_avatar {
+  height: 200px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
 #single_business {
   text-align:center #business_page {
     background-color: #2f4858;
