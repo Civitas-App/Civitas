@@ -77,7 +77,8 @@ hr {
 input {
   box-shadow: $boxes-shadow;
   background-color: var(--white);
-  box-shadow: none;
+  height: 30px;
+  color: #002729;
   color: var(--black-700);
   padding: 0;
   border-style: solid;
@@ -290,13 +291,6 @@ div#single_business {
   text-align: center;
 }
 
-input {
-  height: 30px;
-  border-radius: 30px;
-
-  color: #002729;
-}
-
 div#homepage {
   text-align: center;
   height: 1000px;
@@ -361,4 +355,29 @@ div {
 }
 form {
   height: auto;
+}
+
+#create_tier {
+  form {
+    background-color: #221b20;
+    h4 {
+      font-weight: bold;
+    }
+    .single_tier {
+      background-color: white;
+      width: 55%;
+      border-radius: 10px;
+      display: inline-block;
+      margin: 20px;
+      padding: 10px;
+      input {
+        margin: 10px;
+        padding: 20px;
+        background-color: white;
+      }
+
+      button {
+      }
+    }
+  }
 }
