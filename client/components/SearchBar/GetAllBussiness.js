@@ -18,19 +18,24 @@ const GetAllBussiness = () => {
 
   return (
     <div id="business_card_container">
-      <div>
+      <div id="category_filter">
         <CategoryFilter />
       </div>
-      <FindBusinessesMap />
-      {businesses.map(query => (
-        <div id="business_card" key={query.id}>
-          <NavLink className="navlink" to={`/business/${query.id}`}>
-            <h4>Name: {query.name}</h4>
-          </NavLink>
-          <img src={query.headerPhoto} />
-          <h4 className="description">Description: {query.description}</h4>
-        </div>
-      ))}
+      <div id="business_map">
+        <FindBusinessesMap />
+      </div>
+
+      <div id="all_businesses">
+        {businesses.map(query => (
+          <div id="business_card" key={query.id}>
+            <NavLink className="navlink" to={`/business/${query.id}`}>
+              <h4>Name: {query.name}</h4>
+            </NavLink>
+            <img src={query.headerPhoto} />
+            <h4 className="description">Description: {query.description}</h4>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

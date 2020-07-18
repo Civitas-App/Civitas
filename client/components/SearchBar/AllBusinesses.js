@@ -8,7 +8,7 @@ const AllBusinesses = () => {
   return (
     <div id="business_card">
       {businesses.map(query => (
-        <div key={query.id}>
+        <div id="single_business_card" key={query.id}>
           <NavLink className="navlink" to={`/business/${query.id}`}>
             <h4>Name: {query.name}</h4>
           </NavLink>
