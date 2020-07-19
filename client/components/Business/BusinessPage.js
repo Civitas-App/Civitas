@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect} from 'react'
 import {NavLink} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
 import {fetchSubscriptions} from '../../store/singleCustomer'
@@ -22,16 +22,6 @@ const BusinessPage = ({business}) => {
   if (tiers) {
     sorted = tiers.sort(compare)
   }
-  console.log(sorted)
-  // let list = business.tiers
-  // const [tierList, setTierList] = useState(list)
-  // const sortByLevel = () => {
-  //   const sorted = tierList.sort((a, b) => {
-  //     return b.level - a.level
-  //   })
-  //   setTierList(sorted)
-  // }
-  // let sortedTiers = sortByLevel
 
   useEffect(() => {
     dispatch(fetchSubscriptions())
