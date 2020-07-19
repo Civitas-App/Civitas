@@ -13,7 +13,7 @@ const SingleBusiness = props => {
   }, [])
 
   return (
-    <div id="single_business">
+    <div id="business_portal">
       <BusinessPage business={business} />
     </div>
   )
