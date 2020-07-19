@@ -6,9 +6,9 @@ const AllBusinesses = () => {
   const businesses = useSelector(state => state.businesses)
 
   return (
-    <div id="business_card">
+    <div id="all_businesses">
       {businesses.map(query => (
-        <div id="single_business_card" key={query.id}>
+        <div id="business_card" key={query.id}>
           <NavLink className="navlink" to={`/business/${query.id}`}>
             <h4>Name: {query.name}</h4>
           </NavLink>
