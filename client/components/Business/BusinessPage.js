@@ -1,13 +1,13 @@
-import React, {useEffect} from 'react'
+import React, {useEffect, useState} from 'react'
 import {NavLink} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
 import {fetchSubscriptions} from '../../store/singleCustomer'
 
-function compare(a, b) {
-  if (a.level > b.level) {
+const compare = (a, b) => {
+  if (a.level < b.level) {
     return -1
   }
-  if (a.level < b.level) {
+  if (a.level > b.level) {
     return 1
   }
   return 0
@@ -16,6 +16,22 @@ function compare(a, b) {
 const BusinessPage = ({business}) => {
   const singleCustomer = useSelector(state => state.singleCustomer)
   const dispatch = useDispatch()
+
+  const {tiers} = business
+  let sorted = []
+  if (tiers) {
+    sorted = tiers.sort(compare)
+  }
+  console.log(sorted)
+  // let list = business.tiers
+  // const [tierList, setTierList] = useState(list)
+  // const sortByLevel = () => {
+  //   const sorted = tierList.sort((a, b) => {
+  //     return b.level - a.level
+  //   })
+  //   setTierList(sorted)
+  // }
+  // let sortedTiers = sortByLevel
 
   useEffect(() => {
     dispatch(fetchSubscriptions())
@@ -30,10 +46,6 @@ const BusinessPage = ({business}) => {
     })
   }
 
-  const {tiers} = business
-  const sorted = tiers.sort(compare)
-  console.log(sorted)
-
   return (
     <div id="business_page">
       <span>
@@ -45,7 +57,7 @@ const BusinessPage = ({business}) => {
       <h4> Company: {business.name}</h4>
       <h5>Description: {business.description}</h5>
       <h2>Select a teir level</h2>
-      {business.tiers && business.tiers.length > 0 ? (
+      {business.tiers && sorted.length > 0 ? (
         <div>
           {sorted.map(tier => (
             <div id="business_tier" key={tier.id}>
