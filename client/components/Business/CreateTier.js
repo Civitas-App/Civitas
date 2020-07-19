@@ -47,48 +47,51 @@ const CreateTier = props => {
       price3,
       photo3
     } = values
-    dispatch(
-      createTier({
-        id: business.id,
-        tiers: [
-          {
-            level: level1,
-            title: title1,
-            pledge: pledge1,
-            price: price1,
-            photo: photo1
-          }
-        ]
-      })
-    )
-    dispatch(
-      createTier({
-        id: business.id,
-        tiers: [
-          {
-            level: level2,
-            title: title2,
-            pledge: pledge2,
-            price: price2,
-            photo: photo2
-          }
-        ]
-      })
-    )
-    dispatch(
-      createTier({
-        id: business.id,
-        tiers: [
-          {
-            level: level3,
-            title: title3,
-            pledge: pledge3,
-            price: price3,
-            photo: photo3
-          }
-        ]
-      })
-    )
+    if (business.id) {
+      dispatch(
+        createTier({
+          id: business.id,
+          tiers: [
+            {
+              level: level1,
+              title: title1,
+              pledge: pledge1,
+              price: price1,
+              photo: photo1
+            }
+          ]
+        })
+      )
+      dispatch(
+        createTier({
+          id: business.id,
+          tiers: [
+            {
+              level: level2,
+              title: title2,
+              pledge: pledge2,
+              price: price2,
+              photo: photo2
+            }
+          ]
+        })
+      )
+      dispatch(
+        createTier({
+          id: business.id,
+          tiers: [
+            {
+              level: level3,
+              title: title3,
+              pledge: pledge3,
+              price: price3,
+              photo: photo3
+            }
+          ]
+        })
+      )
+    }
+
     props.history.push('/business/portal')
   }
   //[ { level1, title1, pledge1 },  { level2, title 2, pledge2 }, {level3, title3, pledge3} ]
