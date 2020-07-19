@@ -116,38 +116,45 @@ button {
   background: none;
 }
 #business_portal {
+  background: $body-color;
   text-align: center;
+
+  a {
+    color: white;
+  }
+
   #business_profile {
-    padding-top: 30px;
+    #business_profile_header {
+      width: 80%;
+      text-align: center;
+      border-radius: 15px;
+      height: 100px;
+    }
     .business_profile {
+      margin: 5%;
       display: inline-block;
       border-style: solid;
       width: 400px;
-      background-color: #f49e4c;
+      background-color: white;
       border-radius: 5px;
-      border-color: #2f4858;
+      border-color: lightslategrey;
       text-align: center;
       img {
-        height: 100px;
-        width: 100px;
+        height: 10%;
+        width: 30%;
         border-style: solid;
         border-radius: 100px;
-        border-color: #2f4858;
+        border-color: white;
         text-align: center;
       }
     }
-    img {
-      height: 130px;
-      width: 1000px;
-      text-align: center;
-    }
   }
   #business_tier {
-    background-color: #f49e4c;
+    background-color: $body-color;
     display: inline-block;
     text-align: center;
     border-radius: 10px;
-    border-width: 5px;
+    //border-width: 5px;
     height: 500px;
     width: 800px;
     padding: 5px;
@@ -155,25 +162,33 @@ button {
     margin-left: 10px;
     color: #f5ee9e;
     border-style: solid;
-    border-color: #f5ee9e;
+    border-color: $body-color;
 
     .business_tier {
       display: inline-block;
       text-align: center;
 
-      #single_tier {
-        background-color: #2f4858;
-        width: 150px;
-        height: 300px;
-        display: inline-block;
-        border-radius: 10px;
-        margin: 10px;
-        border-color: #f49e4c;
-        border-style: solid;
+      #business_tiers_container {
+        display: flex;
+        background-color: $body-color;
+        border-radius: 15px;
+        #single_tier {
+          background-color: white;
+          width: 50%;
+          height: auto;
+          display: inline-block;
+          border-radius: 10px;
+          margin: 10px;
+          border-color: #9e90eb;
+          border-style: solid;
+          color: $body-color;
+          padding: 10%;
+          padding-top: 0;
 
-        img {
-          height: 100px;
-          width: 100px;
+          img {
+            height: 20px;
+            width: 20px;
+          }
         }
       }
     }
@@ -195,6 +210,7 @@ button {
   max-width: 850px;
   margin: 0 auto;
   padding: 0 15px;
+  display: flex;
 }
 
 #business_avatar {
@@ -202,9 +218,16 @@ button {
   height: 50%;
   margin: 15px 0;
 }
-
+.customer-profile {
+  background: $body-color;
+  border-radius: 15px;
+  .content {
+    color: white;
+  }
+}
 .customer-info {
   text-align: center;
+  color: white;
   flex: 1 1 80%;
   margin: 15px 0;
   box-shadow: 2px 6px 25px rgba(0, 0, 0, 0.1);
@@ -212,6 +235,7 @@ button {
   position: relative;
 }
 .customer-subscription-info {
+  color: white;
   padding: 5px 5px 5px;
   width: 50%;
   height: 50%;
@@ -221,11 +245,18 @@ button {
   box-shadow: 2px 6px 25px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   position: relative;
+  h2 {
+    color: white;
+  }
+  button {
+    color: white;
+  }
 }
 h1 {
   margin: 0;
   font-size: 1.75rem;
   line-height: 1.2;
+  color: white;
 }
 
 #customer_avatar {
@@ -252,9 +283,9 @@ h1 {
       display: flex;
     }
     #business_profile_header {
-      height: 300px;
-      width: 400px;
-      display: flex;
+      // height: 300px;
+      // width: 400px;
+      // display: flex;
     }
     #business_profile_avatar {
       height: 100px;
@@ -302,13 +333,13 @@ h1 {
   }
 }
 
-div#business_tier_containter {
-  display: flex;
-}
+// div#business_tier_containter {
+//   display: flex;
+// }
 
-div#single_business {
-  text-align: center;
-}
+// div#single_business {
+//   text-align: center;
+// }
 
 input {
   height: 30px;
@@ -504,4 +535,9 @@ form {
 }
 #google_map {
   font-weight: 100;
+}
+#business_analytics {
+  h1 {
+    color: $body-color;
+  }
 }

@@ -133,44 +133,46 @@ button {
 }
 
 #business_portal {
+  background: #221b20;
   text-align: center;
 }
 
-#business_portal #business_profile {
-  padding-top: 30px;
+#business_portal a {
+  color: white;
+}
+
+#business_portal #business_profile #business_profile_header {
+  width: 80%;
+  text-align: center;
+  border-radius: 15px;
+  height: 100px;
 }
 
 #business_portal #business_profile .business_profile {
+  margin: 5%;
   display: inline-block;
   border-style: solid;
   width: 400px;
-  background-color: #f49e4c;
+  background-color: white;
   border-radius: 5px;
-  border-color: #2f4858;
+  border-color: lightslategrey;
   text-align: center;
 }
 
 #business_portal #business_profile .business_profile img {
-  height: 100px;
-  width: 100px;
+  height: 10%;
+  width: 30%;
   border-style: solid;
   border-radius: 100px;
-  border-color: #2f4858;
-  text-align: center;
-}
-
-#business_portal #business_profile img {
-  height: 130px;
-  width: 1000px;
+  border-color: white;
   text-align: center;
 }
 
 #business_portal #business_tier {
-  background-color: #f49e4c;
+  background-color: #221b20;
   display: inline-block;
   text-align: center;
   border-radius: 10px;
-  border-width: 5px;
   height: 500px;
   width: 800px;
   padding: 5px;
@@ -178,7 +180,7 @@ button {
   margin-left: 10px;
   color: #f5ee9e;
   border-style: solid;
-  border-color: #f5ee9e;
+  border-color: #221b20;
 }
 
 #business_portal #business_tier .business_tier {
@@ -186,20 +188,40 @@ button {
   text-align: center;
 }
 
-#business_portal #business_tier .business_tier #single_tier {
-  background-color: #2f4858;
-  width: 150px;
-  height: 300px;
+#business_portal #business_tier .business_tier #business_tiers_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #221b20;
+  border-radius: 15px;
+}
+
+#business_portal
+  #business_tier
+  .business_tier
+  #business_tiers_container
+  #single_tier {
+  background-color: white;
+  width: 50%;
+  height: auto;
   display: inline-block;
   border-radius: 10px;
   margin: 10px;
-  border-color: #f49e4c;
+  border-color: #9e90eb;
   border-style: solid;
+  color: #221b20;
+  padding: 10%;
+  padding-top: 0;
 }
 
-#business_portal #business_tier .business_tier #single_tier img {
-  height: 100px;
-  width: 100px;
+#business_portal
+  #business_tier
+  .business_tier
+  #business_tiers_container
+  #single_tier
+  img {
+  height: 20px;
+  width: 20px;
 }
 
 .customer-profile {
@@ -217,6 +239,9 @@ button {
   max-width: 850px;
   margin: 0 auto;
   padding: 0 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 #business_avatar {
@@ -225,8 +250,18 @@ button {
   margin: 15px 0;
 }
 
+.customer-profile {
+  background: #221b20;
+  border-radius: 15px;
+}
+
+.customer-profile .content {
+  color: white;
+}
+
 .customer-info {
   text-align: center;
+  color: white;
   -webkit-box-flex: 1;
   -ms-flex: 1 1 80%;
   flex: 1 1 80%;
@@ -239,6 +274,7 @@ button {
 }
 
 .customer-subscription-info {
+  color: white;
   padding: 5px 5px 5px;
   width: 50%;
   height: 50%;
@@ -254,10 +290,19 @@ button {
   position: relative;
 }
 
+.customer-subscription-info h2 {
+  color: white;
+}
+
+.customer-subscription-info button {
+  color: white;
+}
+
 h1 {
   margin: 0;
   font-size: 1.75rem;
   line-height: 1.2;
+  color: white;
 }
 
 #customer_avatar {
@@ -282,14 +327,6 @@ h1 {
 }
 
 #single_business text-align:center #business_page div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-#single_business text-align:center #business_page #business_profile_header {
-  height: 300px;
-  width: 400px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -339,16 +376,6 @@ h1 {
   width: 200px;
   border-style: solid;
   border-color: #f49e4c;
-}
-
-div#business_tier_containter {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-div#single_business {
-  text-align: center;
 }
 
 input {
@@ -548,5 +575,9 @@ form {
 
 #google_map {
   font-weight: 100;
+}
+
+#business_analytics h1 {
+  color: #221b20;
 }
 /*# sourceMappingURL=main.css.map */
