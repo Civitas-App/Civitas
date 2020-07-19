@@ -78,7 +78,7 @@ class Routes extends Component {
               path="/business/portal/analytics"
               component={BusinessAnalytics}
             />
-            <Route path="/map" component={MapContainer} />
+            <Route exact path="/map" component={MapContainer} />
             <Route path="*" component={ErrorPage} />
           </Switch>
         )}

@@ -22,7 +22,7 @@ const BusinessAnalytics = () => {
     total += subscribe.tier.price
   })
   return (
-    <div>
+    <div id="business_analytics">
       <h1>Total Revenue forecast this Month: ${total}</h1>
       <h1>Number of Subscriptions: {subscription.length}</h1>
       <button type="button">

@@ -4,7 +4,7 @@ import {Map, GoogleApiWrapper, Marker, InfoWindow} from 'google-maps-react'
 
 const mapStyles = {
   width: '40%',
-  height: '60%'
+  height: '70%'
 }
 
 class FindBusinessesMap extends React.Component {
@@ -167,7 +167,7 @@ class FindBusinessesMap extends React.Component {
     const latitude = this.state.position.lat
     const longitude = this.state.position.lng
     return (
-      <div id="google_map">
+      <div id="business_map">
         <button type="submit" onClick={this.handleClick}>
           See businesses near me
         </button>
