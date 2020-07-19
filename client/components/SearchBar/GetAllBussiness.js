@@ -18,6 +18,7 @@ const GetAllBussiness = () => {
 
   return (
     <div id="business_card_container">
+      <NavLink to="/map">Use Map View</NavLink>
       <div id="category_filter">
         <CategoryFilter />
       </div>
