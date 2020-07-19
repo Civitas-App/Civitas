@@ -3,9 +3,25 @@ import {NavLink} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
 import {fetchSubscriptions} from '../../store/singleCustomer'
 
+const compare = (a, b) => {
+  if (a.level < b.level) {
+    return -1
+  }
+  if (a.level > b.level) {
+    return 1
+  }
+  return 0
+}
+
 const BusinessPage = ({business}) => {
   const singleCustomer = useSelector(state => state.singleCustomer)
   const dispatch = useDispatch()
+
+  const {tiers} = business
+  let sorted = []
+  if (tiers) {
+    sorted = tiers.sort(compare)
+  }
 
   useEffect(() => {
     dispatch(fetchSubscriptions())
@@ -31,9 +47,9 @@ const BusinessPage = ({business}) => {
       <h4> Company: {business.name}</h4>
       <h5>Description: {business.description}</h5>
       <h2>Select a teir level</h2>
-      {business.tiers && business.tiers.length > 0 ? (
+      {business.tiers && sorted.length > 0 ? (
         <div>
-          {business.tiers.map(tier => (
+          {sorted.map(tier => (
             <div id="business_tier" key={tier.id}>
               <h4>Level: {tier.level}</h4>
               <h4>Title: {tier.title}</h4>
