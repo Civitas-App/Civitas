@@ -173,48 +173,48 @@ button {
       }
     }
   }
-  #business_tier {
-    background-color: $body-color;
-    display: inline-block;
-    text-align: center;
-    border-radius: 10px;
-    //border-width: 5px;
-    height: 500px;
-    width: 800px;
-    padding: 5px;
-    margin-bottom: 10px;
-    margin-left: 10px;
-    color: #f5ee9e;
-    border-style: solid;
-    border-color: $body-color;
+  .business_tier {
+    // background-color: $body-color;
+    // display: inline-block;
+    // text-align: center;
+    // border-radius: 10px;
+    // //border-width: 5px;
+    // height: 500px;
+    // width: 800px;
+    // padding: 5px;
+    // margin-bottom: 10px;
+    // margin-left: 10px;
+    // color: #f5ee9e;
+    // border-style: solid;
+    // border-color: $body-color;
+    // display: inline-block;
+    // text-align: center;
 
-    .business_tier {
-      display: inline-block;
-      text-align: center;
+    #business_tiers_container {
+      display: table-row;
+      background-color: $body-color;
+      border-radius: 15px;
+      justify-content: center;
+      a {
+        color: $body-color;
+      }
+      #single_tier {
+        background-color: white;
+        width: 50%;
+        //height: 500px;
+        display: inline-block;
+        border-radius: 10px;
+        margin: 10px;
+        border-color: #9e90eb;
+        border-style: solid;
+        color: $body-color;
+        // padding: 10%;
+        padding-top: 0;
 
-      #business_tiers_container {
-        display: flex;
-        background-color: $body-color;
-        border-radius: 15px;
-        justify-content: center;
-        #single_tier {
-          background-color: white;
-          width: 50%;
-          height: auto;
-          display: inline-block;
-          border-radius: 10px;
-          margin: 10px;
-          border-color: #9e90eb;
-          border-style: solid;
-          color: $body-color;
-          padding: 10%;
-          padding-top: 0;
-
-          img {
-            height: 100px;
-            width: 100px;
-            border-radius: 30%;
-          }
+        img {
+          height: 100px;
+          width: 100px;
+          border-radius: 30%;
         }
       }
     }
@@ -307,7 +307,7 @@ h1 {
     margin-bottom: 10px;
     margin-left: 10px;
     color: #f5ee9e;
-    div {
+    #business_page {
       display: flex;
     }
     #business_profile_header {
