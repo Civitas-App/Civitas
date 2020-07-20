@@ -143,7 +143,7 @@ button {
         height: 10%;
         width: 30%;
         border-style: solid;
-        border-radius: 100px;
+        border-radius: 30%;
         border-color: white;
         text-align: center;
       }
@@ -186,8 +186,9 @@ button {
           padding-top: 0;
 
           img {
-            height: 20px;
-            width: 20px;
+            height: 100px;
+            width: 100px;
+            border-radius: 30%;
           }
         }
       }
@@ -217,6 +218,7 @@ button {
   width: 50%;
   height: 50%;
   margin: 15px 0;
+  border-radius: 10%;
 }
 .customer-profile {
   background: $body-color;
@@ -264,6 +266,7 @@ h1 {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+  border-radius: 30%;
 }
 
 #single_business {
@@ -329,6 +332,7 @@ h1 {
       width: 200px;
       border-style: solid;
       border-color: #f49e4c;
+      border-radius: 10%;
     }
   }
 }
