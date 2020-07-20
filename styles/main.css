@@ -203,8 +203,12 @@ button {
   text-align: center;
 }
 
+#business_portal .business_tier h2 {
+  color: white;
+}
+
 #business_portal .business_tier #business_tiers_container {
-  display: table-row;
+  display: inherit;
   background-color: #221b20;
   border-radius: 15px;
   -webkit-box-pack: center;
@@ -218,8 +222,9 @@ button {
 
 #business_portal .business_tier #business_tiers_container #single_tier {
   background-color: white;
-  width: 50%;
-  display: inline-block;
+  width: 300px;
+  height: 600px;
+  display: inline-table;
   border-radius: 10px;
   margin: 10px;
   border-color: #9e90eb;
@@ -420,6 +425,10 @@ div .links {
   background-color: #f2f2f2;
   padding: 20px;
   height: 400px;
+}
+
+.signup h1 {
+  color: #221b20;
 }
 
 .signup form {

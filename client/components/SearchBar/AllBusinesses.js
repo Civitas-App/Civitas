@@ -12,7 +12,7 @@ const AllBusinesses = () => {
           <NavLink className="navlink" to={`/business/${query.id}`}>
             <h2>{query.name}</h2>
           </NavLink>
-          <img id="business_card_img" src={query.headerPhoto} />
+          <img id="business_card_img" src={query.avatar} />
           <div className="description">
             <h4>{query.description}</h4>
           </div>

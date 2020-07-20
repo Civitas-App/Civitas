@@ -49,7 +49,10 @@ const BusinessPage = ({business}) => {
         </div>
 
         <div className="business_tier">
-          <h2>Select a teir level</h2>
+          <div>
+            <h2>Select a teir level</h2>
+          </div>
+
           {business.tiers && sorted.length > 0 ? (
             <div id="business_tiers_container">
               {sorted.map(tier => (

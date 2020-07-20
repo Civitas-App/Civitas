@@ -40,7 +40,7 @@ const CustomerSignUp = props => {
           onChange={handleChange}
         />
         <div>
-          <button type="submit">Create Accounts</button>
+          <button type="submit">Create Account</button>
         </div>
       </form>
     </div>

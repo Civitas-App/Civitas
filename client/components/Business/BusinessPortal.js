@@ -26,10 +26,8 @@ const BusinessPortal = () => {
           See your analytics page here
         </NavLink>
       </button>
-      <div id="business_profile">
+      <div id="business_container">
         <BusinessProfile business={business} />
-      </div>
-      <div id="business_tier">
         <BusinessTier business={business} key={business.id} />
       </div>
     </div>
