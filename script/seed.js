@@ -25,23 +25,9 @@ async function seed() {
   await db.sync({force: true})
   console.log('db synced!')
 
-  //if there are 200 logins do we need an even split or is randomint in role ok?
-
-  // const seedLogin = async function () {
-  //   for (let i = 0; i < 200; i++) {
-  //     await Login.create({
-  //       googleId: generate(21),
-  //       password: faker.lorem.words(),
-  //       isAdmin: false,
-  //       role: roleEnum[randomInt(2)],
-  //     })
-  //   }
-  // }
-  //do we need email?
-
-  //seed 100 regular users
+  //seed 20 regular users
   const seedCustomers = async function() {
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 30; i++) {
       await Customer.create({
         name: faker.name.firstName(),
         location: faker.address.streetAddress(),
@@ -50,25 +36,9 @@ async function seed() {
     }
   }
 
-  //seed 20 admins  do we need in faker or manual?
-  // const seedAdmins = async function () {
-  //   for (let i = 0; i < 20; i++) {
-  //     await User.create({
-  //       email: faker.internet.email(),
-  //       name: faker.name.firstName(),
-  //       isAdmin: true,
-  //       location: faker.address.streetAddress(),
-  //       password: 123,
-  //     })
-  //   }
-  // }
-  //businesses belong to many users
-  //users belong to many businesses
-  //each seedBusinesses adds those associations
-
-  //seed 25 businesses for each category
+  //seed 5 businesses for each category
   const seedFoodBusinesses = async function() {
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < 5; i++) {
       await Business.create({
         name: faker.company.companyName(),
         headerPhoto: faker.image.food(),
@@ -80,7 +50,7 @@ async function seed() {
     }
   }
   const seedGymBusinesses = async function() {
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < 5; i++) {
       await Business.create({
         name: faker.company.companyName(),
         headerPhoto: faker.image.sports(),
@@ -93,7 +63,7 @@ async function seed() {
   }
 
   const seedFashionBusinesses = async function() {
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < 5; i++) {
       await Business.create({
         name: faker.company.companyName(),
         headerPhoto: faker.image.fashion(),
@@ -105,7 +75,7 @@ async function seed() {
     }
   }
   const seedMusicBusinesses = async function() {
-    for (let i = 0; i < 25; i++) {
+    for (let i = 0; i < 5; i++) {
       await Business.create({
         name: faker.company.companyName(),
         headerPhoto: faker.image.nightlife(),
@@ -116,10 +86,35 @@ async function seed() {
       })
     }
   }
+  const seedBarbershopBusiness = async function() {
+    for (let i = 0; i < 5; i++) {
+      await Business.create({
+        name: faker.company.companyName(),
+        headerPhoto: faker.image.nightlife(),
+        avatar: faker.image.avatar(),
+        description: faker.lorem.paragraph(),
+        location: faker.address.streetAddress(),
+        category: 'barbershop'
+      })
+    }
+  }
+  const seedOtherBusiness = async function() {
+    for (let i = 0; i < 5; i++) {
+      await Business.create({
+        name: faker.company.companyName(),
+        headerPhoto: faker.image.nightlife(),
+        avatar: faker.image.avatar(),
+        description: faker.lorem.paragraph(),
+        location: faker.address.streetAddress(),
+        category: 'other'
+      })
+    }
+  }
+
   //adds businessId and customerId to subscription through table - start of creating subscriptions
   const customerBusiness = async function() {
     try {
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 30; i++) {
         const customer = await Customer.findOne({where: {id: i}})
         const business = await Business.findOne({where: {id: i}})
         if (customer && business) {
@@ -134,7 +129,7 @@ async function seed() {
   //tiers has 3 levels, each business needs three tiers, we seed 100 tiers per level
   const seedTier1 = async function() {
     try {
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 30; i++) {
         await Tier.create({
           level: 1,
           title: faker.lorem.words(),
@@ -148,7 +143,7 @@ async function seed() {
     }
   }
   const seedTier2 = async function() {
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 30; i++) {
       await Tier.create({
         level: 2,
         title: faker.lorem.words(),
@@ -160,7 +155,7 @@ async function seed() {
   }
 
   const seedTier3 = async function() {
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 30; i++) {
       await Tier.create({
         level: 3,
         title: faker.lorem.words(),
@@ -173,7 +168,7 @@ async function seed() {
   //adds each tier level to each business in tiers table
   const tier1Business = async function() {
     try {
-      for (let i = 0; i < 101; i++) {
+      for (let i = 0; i < 31; i++) {
         const tier = await Tier.findOne({where: {id: i}})
         const business = await Business.findOne({where: {id: i}})
         if (business && tier) {
@@ -186,8 +181,8 @@ async function seed() {
   }
   const tier2Business = async function() {
     try {
-      let i = 101
-      for (let j = 0; j < 101; j++) {
+      let i = 31
+      for (let j = 0; j < 31; j++) {
         const tier = await Tier.findOne({where: {id: i}})
         const business = await Business.findOne({where: {id: j}})
         if (business && tier) {
@@ -201,8 +196,8 @@ async function seed() {
   }
   const tier3Business = async function() {
     try {
-      let i = 201
-      for (let j = 0; j < 101; j++) {
+      let i = 61
+      for (let j = 0; j < 31; j++) {
         const tier = await Tier.findOne({where: {id: i}})
         const business = await Business.findOne({where: {id: j}})
         if (business && tier) {
@@ -218,7 +213,7 @@ async function seed() {
   const subsTier = async function() {
     try {
       let i = 1
-      for (let j = 1; j < 301; j++) {
+      for (let j = 1; j < 61; j++) {
         const tier = await Tier.findOne({where: {id: j}})
         const subscription = await Subscription.findOne({
           where: {businessId: i, customerId: i}
@@ -237,6 +232,8 @@ async function seed() {
   await seedFashionBusinesses()
   await seedMusicBusinesses()
   await seedGymBusinesses()
+  await seedBarbershopBusiness()
+  await seedOtherBusiness()
   await seedTier1()
   await seedTier2()
   await seedTier3()
