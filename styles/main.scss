@@ -172,6 +172,7 @@ button {
         display: flex;
         background-color: $body-color;
         border-radius: 15px;
+        justify-content: center;
         #single_tier {
           background-color: white;
           width: 50%;
