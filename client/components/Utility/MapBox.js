@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {NavLink} from 'react-router-dom'
 import {Map, GoogleApiWrapper, Marker, InfoWindow} from 'google-maps-react'
 
 const mapStyles = {
@@ -167,11 +167,13 @@ class MapContainer extends React.Component {
     const longitude = this.state.position.lng
     return (
       <div id="google_map">
+        <NavLink to="/filter/businesses">Back to List View</NavLink>
         <p>
           Look around the map for all businesses that are currently on our
           platform. If you click the 'See businesses near me' button you will be
           able to see all businesses near you that are open to your support.
         </p>
+
         <button type="submit" onClick={this.handleClick}>
           See businesses near me
         </button>
