@@ -30,10 +30,10 @@ const GetAllBussiness = () => {
         {businesses.map(query => (
           <div id="business_card" key={query.id}>
             <NavLink className="navlink" to={`/business/${query.id}`}>
-              <h4>Name: {query.name}</h4>
+              <h2>{query.name}</h2>
             </NavLink>
             <img src={query.headerPhoto} />
-            <h4 className="description">Description: {query.description}</h4>
+            <h4 className="description">{query.description}</h4>
           </div>
         ))}
       </div>
