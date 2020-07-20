@@ -12,6 +12,9 @@ const Subscription = db.define('subscription', {
   redeemed: {
     type: Sequelize.BOOLEAN,
     defaultValue: false
+  },
+  coupon: {
+    type: Sequelize.STRING
   }
 })
 

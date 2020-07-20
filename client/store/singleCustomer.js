@@ -39,9 +39,15 @@ export const setCustomerSubscription = tierId => async dispatch => {
     console.log('error in setSubscription', error)
   }
 }
-export const updateCustomerCoupon = businessId => async dispatch => {
+export const updateCustomerCoupon = (
+  businessId,
+  randomNumber
+) => async dispatch => {
   try {
-    await axios.post('/api/customer/update/coupon/code', {businessId})
+    await axios.post('/api/customer/update/coupon/code', {
+      businessId,
+      randomNumber
+    })
     dispatch(fetchSubscriptions(businessId))
   } catch (error) {
     console.log('error in setSubscription', error)
