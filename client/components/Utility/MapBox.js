@@ -46,7 +46,7 @@ class MapContainer extends React.Component {
         },
         {
           position: {latitude: 41.885141, longitude: -87.643504},
-          name: 'Jordan and His Dogs',
+          name: 'Jordan and Pepito',
           address: '102 N Des Plaines St, Chicago,IL'
         },
         {

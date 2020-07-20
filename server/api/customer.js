@@ -101,7 +101,7 @@ router.post('/update/coupon/code', async (req, res, next) => {
         userId: req.user.id
       }
     })
-    const {businessId} = req.body
+    const {businessId, randomNumber} = req.body
     const updateRedeemCode = await Subscription.findOne({
       where: {
         customerId: customer.id,
@@ -111,7 +111,8 @@ router.post('/update/coupon/code', async (req, res, next) => {
     })
     if (updateRedeemCode) {
       await updateRedeemCode.update({
-        redeemed: 'true'
+        redeemed: 'true',
+        coupon: randomNumber
       })
     }
     res.json(updateRedeemCode)

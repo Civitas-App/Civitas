@@ -32,7 +32,7 @@ const GetAllBussiness = () => {
             <NavLink className="navlink" to={`/business/${query.id}`}>
               <h2>{query.name}</h2>
             </NavLink>
-            <img src={query.headerPhoto} />
+            <img src={query.avatar} />
             <h4 className="description">{query.description}</h4>
           </div>
         ))}
