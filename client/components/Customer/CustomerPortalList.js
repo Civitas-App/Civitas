@@ -50,7 +50,7 @@ const CustomerPortalList = ({singleCustomer}) => {
                 </div>
               )}
               <h4>Tier Level Subscribed To: {customer.tier.level}</h4>
-              <h4>Subscription Price: {customer.tier.price}</h4>
+              <h4>Subscription Price: ${customer.tier.price}</h4>
             </div>
           ))}
         </div>

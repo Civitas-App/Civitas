@@ -3,11 +3,11 @@ import React from 'react'
 export function Homepage() {
   return (
     <div id="homepage">
-      <div id="welcome">
-        <h2>Welcome to Civitas</h2>
+      <div id="image_container">
+        <div id="image" />
+        <h1 id="welcome">Welcome to Civitas</h1>
       </div>
-      <div id="image" />
-      <div id="civitas_description">
+      <div className="civitas_description">
         <h2>Who are we?</h2>
 
         <h3>
@@ -21,7 +21,7 @@ export function Homepage() {
         </h3>
       </div>
 
-      <div id="customer_description">
+      <div className="civitas_description">
         <h2>For Users</h2>
         <h3>
           Are you a regular at local businesses and restaurants around your
@@ -35,7 +35,7 @@ export function Homepage() {
           Support your community and sign up below!
         </h3>
       </div>
-      <div id="local_business">
+      <div className="civitas_description">
         <h2>For Local Businesses</h2>
         <h3>
           Are you a local business needing help making monthly expenses through
