@@ -43,33 +43,33 @@ const BusinessPage = ({business}) => {
           <img id="business_profile_header" src={business.headerPhoto} />
         </div>
         <div className="business_profile">
-          <h4>{business.name}</h4>
+          <h2>{business.name}</h2>
           <img id="business_profile_avatar" src={business.avatar} />
           <h5>{business.description}</h5>
         </div>
 
         <div className="business_tier">
           <div>
-            <h2>Select a teir level</h2>
+            <h2>Select a Tier Level</h2>
           </div>
 
           {business.tiers && sorted.length > 0 ? (
             <div id="business_tiers_container">
               {sorted.map(tier => (
                 <div id="single_tier" key={tier.id}>
-                  <h4>Level: {tier.level}</h4>
-                  <h4>Title: {tier.title}</h4>
+                  <h2>Level: {tier.level}</h2>
+                  <h3>{tier.title}</h3>
                   <img src={tier.photo} width={200} height={100} mode="fit" />
                   <h4>${tier.price}</h4>
                   {subbedTiers.includes(tier.id) ? (
                     'Current Tier'
                   ) : (
                     <NavLink className="navlink" to={`/checkout/${tier.id}`}>
-                      Join
+                      Subscribe
                     </NavLink>
                   )}
                   <ul>
-                    <li>Pledge: {tier.pledge}</li>
+                    <p>{tier.pledge}</p>
                   </ul>
                 </div>
               ))}

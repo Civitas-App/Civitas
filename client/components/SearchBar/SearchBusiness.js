@@ -27,6 +27,7 @@ const SearchBusiness = () => {
         onChange={handleChange}
         onKeyDown={keyDown}
         name="search"
+        placeholder="Search for Business"
       />
     </div>
   )
