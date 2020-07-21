@@ -25,17 +25,19 @@ const CustomerSignUp = props => {
         <input
           placeholder="Name - Required"
           name="name"
+          required
           type="text"
           message="Dont Forget Your Username Should Be Cool!"
           value={values.email}
           onChange={handleChange}
         />
-        <h3>Location (city and state)</h3>
+        <h3>Location (city)</h3>
         <label htmlFor="location" />
         <input
           placeholder="City - Required"
           name="location"
           type="text"
+          required
           value={values.location}
           onChange={handleChange}
         />
