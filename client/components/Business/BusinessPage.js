@@ -52,7 +52,6 @@ const BusinessPage = ({business}) => {
           <div>
             <h2>Select a Tier Level</h2>
           </div>
-
           {business.tiers && sorted.length > 0 ? (
             <div id="business_tiers_container">
               {sorted.map(tier => (
