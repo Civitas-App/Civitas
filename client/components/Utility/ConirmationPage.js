@@ -16,7 +16,7 @@ const ConirmationPage = ({tierId}) => {
     <div className="modal">
       <h2>Click to subscribe</h2>
       <button type="button" onClick={submit}>
-        Confirm Subscription
+        Confirm Sub
       </button>
     </div>
   )
