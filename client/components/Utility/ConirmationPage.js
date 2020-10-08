@@ -1,13 +1,23 @@
 import React from 'react'
-import {NavLink} from 'react-router-dom'
+import {setCustomerSubscription} from '../../store/singleCustomer'
+import {useDispatch} from 'react-redux'
+import history from '../../history'
 
-const ConirmationPage = () => {
+const ConirmationPage = ({tierId}) => {
+  const dispatch = useDispatch()
+
+  const submit = () => {
+    console.log('htting')
+    dispatch(setCustomerSubscription(tierId))
+    history.push('/home')
+  }
+
   return (
     <div className="modal">
-      <h2>Thank you for subscribing!</h2>
-      <NavLink className="navlink" to="/home">
-        Return to home page
-      </NavLink>
+      <h2>Click to subscribe</h2>
+      <button type="button" onClick={submit}>
+        Confirm Subscription
+      </button>
     </div>
   )
 }
