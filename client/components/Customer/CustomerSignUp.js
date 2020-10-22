@@ -28,7 +28,7 @@ const CustomerSignUp = props => {
           required
           type="text"
           message="Dont Forget Your Username Should Be Cool!"
-          value={values.email}
+          value={values.name}
           onChange={handleChange}
         />
         <h3>Location (city)</h3>
